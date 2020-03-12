@@ -25,6 +25,13 @@ h1{
     animation-duration: 1.5s;
 }
 
+h2{
+    color: #000000;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .nav__buttons__input{
     border-radius: 100px;
     padding: 25px 60px;

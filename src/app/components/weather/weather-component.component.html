@@ -12,6 +12,7 @@
 
 <div class="content">
     <div class="content__table">
+        <h2>pogoda w wybranej miejscowości!</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -25,7 +26,7 @@
             </thead>
 
             <tbody *ngFor="let record of records">
-                <tr>
+                <tr class="bg-info">
                     <td>{{record.main.temp}}</td>
                     <td>{{record.main.feels_like}}</td>
                     <td>{{record.main.temp_min}}</td>
