@@ -1,0 +1,44 @@
+<div class="nav">
+    <div class="nav__header">
+        <h1>Sprawdź pogodę w swoim mieście</h1>
+    </div>
+
+    <div class="nav__buttons">
+        <input class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>
+        <button class="nav__buttons__btn" (click)="getWeatherService(city.value)">Pokaż dane!</button>
+    </div>
+
+</div>
+
+<div class="content">
+    <div class="content__table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Temperatura</th>
+                    <th>Temperatura Odczuwalna</th>
+                    <th>Temperatura Minimalna</th>
+                    <th>Temperatura Maksymalna</th>
+                    <th>Ciśnienie</th>
+                    <th>Wilgotność</th>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let record of records">
+                <tr>
+                    <td>{{record.main.temp}}</td>
+                    <td>{{record.main.feels_like}}</td>
+                    <td>{{record.main.temp_min}}</td>
+                    <td>{{record.main.temp_max}}</td>
+                    <td>{{record.main.pressure}}</td>
+                    <td>{{record.main.humidity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="content__chart">
+        <p>TU MOŻE BĘDZIE JAKIŚ WYKRES ALBO I NIE?</p>
+    </div>
+
+</div>

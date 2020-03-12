@@ -1,4 +1,4 @@
-.main{
+.navigation{
     background-color: #ffffff;
 }
 
@@ -8,13 +8,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     background: url(https://www.setaswall.com/wp-content/uploads/2017/03/Sun-Sky-Summer-Wallpaper-2560x1600.jpg);
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.nav__input{
+h1{
+    color: #ffffff;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+}
+
+.nav__buttons__input{
     border-radius: 100px;
     padding: 25px 60px;
     height: 15px;
@@ -27,13 +38,13 @@
     animation-fill-mode: backwards;
 }
 
-.nav__input:hover{
+.nav__buttons__input:hover{
     background: linear-gradient(#626d329f,#6e5f33af);
     color: #ffffff;
     transition-duration: 2s;
 }
 
-.nav__btn{
+.nav__buttons__btn{
     border-radius: 100px;
     padding: 7px 10px;
     margin-left: 5px;
@@ -44,15 +55,29 @@
     animation-fill-mode: backwards;
 }
 
-.nav__btn:hover{
+.nav__buttons__btn:hover{
     background: linear-gradient(#626d329f,#6e5f33af);
     color: #ffffff;
     transition-duration: 0.5s;
 }
 
-.table{
-    text-align: center;
+.content{
+    display: flex;
+    justify-content: space-around;
 }
+
+.content__table{
+    text-align: center;
+    width: 40%;
+    background-color: #ffffff;
+}
+
+.content__chart{
+    height: 100px;
+    width: 40%;
+    background-color: #ffffff;
+}
+
 
 @keyframes moveToBottom{
     0%{

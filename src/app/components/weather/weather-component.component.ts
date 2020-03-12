@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherServiceService } from 'src/app/services/weather/weather-service.service';
-import { WeatherData } from 'src/app/services/weather-module';
+import { WeatherData } from 'src/app/services/weather/weather-module';
 
 @Component({
   selector: 'app-weather-component',
@@ -17,7 +17,7 @@ export class WeatherComponentComponent implements OnInit {
   ngOnInit() {
   }
 
-  getService(term: string) {
+  getWeatherService(term: string) {
     this.service
       .getWeatherData(term)
       .subscribe((records: any) => {

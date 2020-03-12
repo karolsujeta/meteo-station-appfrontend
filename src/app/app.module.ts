@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { WeatherComponentComponent } from './components/weather-component/weather-component.component'
+import { WeatherComponentComponent } from './components/weather/weather-component.component';
+import { MapComponentComponent } from './components/map/map-component.component';
+import { StatsComponentComponent } from './components/stats-component/stats-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherComponentComponent
+    WeatherComponentComponent,
+    MapComponentComponent,
+    StatsComponentComponent
   ],
   imports: [
     BrowserModule,
