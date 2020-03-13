@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherServiceService } from 'AngularAPIMeteoStation/src/app/services/weather/weather-service.service';
+import { AirQualityService } from 'src/app/services/air-quality/air-quality.service';
 
 @Component({
   selector: 'app-air-quality-component',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AirQualityComponentComponent implements OnInit {
 
-  constructor() { }
+  results: any;
+
+  constructor(private service: AirQualityService) { }
 
   ngOnInit() {
   }
 
+  showAirData() {
+    return this.service.getAirData()
+      .subscribe((results: any) => {
+        console.log(results);
+        this.results = results;
+      })
+  }
 }
