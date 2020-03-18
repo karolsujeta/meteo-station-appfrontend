@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class WeatherServiceService {
 
+  list: any;
   apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 
   constructor(private http: HttpClient) { }

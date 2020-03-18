@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherServiceService } from 'src/app/services/weather/weather-service.service';
-import { WeatherData } from 'src/app/services/weather/weather-module';
+declare var $: any;
 
 @Component({
   selector: 'app-weather-component',
@@ -10,11 +10,14 @@ import { WeatherData } from 'src/app/services/weather/weather-module';
 })
 export class WeatherComponentComponent implements OnInit {
 
-  records: any;
+  results = [];
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $(".content").animate({ height: "190px" }, 1000)
+    })
   }
 
   getWeatherService(term: string) {
@@ -22,7 +25,7 @@ export class WeatherComponentComponent implements OnInit {
       .getWeatherData(term)
       .subscribe((records: any) => {
         console.log(records);
-        this.records = records;
+        this.results.push(records);
       })
   }
 }
