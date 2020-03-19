@@ -28,4 +28,5 @@ export class WeatherComponentComponent implements OnInit {
         this.results.push(records);
       })
   }
+
 }

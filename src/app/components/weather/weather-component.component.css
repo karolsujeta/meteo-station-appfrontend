@@ -87,6 +87,13 @@ h2{
     background:linear-gradient(#2e4561bb,#6e6e6e00)
 }
 
+.images{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 
 @keyframes moveToBottom{
     0%{

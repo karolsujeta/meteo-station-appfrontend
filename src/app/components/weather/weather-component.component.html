@@ -28,14 +28,18 @@
 
             <tbody *ngFor="let result of results">
                 <td>{{result[0].name}}</td>
-                <td>{{result[0].main.temp}}</td>
-                <td>{{result[0].main.feels_like}}</td>
-                <td>{{result[0].main.temp_min}}</td>
-                <td>{{result[0].main.temp_max}}</td>
-                <td>{{result[0].main.pressure}}</td>
-                <td>{{result[0].main.humidity}}</td>
-            </tbody>
+                <td>{{(result[0].main.temp - 273.15)| number}} C</td>
+                <td>{{(result[0].main.feels_like - 273.15)| number}} C</td>
+                <td>{{(result[0].main.temp_min - 273.15)| number}} C</td>
+                <td>{{(result[0].main.temp_max - 273.15)| number}} C</td>
+                <td>{{result[0].main.pressure}} hPa</td>
+                <td>{{result[0].main.humidity}} %</td>
 
+                <!-- <div *ngIf="result[0].main.temp>0">
+                    <img class="images" src="https://cdn3.iconfinder.com/data/icons/weather-16/256/Snowflake-512.png" />
+                </div> -->
+
+            </tbody>
         </table>
     </div>
 
