@@ -16,7 +16,8 @@ export class WeatherComponentComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function () {
-      $(".content").animate({ height: "190px" }, 1000)
+      $(".content").animate({ height: "200px", opacity: 1, }, 1500);
+      $(".nav").fadeTo("slow", 1);
     })
   }
 

@@ -10,3 +10,37 @@ body{
     padding: 5px;
     background-color: rgb(205, 214, 218);
 }
+
+h1{
+    color: #ffffff;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+}
+
+@keyframes moveToBottom{
+    0%{
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes moveToLeft{
+    0%{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,14 @@
+.nav{
+    height: 30vh;
+    background: linear-gradient(#2e85b88e, #af6d2285),
+        url(https://cdn.benchmark.pl/uploads/article/33432/MODERNICON/365f2a6b41e4456b9a0c46e76860b1306722e665.jpg);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

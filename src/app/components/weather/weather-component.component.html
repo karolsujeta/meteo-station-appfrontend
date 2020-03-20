@@ -35,9 +35,9 @@
                 <td>{{result[0].main.pressure}} hPa</td>
                 <td>{{result[0].main.humidity}} %</td>
 
-                <!-- <div *ngIf="result[0].main.temp>0">
+                <div *ngIf="result[0].main.temp - 273.15 < 0 ">
                     <img class="images" src="https://cdn3.iconfinder.com/data/icons/weather-16/256/Snowflake-512.png" />
-                </div> -->
+                </div>
 
             </tbody>
         </table>
