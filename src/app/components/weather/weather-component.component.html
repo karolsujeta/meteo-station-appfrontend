@@ -7,6 +7,10 @@
         <input class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>
         <button class="nav__buttons__btn" (click)="getWeatherService(city.value)">Pokaż dane!</button>
     </div>
+
+    <div class="nav__error" *ngIf="errorMsg">
+        <strong>{{errorMsg}}</strong>
+    </div>
 </div>
 
 <div class="content">

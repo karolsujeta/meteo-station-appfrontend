@@ -16,8 +16,6 @@
     background-position: center;
 }
 
-
-
 h2{
     color: #ffffff;
     font-family: "Lato", sans-serif;
@@ -96,3 +94,8 @@ h2{
     align-content: center;
 }
 
+.nav__error{
+    font-size: 22px;
+    color: #ffffff;
+    text-shadow: 1px 1px 6px rgba(172,91,0,0.88);
+}

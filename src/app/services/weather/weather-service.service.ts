@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import { WeatherData } from './weather-module';
 import { map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +14,7 @@ export class WeatherServiceService {
 
   list: any;
   apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
+  unsubscribe: any;
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +27,10 @@ export class WeatherServiceService {
       .pipe(
         map((data: any) =>
           [data].map((item: any) =>
-            new WeatherData(item.name, item.visibility, item.main)))
+            new WeatherData(item.name, item.visibility, item.main))),
+        catchError((error: HttpErrorResponse) => {
+          return Observable.throw(error.message || "Server Message");
+        })
       )
   }
 }

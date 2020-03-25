@@ -10,7 +10,8 @@ declare var $: any;
 })
 export class WeatherComponentComponent implements OnInit {
 
-  results = [];
+  private results = [];
+  public errorMsg;
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
@@ -27,7 +28,9 @@ export class WeatherComponentComponent implements OnInit {
       .subscribe((records: any) => {
         console.log(records);
         this.results.push(records);
-      })
+      },
+        error => this.errorMsg = "Nie wprowadzono miejscowości lub wprowadzono złą nazwę!",
+      )
+    this.errorMsg = null;
   }
-
 }
