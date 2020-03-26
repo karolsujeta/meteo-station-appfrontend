@@ -15,7 +15,7 @@ export class AirQualityService {
 
   getAirData(): Observable<AirQualityData[]> {
     return this.http
-      .get<AirQualityData[]>(this.api)
+      .get<AirQualityData[]>(this.api)        // airly kay:  SV8Wb734fM470C2HYs8atebFRNg5LzU9
       .pipe(
         map((data: any) =>
           [data].map((item: any) =>
