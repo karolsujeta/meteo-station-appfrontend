@@ -5,10 +5,36 @@
     </div>
   </div> -->
 
-
+<div class="results">
+  <input class="nav__buttons__input" id="inputLat" value="53.1324886" #lat>
+    <input class="nav__buttons__input" id="inputLon" value="23.1688403" #lon>
+    <button class="nav__buttons__btn" (click)="getAirService(lat.value,lon.value)">Pokaż dane!</button>
+    <table class="table">
+      <thead>
+      <tr class="bg-primary text-white">
+        <th>Wartość PM1 (µg/m3)</th>
+        <th>Wartość PM10 (µg/m3)</th>
+        <th>Wartość PM25 (µg/m3)</th>
+        <th>Wartość CAQI (µg/m3)</th>
+        <th>Poziom</th>
+        <th>Opis</th>
+      </tr>
+    </thead>
+    <tbody class="bg-light text-dark" *ngFor="let result of results">
+      <td>{{result.current.values[0].value}} </td>
+      <td>{{result.current.values[2].value}} </td>
+      <td>{{result.current.values[1].value}} </td>
+      <td>{{result.current.indexes[0].value}} </td>
+      <td>{{result.current.indexes[0].level}} </td>
+        <td>{{result.current.indexes[0].description}} </td>
+    </tbody>
+    </table>
+</div>
 <div class="map-container">
   <div class="map-frame">
+    
     <div id="map" class="map"></div>
     <div id="mouse-position"></div>
   </div>
-</div>
+  </div>
+

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
+import { MapServiceService } from 'src/app/services/map/map-service.service';
 
 declare var ol: any;
 declare var map: any;
+declare var $: any;
 
 @Component({
   selector: 'app-map-component',
@@ -12,11 +15,13 @@ declare var map: any;
 
 export class MapComponentComponent implements OnInit {
 
+  private results: any;
   private map;
 
-  constructor() { }
+  constructor(private http: HttpClient, private service: MapServiceService) { }
 
   ngOnInit() {
+    
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -38,8 +43,21 @@ export class MapComponentComponent implements OnInit {
 
       var lon = lonlat[0];
       var lat = lonlat[1];
-      alert(`lat: ${lat} long: ${lon}`);
+      var inputlat = document.getElementById("inputLat");
+      var inputlon = document.getElementById("inputLon");
+      inputlat.setAttribute('value',lat);
+      inputlon.setAttribute('value',lon);
+      (`lat: ${lat} long: ${lon}`);
     });
+  }
+
+  getAirService(term1: string, term2: string) {
+    this.service
+        .getAirData(term1,term2)
+        .subscribe((records: any) => {
+          console.log(records);
+          this.results = records;
+        })
   }
 }
 

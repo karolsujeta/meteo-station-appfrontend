@@ -1,6 +1,6 @@
 .map-container {
     position: absolute;
-    top: 40px;
+    top: 25%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -10,6 +10,18 @@
 .map-frame {
     border: 2px solid black;
     height: 100%;
+}
+.results {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+}
+
+.table{
+    box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
 }
 
 #map {
