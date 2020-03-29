@@ -10,27 +10,46 @@ declare var $: any;
 })
 export class WeatherComponentComponent implements OnInit {
 
-  private results = [];
+  private resultsWeather = [];
+  public resultsForecast: any;
   public errorMsg;
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
   ngOnInit() {
     $(document).ready(function () {
-      $(".content").animate({ height: "200px", opacity: 1, }, 1500);
+      $(".content").animate({ opacity: 1, }, 1500);
       $(".nav").fadeTo("slow", 1);
     })
   }
 
+  showTableContent() {
+    $(document).ready(function () {
+      $(".content__table").show();
+      $(".content__chart").show();
+    })
+  }
+  //metoda do wyświetlania głównych danych pogodowych dla wskazanego miejsca
   getWeatherService(term: string) {
     this.service
       .getWeatherData(term)
       .subscribe((records: any) => {
         console.log(records);
-        this.results.push(records);
+        this.resultsWeather.push(records);
       },
         error => this.errorMsg = "Nie wprowadzono miejscowości lub wprowadzono złą nazwę!",
       )
     this.errorMsg = null;
+  }
+
+  //metoda do wyświetlania danych pogodowych dla przyszłych pięciu dni
+  getForecastService(term: string) {
+    this.service
+      .getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.resultsForecast = data;
+      },
+      )
   }
 }

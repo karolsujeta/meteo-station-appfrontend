@@ -5,7 +5,8 @@
 
     <div class="nav__buttons">
         <input class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>
-        <button class="nav__buttons__btn" (click)="getWeatherService(city.value)">Pokaż dane!</button>
+        <button class="nav__buttons__btn" (click)="getWeatherService(city.value)"
+            (click)="getForecastService(city.value)" (click)="showTableContent()">Pokaż dane!</button>
     </div>
 
     <div class="nav__error" *ngIf="errorMsg">
@@ -15,11 +16,11 @@
 
 <div class="content">
     <div class="content__table">
-        <h2>pogoda w wybranej miejscowości!</h2>
-        <table class="table table-dark">
-            <thead>
+        <!-- <h2>pogoda w wybranej miejscowości!</h2> -->
+        <table class="table table-responsive">
 
-                <tr>
+            <thead>
+                <tr class="bg-primary text-white">
                     <th>Miasto</th>
                     <th>Temperatura</th>
                     <th>Temperatura Odczuwalna</th>
@@ -27,28 +28,50 @@
                     <th>Temperatura Maksymalna</th>
                     <th>Ciśnienie</th>
                     <th>Wilgotność</th>
+                    <th>Pogoda</th>
                 </tr>
             </thead>
 
-            <tbody *ngFor="let result of results">
+            <tbody class="bg-light text-dark" *ngFor="let result of resultsWeather">
                 <td>{{result[0].name}}</td>
-                <td>{{(result[0].main.temp - 273.15)| number}} C</td>
-                <td>{{(result[0].main.feels_like - 273.15)| number}} C</td>
-                <td>{{(result[0].main.temp_min - 273.15)| number}} C</td>
-                <td>{{(result[0].main.temp_max - 273.15)| number}} C</td>
+                <td>{{result[0].main.temp}} C</td>
+                <td>{{result[0].main.feels_like}} C</td>
+                <td>{{result[0].main.temp_min}} C</td>
+                <td>{{result[0].main.temp_max}} C</td>
                 <td>{{result[0].main.pressure}} hPa</td>
                 <td>{{result[0].main.humidity}} %</td>
-
-                <div *ngIf="result[0].main.temp - 273.15 < 0 ">
-                    <img class="images" src="https://cdn3.iconfinder.com/data/icons/weather-16/256/Snowflake-512.png" />
-                </div>
-
+                <td>
+                    <img className="img-fluid"
+                        src='http://openweathermap.org/img/w/{{result[0].weather[0].icon}}.png' />
+                </td>
             </tbody>
+
         </table>
     </div>
 
-    <div class="content__chart">
-        <h2>TU MOŻE BĘDZIE JAKIŚ WYKRES ALBO I NIE?</h2>
-    </div>
+    <div class="content__chart content__my-custom-scrollbar" *ngFor="let result of resultsForecast">
+        <table class="table">
 
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th>Czas pomiaru</th>
+                    <th>Temperatura max/min</th>
+                    <th>Pogoda</th>
+                </tr>
+            </thead>
+
+            <tbody class="bg-light text-dark" *ngFor="let x of result.list">
+                <td>
+                    {{x.dt_txt}}
+                </td>
+                <td>
+                    {{x.main.temp_max}} C / {{x.main.temp_min}} C
+                </td>
+                <td>
+                    <img className="img-fluid" src='http://openweathermap.org/img/w/{{x.weather[0].icon}}.png' />
+                </td>
+            </tbody>
+
+        </table>
+    </div>
 </div>
