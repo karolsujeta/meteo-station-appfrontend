@@ -5,15 +5,16 @@
 .nav{
     height: 40vh;
     background-color: #ffffff;
+
+    background: url(https://www.setaswall.com/wp-content/uploads/2017/03/Sun-Sky-Summer-Wallpaper-2560x1600.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     opacity: 0;
-
-    background: url(https://www.setaswall.com/wp-content/uploads/2017/03/Sun-Sky-Summer-Wallpaper-2560x1600.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 h2{
@@ -67,35 +68,42 @@ h2{
 }
 
 .content__table{
+    display: none;
     text-align: center;
     width: 50%;
-    background:linear-gradient(#2e4561bb,#6e6e6e00);
+    height:0px;
     box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
 
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+    animation-delay: 0.2;
 }
 
 .content__chart{
+    display: block;
     text-align: center;
     width: 40%;
     background-color: #ffffff;
-    background:linear-gradient(#2e4561bb,#6e6e6e00);
     box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
+
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: backwards;
 }
 
 .table{
     box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
 }
 
-.images{
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
 .nav__error{
     font-size: 22px;
     color: #ffffff;
     text-shadow: 1px 1px 6px rgba(172,91,0,0.88);
+}
+
+.content__my-custom-scrollbar {
+    position: relative;
+    height: 350px;
+    overflow: auto;
 }
