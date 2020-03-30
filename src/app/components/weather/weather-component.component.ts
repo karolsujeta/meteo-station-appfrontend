@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { WeatherServiceService } from 'src/app/services/weather/weather-service.service';
+import { WeatherServiceService } from '../../services/weather/weather-service.service';
 declare var $: any;
 
 @Component({
@@ -29,6 +29,7 @@ export class WeatherComponentComponent implements OnInit {
       $(".content__chart").show();
     })
   }
+
   //metoda do wyświetlania głównych danych pogodowych dla wskazanego miejsca
   getWeatherService(term: string) {
     this.service
