@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { AirData } from './map-module';
+import { AirData } from './quality-module';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 import 'rxjs/add/operator/catch';
@@ -10,7 +10,7 @@ import 'rxjs/add/observable/throw';
 @Injectable({
   providedIn: 'root'
 })
-export class MapServiceService {
+export class QualityServiceService {
 
   list: any;
   apiUrl = 'https://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&maxDistanceKM=100';  unsubscribe: any;
