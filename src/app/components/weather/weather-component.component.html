@@ -1,12 +1,14 @@
 <div class="nav">
     <div class="nav__header">
         <h1>Sprawdź pogodę w swoim mieście</h1>
+
     </div>
 
     <div class="nav__buttons">
         <input class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>
         <button class="nav__buttons__btn" (click)="getWeatherService(city.value)"
-            (click)="getForecastService(city.value)" (click)="showTableContent()">Pokaż dane!</button>
+            (click)="getForecastService(city.value)" (click)="showTableContent()">Pokaż
+            dane!</button>
     </div>
 
     <div class="nav__error" *ngIf="errorMsg">
@@ -73,4 +75,8 @@
 
         </table>
     </div>
+</div>
+
+<div class="chart-area">
+    <canvas id="chart__forecast">{{chart}}</canvas>
 </div>
