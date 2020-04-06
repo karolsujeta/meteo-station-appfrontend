@@ -1,23 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
+import { QualityServiceService } from '../../services/quality/quality-service.service';
+// import { QualityServiceService } from 'src/app/services/quality/quality-service.service';
 
 declare var ol: any;
 declare var map: any;
 declare var $: any;
 
 @Component({
-  selector: 'app-map-component',
-  templateUrl: './map-component.component.html',
-  styleUrls: ['./map-component.component.css']
+  selector: 'app-quality-component',
+  templateUrl: './quality-component.component.html',
+  styleUrls: ['./quality-component.component.css']
 })
 
-export class MapComponentComponent implements OnInit {
+export class QualityComponentComponent implements OnInit {
 
   private results: any;
   private map;
 
-  constructor() { }
+  constructor(private http: HttpClient, private service: QualityServiceService) { }
 
+  getAirService(term1: string, term2: string) {
+    this.service
+        .getAirData(term1,term2)
+        .subscribe((records: any) => {
+          console.log(records);
+          this.results = records;
+        })
+  }
+  
   ngOnInit() {
     
     this.map = new ol.Map({
@@ -48,6 +60,8 @@ export class MapComponentComponent implements OnInit {
       (`lat: ${lat} long: ${lon}`);
     });
   }
+
+  
 }
 
 
