@@ -1,9 +1,8 @@
 <div class="results">
-  <input class="nav__buttons__input" id="inputLat" value="53.1324886" #lat>
-    <input class="nav__buttons__input" id="inputLon" value="23.1688403" #lon>
-    <button class="nav__buttons__btn" (click)="getAirService(lat.value,lon.value)">Pokaż dane!</button>
-    <table class="table">
-      <thead>
+  <input class="nav__buttons__input" id="inputLat" #lat>
+  <input class="nav__buttons__input" id="inputLon" #lon>
+  <table class="table">
+    <thead>
       <tr class="bg-primary text-white">
         <th>Wartość PM1 (µg/m3)</th>
         <th>Wartość PM10 (µg/m3)</th>
@@ -19,15 +18,14 @@
       <td>{{result.current.values[1].value}} </td>
       <td>{{result.current.indexes[0].value}} </td>
       <td>{{result.current.indexes[0].level}} </td>
-        <td>{{result.current.indexes[0].description}} </td>
+      <td>{{result.current.indexes[0].description}} </td>
     </tbody>
     </table>
 </div>
 <div class="map-container">
   <div class="map-frame">
     
-    <div id="map" class="map"></div>
-    <div id="mouse-position"></div>
+    <div id="map" class="map" (click)="getAirService(lat.value,lon.value)"></div>
   </div>
   </div>
 
