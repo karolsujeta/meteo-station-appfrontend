@@ -1,3 +1,45 @@
 <div class="nav">
-    <h1>Głębsze statystyki</h1>
+    <div class="container">
+        <div style="text-align: center; padding: 10px;">
+            <h1>Głębsze statystyki</h1>
+        </div>
+        <div style="padding: 0px 400px;">
+            <select [(ngModel)]="selectedStation" class="form-control">
+                <option *ngFor="let station of stationList" [ngValue]="station.id">{{station.name}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div style="color: #cdd6da; width:100%; height: 5px;">
+
+</div>
+<div class="columnGradient">
+    <div>
+        <div class="row">
+            <div class="col-4" style="border-right:5px #cdd6da solid; padding: 10px 50px;">
+                <div class="row" style="padding:10px 0px;">
+                    <div class="col" *ngFor="let item of statisticTypes">
+                        <input type="radio" [(ngModel)]="radioSelected" name="radioMonth" value="{{item.id}}" (change)="onItemChange(item)" /> {{item.name}}
+                    </div>
+                </div>
+                <div style="padding:10px 0px;">
+                    <label for="fromDate">Od:</label>
+                    <input type="text" [(ngModel)]="selectedFromDate" name="fromDate" type="date" class="form-control">
+                </div>
+    
+                <div style="padding:10px 0px;">
+                    <label for="toDate">Do:</label>
+                    <input type="text" [(ngModel)]="selectedToDate" name="toDate" type="date" class="form-control">
+                </div>
+    
+                <div style="padding:20px 0px;">
+                    <button class="btn btn-info" style="width:100%" (click)="generateReport($event)">Generuj</button>
+                </div>
+            </div>
+            
+            <div class="col-8">
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -20,6 +20,6 @@ export class AirQualityService {
         map((data: any) =>
           [data].map((item: any) =>
             new AirQualityData(item.id, item.stIndexLevel, item.stSourceDataDate)))
-      )
+      );
   }
 }
