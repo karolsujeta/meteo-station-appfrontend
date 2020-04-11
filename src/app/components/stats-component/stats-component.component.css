@@ -12,3 +12,7 @@
     justify-content: center;
     align-content: center;
 }
+
+.columnGradient {
+    background: linear-gradient(to bottom, #708192, #cdd6da)
+}
