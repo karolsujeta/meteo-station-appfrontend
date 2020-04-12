@@ -1,6 +1,4 @@
 <div class="results">
-  <input class="nav__buttons__input" id="inputLat" #lat>
-  <input class="nav__buttons__input" id="inputLon" #lon>
   <table class="table">
     <thead>
       <tr class="bg-primary text-white">
@@ -25,7 +23,10 @@
 <div class="map-container">
   <div class="map-frame">
     
-    <div id="map" class="map" (click)="getAirService(lat.value,lon.value)"></div>
+    <div id="map" class="map" (click)="getAirService()"></div>
+    <div style="display: none;">
+      <div id="popup" title="Wskaźniki powietrza"></div>
+    </div>
   </div>
   </div>
 

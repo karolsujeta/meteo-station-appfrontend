@@ -15,8 +15,8 @@ export class StatsComponentComponent implements OnInit {
   selectedToDate: string;
   stationList: any[];
   statisticTypes: StatisticType[] = StatisticTypeList;
-  radioSelected: string;
-  radioSel: string;
+  radioSelected: any;
+  radioSel: any;
   radioSelectedString: string;
   selectedStation: string;
   constructor() {
