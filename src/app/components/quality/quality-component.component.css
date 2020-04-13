@@ -11,6 +11,7 @@
     border: 2px solid black;
     height: 100%;
 }
+
 .results {
     position: absolute;
     top: 5%;
@@ -27,3 +28,11 @@
 #map {
     height: 100%;
 }
+#marker {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #088;
+    border-radius: 10px;
+    background-color: #0FF;
+    opacity: 0.5;
+  }

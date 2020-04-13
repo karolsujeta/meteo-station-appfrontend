@@ -18,6 +18,7 @@ export class StatsComponentComponent implements OnInit {
   radioSel: any;
   radioSelectedString: any;
   selectedStation: any;
+
   constructor() {
 
   }

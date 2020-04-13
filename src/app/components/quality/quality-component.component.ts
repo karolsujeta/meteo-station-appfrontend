@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import { QualityServiceService } from '../../services/quality/quality-service.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { AirData } from '../../services/quality/quality-module';
 // import { QualityServiceService } from 'src/app/services/quality/quality-service.service';
 
+
 declare var ol: any;
-declare var map: any;
 declare var $: any;
+var latitude: any;
+var longitude: any;
+var results: any;
 
 @Component({
   selector: 'app-quality-component',
@@ -14,24 +19,52 @@ declare var $: any;
   styleUrls: ['./quality-component.component.css']
 })
 
+
 export class QualityComponentComponent implements OnInit {
 
-  private results: any;
+
   private map;
+  //public results : AirData[] = [];
 
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
-  getAirService(term1: string, term2: string) {
+
+  getAirService() {
+
     this.service
-        .getAirData(term1,term2)
-        .subscribe((records: any) => {
-          console.log(records);
-          this.results = records;
-        })
+      .getAirData(latitude, longitude)
+      .subscribe((records: any) => {
+        results = records;
+
+        // Popup showing the position the user clicked
+        var popup = new ol.Overlay({
+          element: document.getElementById('popup')
+        });
+        this.map.addOverlay(popup);
+
+        var element = popup.getElement();
+        console.log(results);
+        popup.setPosition(ol.proj.fromLonLat([longitude, latitude]));
+        $(element).popover({
+          placement: 'top',
+          animation: false,
+          html: true,
+          content: '<code>' + 
+            results[0].current.values[0].value + ' ' +
+            results[0].current.values[2].value + ' ' +
+            results[0].current.values[1].value + ' ' +
+            results[0].current.indexes[0].value + ' ' +
+            results[0].current.indexes[0].level + ' ' +
+            results[0].current.indexes[0].description + '</code>'
+        });
+        $(element).popover('show');
+      })
+
+
+
   }
-  
+
   ngOnInit() {
-    
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -46,48 +79,40 @@ export class QualityComponentComponent implements OnInit {
       })
     });
 
+
     this.map.on('click', function (args) {
       console.log(args.coordinate);
       var lonlat = ol.proj.transform(args.coordinate, 'EPSG:3857', 'EPSG:4326');
       console.log(lonlat);
 
-      var lon = lonlat[0];
-      var lat = lonlat[1];
-      var inputlat = document.getElementById("inputLat");
-      var inputlon = document.getElementById("inputLon");
-      inputlat.setAttribute('value',lat);
-      inputlon.setAttribute('value',lon);
-      (`lat: ${lat} long: ${lon}`);
-    });
-  }
+      longitude = lonlat[0];
+      latitude = lonlat[1];
+      (`lat: ${latitude} long: ${longitude}`);
 
-  
+
+    });
+
+
+  }
 }
 
+//Na wszelki wypadek jakby trzeba bylo dodać pin (strzaleczka tam gdzie sie kliknie)
 
+    // var vectorLayer = new ol.layer.Vector({
+    //   source: new ol.source.Vector({
+    //     features: [new ol.Feature({
+    //       geometry: new ol.geom.Point(ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857')),
+    //     })]
+    //   }),
+    //   style: new ol.style.Style({
+    //     image: new ol.style.Icon({
+    //       anchor: [0.5, 1],
+    //       anchorXUnits: "fraction",
+    //       anchorYUnits: "fraction",
+    //       scale: 0.05,
+    //       src: "assets/marker/marker.png"
 
-// -----PIERWSZA WERSJA MAPY-----//
-// export class MapComponentComponent implements AfterViewInit {
-
-//   private map;
-
-//   constructor() { }
-
-//   ngAfterViewInit(): void {
-//     this.initMap();
-//   }
-
-//   private initMap(): void {
-//     this.map = L.map('map', {
-//       center: [53.1324886, 23.1688403],
-//       zoom: 9
-//     });
-
-//     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//       maxZoom: 19,
-//       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-//     });
-
-//     tiles.addTo(this.map);
-//   }
-// }
+    //     })
+    //   })
+    // });
+    // this.map.addLayer(vectorLayer);
