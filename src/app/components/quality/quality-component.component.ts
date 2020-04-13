@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import { QualityServiceService } from '../../services/quality/quality-service.service';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { AirData } from '../../services/quality/quality-module';
 // import { QualityServiceService } from 'src/app/services/quality/quality-service.service';
 
 
@@ -10,6 +11,7 @@ declare var ol: any;
 declare var $: any;
 var latitude: any;
 var longitude: any;
+var results: any;
 
 @Component({
   selector: 'app-quality-component',
@@ -20,22 +22,48 @@ var longitude: any;
 
 export class QualityComponentComponent implements OnInit {
 
-  private results: any;
+
   private map;
-  
+  //public results : AirData[] = [];
 
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
-  
+
   getAirService() {
+
     this.service
-        .getAirData(latitude,longitude)
-        .subscribe((records: any) => {
-          console.log(records);
-          this.results = records;
-        })
+      .getAirData(latitude, longitude)
+      .subscribe((records: any) => {
+        results = records;
+
+        // Popup showing the position the user clicked
+        var popup = new ol.Overlay({
+          element: document.getElementById('popup')
+        });
+        this.map.addOverlay(popup);
+
+        var element = popup.getElement();
+        console.log(results);
+        popup.setPosition(ol.proj.fromLonLat([longitude, latitude]));
+        $(element).popover({
+          placement: 'top',
+          animation: false,
+          html: true,
+          content: '<code>' + 
+            results[0].current.values[0].value + ' ' +
+            results[0].current.values[2].value + ' ' +
+            results[0].current.values[1].value + ' ' +
+            results[0].current.indexes[0].value + ' ' +
+            results[0].current.indexes[0].level + ' ' +
+            results[0].current.indexes[0].description + '</code>'
+        });
+        $(element).popover('show');
+      })
+
+
+
   }
-  
+
   ngOnInit() {
     this.map = new ol.Map({
       target: 'map',
@@ -45,17 +73,11 @@ export class QualityComponentComponent implements OnInit {
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([23.1688403,53.1324886]),
+        center: ol.proj.fromLonLat([23.1688403, 53.1324886]),
         zoom: 8,
 
       })
     });
-
-    // Popup showing the position the user clicked
-    var popup = new ol.Overlay({
-      element: document.getElementById('popup')
-    });
-    this.map.addOverlay(popup);
 
 
     this.map.on('click', function (args) {
@@ -67,17 +89,10 @@ export class QualityComponentComponent implements OnInit {
       latitude = lonlat[1];
       (`lat: ${latitude} long: ${longitude}`);
 
-      var element = popup.getElement();
-      popup.setPosition(args.coordinate);
-      $(element).popover({
-        placement: 'top',
-        animation: false,
-        html: true,
-        //content: '<code>' + results.current.indexes[0].value + '</code>'    //nie działa to 
-        content: 'Tu powinny być wyniki zamiast na górze :('
-      });
-      $(element).popover('show');
+
     });
+
+
   }
 }
 
@@ -96,7 +111,7 @@ export class QualityComponentComponent implements OnInit {
     //       anchorYUnits: "fraction",
     //       scale: 0.05,
     //       src: "assets/marker/marker.png"
-          
+
     //     })
     //   })
     // });
