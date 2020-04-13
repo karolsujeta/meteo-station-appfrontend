@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StationList } from '../../services/meteo-stat/station-list';
-import { Station } from '../../models/station';
 import { StatisticTypeList, StatisticType } from '../../models/statistic-type';
 declare var $: any;
 
@@ -11,14 +10,14 @@ declare var $: any;
 })
 export class StatsComponentComponent implements OnInit {
 
-  selectedFromDate: string;
-  selectedToDate: string;
+  selectedFromDate: any;
+  selectedToDate: any;
   stationList: any[];
   statisticTypes: StatisticType[] = StatisticTypeList;
-  radioSelected: string;
-  radioSel: string;
-  radioSelectedString: string;
-  selectedStation: string;
+  radioSelected: any;
+  radioSel: any;
+  radioSelectedString: any;
+  selectedStation: any;
   constructor() {
 
   }

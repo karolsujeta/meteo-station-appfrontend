@@ -24,16 +24,19 @@ export class WeatherComponentComponent implements OnInit {
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
   ngOnInit() {
+    //podstawowe animacje dla dwóch głownych okien na pierwszej stronie aplikacji
     $(document).ready(function () {
       $(".content").animate({ opacity: 1, }, 1500);
       $(".nav").fadeTo("slow", 1);
     })
   }
 
-  showTableContent() {
+  //wyświetlanie się tabel z danymi oraz wykresu po wywołaniu funcji poprzez nacisnięcie przycisku "Pokaż dane!"
+  showContent() {
     $(document).ready(function () {
       $(".content__table").show();
       $(".content__chart").show();
+      $(".chart-area").show();
     })
   }
 
@@ -56,7 +59,7 @@ export class WeatherComponentComponent implements OnInit {
       .getWeatherForecastData(term)
       .subscribe((data: any) => {
         for (let i = 0; i < data[0].list.length; i++) {
-          console.log(data[0].list[i].main);
+          //console.log(data[0].list[i].main);
           this.resultsForecastToChartData.push(data[0].list[i].dt_txt);
           this.resultsForecastToChartTemp.push(data[0].list[i].main.temp);
           this.resultsForecastToChartMinTemp.push(data[0].list[i].main.temp_min);
@@ -68,8 +71,9 @@ export class WeatherComponentComponent implements OnInit {
       )
   }
 
+  //rysowanie wykresu na podstawie danych pobranych z API
   drawChart() {
-    console.log(this.resultsForecastToChartData);
+    //console.log(this.resultsForecastToChartData);
     var myChart = new Chart('chart__forecast', {
       type: 'line',
       data: {
@@ -78,8 +82,17 @@ export class WeatherComponentComponent implements OnInit {
         datasets: [{
           label: 'Wartość temperatury',
           data: this.resultsForecastToChartTemp, //main.temp_max main.temp_min
-          borderColor:'#5599EC'
+          borderColor: '#037ffc',
+          backgroundColor:'#E8B67C',
+
         }],
+      },
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Prognozowana temperatura w przeciągu najbliższych 5 dni'
+        },
       }
     });
   }
