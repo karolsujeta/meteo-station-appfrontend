@@ -1,3 +1,62 @@
+<div class="map">
+  <img [src]=" 'assets/map_pictures/mapa.png '" alt="image">
+
+  <div class="map__bialystok" *ngFor="let result of northresults">
+
+    <!-- <div class="map__bialystok--north-wind" *ngIf="result >= 0 && result <= 89">
+      <img [src]=" 'assets/map_pictures/wiater.png '" alt="image">
+    </div>
+
+    <div class="map__bialystok--south-wind" *ngIf="result >= 90 && result <= 179">
+      <img [src]=" 'assets/map_pictures/wiater.png '" alt="image">
+    </div>
+
+    <div class="map__bialystok--east-wind" *ngIf="result >= 108 && result <= 269">
+      <img [src]=" 'assets/map_pictures/wiater.png '" alt="image">
+    </div>
+
+    <div class="map__bialystok--west-wind" *ngIf="result >= 270 && result <= 359">
+      <img [src]=" 'assets/map_pictures/wiater.png '" alt="image">
+    </div> -->
+
+  </div>
+
+
+  <div class="map map__krakow"></div>
+  <div class="map map__warszawa"></div>
+  <div class="map map__poznan"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- -----PIERWSZA WERSJA MAPY----- -->
 <!-- <div class="map-container">
     <div class="map-frame">
@@ -5,15 +64,16 @@
     </div>
   </div> -->
 
-<div class="results">
+
+<!-- -----DRUGA WERSJA MAPY----- -->
+<!-- <div class="results">
   <input class="nav__buttons__input" id="inputLat" value="53.1324886" #lat>
   <input class="nav__buttons__input" id="inputLon" value="23.1688403" #lon>
 </div>
 <div class="map-container">
   <div class="map-frame">
-    
+
     <div id="map" class="map"></div>
     <div id="mouse-position"></div>
   </div>
-  </div>
-
+  </div> -->
