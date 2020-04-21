@@ -16,3 +16,25 @@
 .columnGradient {
     background: linear-gradient(to bottom, #708192, #cdd6da)
 }
+
+table {
+    /* display: inherit; */
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+    /* border: 5px solid white; */
+}
+table thead{
+    text-align: center;
+    padding: 1rem;
+}
+table tbody{
+    text-align: center;
+    padding: 1rem;
+}
+
+#emptyDataDiv{
+    text-align: center;
+}
+
+  
