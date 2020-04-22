@@ -1,4 +1,38 @@
-.map-container {
+.map{
+    position: absolute;
+    opacity: 0;
+}
+
+.map__bialystok img{
+    position: absolute;
+    top: 130px;
+    left: 390px;
+    width: 100px;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .map-container {
     position: absolute;
     top: 10%;
     left: 0;
@@ -22,4 +56,4 @@
 
 #map {
     height: 100%;
-}
+} */

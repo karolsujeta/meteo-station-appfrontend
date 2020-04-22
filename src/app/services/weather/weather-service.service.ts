@@ -17,7 +17,9 @@ export class WeatherServiceService {
 
   constructor(private http: HttpClient) { }
 
+  //funkcja pobierająca główne dane pogodowe z API
   public getWeatherData(term: string): Observable<WeatherData[]> {
+
     // return this.http
     //   .get<WeatherData[]>(this.apiUrl)         // do sprawdzenia wszystkich endpointów
 
@@ -33,6 +35,7 @@ export class WeatherServiceService {
       )
   }
 
+  //funkcja pobierająca prognozę pięciodniową z API
   public getWeatherForecastData(term: string): Observable<ForecastData[]> {
     return this.http
       .get<ForecastData[]>(`${this.apiUrlForecast}${term}&appid=b742a4225977a8a94a092feb673aad31&units=metric`)
