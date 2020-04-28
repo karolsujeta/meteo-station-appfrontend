@@ -11,7 +11,8 @@ declare var ol: any;
 declare var $: any;
 var latitude: any;
 var longitude: any;
-var results: any;
+var popupCloserEventAdded = false;
+// var results: any;
 
 @Component({
   selector: 'app-quality-component',
@@ -28,42 +29,6 @@ export class QualityComponentComponent implements OnInit {
 
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
-
-  getAirService() {
-
-    this.service
-      .getAirData(latitude, longitude)
-      .subscribe((records: any) => {
-        results = records;
-
-        // Popup showing the position the user clicked
-        var popup = new ol.Overlay({
-          element: document.getElementById('popup')
-        });
-        this.map.addOverlay(popup);
-
-        var element = popup.getElement();
-        console.log(results);
-        popup.setPosition(ol.proj.fromLonLat([longitude, latitude]));
-        $(element).popover({
-          placement: 'top',
-          animation: false,
-          html: true,
-          content: '<code>' + 
-            results[0].current.values[0].value + ' ' +
-            results[0].current.values[2].value + ' ' +
-            results[0].current.values[1].value + ' ' +
-            results[0].current.indexes[0].value + ' ' +
-            results[0].current.indexes[0].level + ' ' +
-            results[0].current.indexes[0].description + '</code>'
-        });
-        $(element).popover('show');
-      })
-
-
-
-  }
-
   ngOnInit() {
     this.map = new ol.Map({
       target: 'map',
@@ -79,6 +44,7 @@ export class QualityComponentComponent implements OnInit {
       })
     });
 
+    var serviceTmp = this.service;
 
     this.map.on('click', function (args) {
       console.log(args.coordinate);
@@ -88,13 +54,63 @@ export class QualityComponentComponent implements OnInit {
       longitude = lonlat[0];
       latitude = lonlat[1];
       (`lat: ${latitude} long: ${longitude}`);
-
-
+      var mapTmp = this;
+      serviceTmp
+        .getAirData(latitude, longitude)
+        .subscribe((records: any) => {
+          showPopup(mapTmp, records)
+        });
+      
     });
-
-
+    if (popupCloserEventAdded === false) {
+      window.addEventListener('click', closePopup);
+      popupCloserEventAdded = true;
+    }
   }
 }
+
+function closePopup(event) {
+  var element = this.document.getElementById('popup');
+  if (element === null) {
+    $('.popover').remove();
+    window.removeEventListener('click', closePopup);
+    popupCloserEventAdded = false;
+  } else if (!element.contains(<Node>event.target)){
+    $('.popover').remove();
+  }
+};
+
+function showPopup(map, qualityData) {
+  // Popup showing the position the user clicked
+  var popup = new ol.Overlay({
+    element: document.getElementById('popup'),
+  });
+  map.addOverlay(popup);
+
+  var element = popup.getElement();
+  // if ($(element).data('popover')) {
+    // $(element).popover('destroy');
+  // }
+  console.log(qualityData);
+  popup.setPosition(ol.proj.fromLonLat([longitude, latitude]));
+  $(element).popover({
+    placement: 'top',
+    animation: false,
+    html: true,
+    autoPan: true,
+    content: '<code>' +
+      qualityData[0].current.values[0].value + ' ' +
+      qualityData[0].current.values[2].value + ' ' +
+      qualityData[0].current.values[1].value + ' ' +
+      qualityData[0].current.indexes[0].value + ' ' +
+      qualityData[0].current.indexes[0].level + ' ' +
+      qualityData[0].current.indexes[0].description + '</code>'
+  });
+  $(element).popover('show');
+
+}
+
+
 
 //Na wszelki wypadek jakby trzeba bylo dodać pin (strzaleczka tam gdzie sie kliknie)
 
