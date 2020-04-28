@@ -104,7 +104,7 @@ h2{
 
 .content__my-custom-scrollbar {
     position: relative;
-    height: 350px;
+    height: 300px;
     overflow: auto;
 }
 
