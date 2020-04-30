@@ -6,11 +6,26 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { AirData } from '../../services/quality/quality-module';
 // import { QualityServiceService } from 'src/app/services/quality/quality-service.service';
 
-
+/**
+ * @ignore 
+ */
 declare var ol: any;
+/**
+ * @ignore 
+ */
 declare var $: any;
+/**
+ * Współrzędna odpowiadająca szerokości geograficznej
+ */
 var latitude: any;
+/**
+ * Współrzędna odpowiadająca długości geograficznej
+ */
 var longitude: any;
+  /**
+   * Zmienna pod którą zostaną przypisane dane o jakości powietrza pobrane z api, 
+   * a następnie wyświetlone w tabeli.
+   */
 var results: any;
 
 @Component({
@@ -22,13 +37,26 @@ var results: any;
 
 export class QualityComponentComponent implements OnInit {
 
-
+  /**
+   * Zmienna przechowująca mapę wyświetloną na stronie.
+   */
   private map;
   //public results : AirData[] = [];
 
+    /**
+   * Konstruktor klasy 'QualityComponentComponent'.
+   * @param http
+   * @param service 
+   */
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
-
+ /**
+  * Funkcja inicjująca pobieranie danych z miejsca wybranego przez użytkownika. 
+   * Przypisanie pod zmienną 'results' danych pobranych z api dzięki funkcji 'getAirData()'.
+   * 
+   * @param popup pozycja (współrzędne) kliknięcia użytkowniaka na mapę. ?????????
+   * @param element informacja o jakości powietrza do wyświetlenia na mapie. ???
+  */
   getAirService() {
 
     this.service
@@ -59,11 +87,15 @@ export class QualityComponentComponent implements OnInit {
         });
         $(element).popover('show');
       })
-
-
-
   }
 
+  /**
+   * Inicjowanie wyświetlenia mapy na stronie.
+   * 
+   * Deklarowanie funkcji wyświetlania współrzędnych z kliknięcia.
+   * 
+   * Kliknięcie nastepnie przerzuca nas do funkcji 'getAirService()'
+   */
   ngOnInit() {
     this.map = new ol.Map({
       target: 'map',
@@ -79,7 +111,6 @@ export class QualityComponentComponent implements OnInit {
       })
     });
 
-
     this.map.on('click', function (args) {
       console.log(args.coordinate);
       var lonlat = ol.proj.transform(args.coordinate, 'EPSG:3857', 'EPSG:4326');
@@ -88,11 +119,7 @@ export class QualityComponentComponent implements OnInit {
       longitude = lonlat[0];
       latitude = lonlat[1];
       (`lat: ${latitude} long: ${longitude}`);
-
-
     });
-
-
   }
 }
 
