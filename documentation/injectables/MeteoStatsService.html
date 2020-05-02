@@ -127,7 +127,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -192,8 +192,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:23</a></div>
                 </td>
             </tr>
 
@@ -285,8 +285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -360,7 +360,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -392,7 +392,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -419,7 +419,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -446,7 +446,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -467,6 +467,12 @@ import { MeteoStatsModel } from &#x27;../../models/stats-api-model&#x27;;
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
+
+/**
+ * Klasa łącząca się z API meteostat oraz pobierająca dane z danej stacji w podanym przedziale czasowym o podanym typie statystyk:
+ * 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne
+ */
 export class MeteoStatsService {
 
   apiBaseUrl &#x3D; &#x27;https://api.meteostat.net/v1/history/&#x27;;

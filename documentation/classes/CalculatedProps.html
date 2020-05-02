@@ -63,6 +63,14 @@
             <code>src/app/models/statistics.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Klasa osatecznie wyznaczająca statystyki, czyli minimalną, maksymalną oraz średnią wartość temperatury, ciśnienia lub siły wiatru.
+W przypadku minimalnych i maksymalnych wartości, podane zostają również daty, kiedy zanotowano te skrajne wartości.</p>
+
+            </p>
 
 
 
@@ -123,7 +131,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/statistics.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/models/statistics.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -247,10 +255,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/statistics.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/models/statistics.ts:26</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca średnią wartość temperatury/ciśniania/siły wiatru.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -275,10 +289,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/models/statistics.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/models/statistics.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca maksymalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -303,10 +323,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/models/statistics.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/models/statistics.ts:22</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca datę zanotowania największej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -331,10 +357,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="2" class="link-to-prism">src/app/models/statistics.ts:2</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/models/statistics.ts:10</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca minimalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -359,10 +391,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/models/statistics.ts:3</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/models/statistics.ts:14</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca datę zanotowania najmniejszej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -379,11 +417,29 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class CalculatedProps {
-    public min: string;
-    public minaDate: string;
-    public max: string;
-    public maxDate: string;
+
+    /**
+     * Zmienna przechowująca minimalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.
+     */
+     public min: string;
+     /**
+      * Zmienna przechowująca datę zanotowania najmniejszej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.
+      */
+     public minaDate: string;
+     /**
+      * Zmienna przechowująca maksymalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.
+      */
+     public max: string;
+     /**
+      * Zmienna przechowująca datę zanotowania największej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.
+      */
+     public maxDate: string;
+     /**
+      * Zmienna przechowująca średnią wartość temperatury/ciśniania/siły wiatru.
+      */
     public average: string;
+
+
     constructor(min: number, minaDate: Date, max: number, maxDate: Date, averageSum: number, dataCount: number
     ) {
         if (dataCount &gt; 0) {

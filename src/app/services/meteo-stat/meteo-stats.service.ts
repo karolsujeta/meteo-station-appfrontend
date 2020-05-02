@@ -6,6 +6,12 @@ import { MeteoStatsModel } from '../../models/stats-api-model';
 @Injectable({
   providedIn: 'root'
 })
+
+
+/**
+ * Klasa łącząca się z API meteostat oraz pobierająca dane z danej stacji w podanym przedziale czasowym o podanym typie statystyk:
+ * 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne
+ */
 export class MeteoStatsService {
 
   apiBaseUrl = 'https://api.meteostat.net/v1/history/';
