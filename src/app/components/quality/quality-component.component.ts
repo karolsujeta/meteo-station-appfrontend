@@ -7,11 +7,11 @@ import { AirData } from '../../services/quality/quality-module';
 // import { QualityServiceService } from 'src/app/services/quality/quality-service.service';
 
 /**
- * @ignore 
+ * @ignore
  */
 declare var ol: any;
 /**
- * @ignore 
+ * @ignore
  */
 declare var $: any;
 /**
@@ -22,12 +22,9 @@ var latitude: any;
  * Współrzędna odpowiadająca długości geograficznej
  */
 var longitude: any;
-  /**
-   * Zmienna pod którą zostaną przypisane dane o jakości powietrza pobrane z api, 
-   * a następnie wyświetlone w tabeli.
-   */
-var results: any;
 
+var popupCloserEventAdded = false;
+// var results: any;
 @Component({
   selector: 'app-quality-component',
   templateUrl: './quality-component.component.html',
@@ -46,14 +43,15 @@ export class QualityComponentComponent implements OnInit {
     /**
    * Konstruktor klasy 'QualityComponentComponent'.
    * @param http
-   * @param service 
+   * @param service
    */
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
+<<<<<<< HEAD
  /**
-  * Funkcja inicjująca pobieranie danych z miejsca wybranego przez użytkownika. 
+  * Funkcja inicjująca pobieranie danych z miejsca wybranego przez użytkownika.
    * Przypisanie pod zmienną 'results' danych pobranych z api dzięki funkcji 'getAirData()'.
-   * 
+   *
    * @param popup pozycja (współrzędne) kliknięcia użytkowniaka na mapę. ?????????
    * @param element informacja o jakości powietrza do wyświetlenia na mapie. ???
   */
@@ -77,7 +75,7 @@ export class QualityComponentComponent implements OnInit {
           placement: 'top',
           animation: false,
           html: true,
-          content: '<code>' + 
+          content: '<code>' +
             results[0].current.values[0].value + ' ' +
             results[0].current.values[2].value + ' ' +
             results[0].current.values[1].value + ' ' +
@@ -91,11 +89,13 @@ export class QualityComponentComponent implements OnInit {
 
   /**
    * Inicjowanie wyświetlenia mapy na stronie.
-   * 
+   *
    * Deklarowanie funkcji wyświetlania współrzędnych z kliknięcia.
-   * 
+   *
    * Kliknięcie nastepnie przerzuca nas do funkcji 'getAirService()'
    */
+=======
+>>>>>>> master
   ngOnInit() {
     this.map = new ol.Map({
       target: 'map',
@@ -111,6 +111,11 @@ export class QualityComponentComponent implements OnInit {
       })
     });
 
+<<<<<<< HEAD
+=======
+    var serviceTmp = this.service;
+
+>>>>>>> master
     this.map.on('click', function (args) {
       console.log(args.coordinate);
       var lonlat = ol.proj.transform(args.coordinate, 'EPSG:3857', 'EPSG:4326');
@@ -119,9 +124,67 @@ export class QualityComponentComponent implements OnInit {
       longitude = lonlat[0];
       latitude = lonlat[1];
       (`lat: ${latitude} long: ${longitude}`);
+<<<<<<< HEAD
     });
+=======
+      var mapTmp = this;
+      serviceTmp
+        .getAirData(latitude, longitude)
+        .subscribe((records: any) => {
+          showPopup(mapTmp, records)
+        });
+
+    });
+    if (popupCloserEventAdded === false) {
+      window.addEventListener('click', closePopup);
+      popupCloserEventAdded = true;
+    }
   }
 }
+
+function closePopup(event) {
+  var element = this.document.getElementById('popup');
+  if (element === null) {
+    $('.popover').remove();
+    window.removeEventListener('click', closePopup);
+    popupCloserEventAdded = false;
+  } else if (!element.contains(<Node>event.target)){
+    $('.popover').remove();
+>>>>>>> master
+  }
+};
+
+function showPopup(map, qualityData) {
+  // Popup showing the position the user clicked
+  var popup = new ol.Overlay({
+    element: document.getElementById('popup'),
+  });
+  map.addOverlay(popup);
+
+  var element = popup.getElement();
+  // if ($(element).data('popover')) {
+    // $(element).popover('destroy');
+  // }
+  console.log(qualityData);
+  popup.setPosition(ol.proj.fromLonLat([longitude, latitude]));
+  $(element).popover({
+    placement: 'top',
+    animation: false,
+    html: true,
+    autoPan: true,
+    content: '<code>' +
+      qualityData[0].current.values[0].value + ' ' +
+      qualityData[0].current.values[2].value + ' ' +
+      qualityData[0].current.values[1].value + ' ' +
+      qualityData[0].current.indexes[0].value + ' ' +
+      qualityData[0].current.indexes[0].level + ' ' +
+      qualityData[0].current.indexes[0].description + '</code>'
+  });
+  $(element).popover('show');
+
+}
+
+
 
 //Na wszelki wypadek jakby trzeba bylo dodać pin (strzaleczka tam gdzie sie kliknie)
 
