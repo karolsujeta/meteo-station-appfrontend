@@ -26,4 +26,9 @@ describe('MapComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show map', () => {
+    const map = fixture.nativeElement.querySelectorAll('map__bialystok');
+    expect(map).toBeTruthy();
+  })
 });

@@ -23,8 +23,13 @@ describe('QualityComponentComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  // 
+  //
   // it('should create', () => {
   //   expect(component).toBeTruthy();
   // });
+
+  // it('should show map', () => {
+  //   const map = fixture.nativeElement.querySelectorAll('map');
+  //   expect(map).toBeTruthy();
+  // })
 });

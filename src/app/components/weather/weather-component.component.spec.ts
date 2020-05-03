@@ -33,6 +33,29 @@ describe('WeatherComponentComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should show input for city name', () => {
+    const input = fixture.nativeElement.querySelectorAll('nav__buttons__input');
+    expect(input).toBeTruthy();
+  })
+
+
+  it('should show left table', () => {
+    const table = fixture.nativeElement.querySelectorAll('left_side_table');
+    expect(table).toBeTruthy();
+  })
+
+
+  it('should show right table', () => {
+    const table = fixture.nativeElement.querySelectorAll('right_side_table');
+    expect(table).toBeTruthy();
+  })
+
+
+  it('should show temperature chart', () => {
+    const chart = fixture.nativeElement.querySelectorAll('chart-area');
+    expect(chart).toBeTruthy();
+  })
+
 
 it('should not show any error message if city does exist', () => {
   fixture.whenStable().then((done) => {
