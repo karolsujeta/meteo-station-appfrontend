@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherServiceService } from '../../services/weather/weather-service.service';
 import { HttpClient } from '@angular/common/http';
+
 declare var $: any;
 
 
@@ -13,26 +14,68 @@ declare var $: any;
 export class MapComponentComponent implements OnInit {
 
   private northresults = [];
+  private southresults = [];
+  private centralresults = [];
+  private westresults = [];
+  private citywinddegresults = [];
+  private citywindspeedresults = [];
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
   ngOnInit() {
     //wywołanie funkcji, które pobiorą kierunek wiatru; na podstawie tych danych na mapie pojawią się odpowiednie strzałki reprezentujace kierunek wiatru
     this.getDataBialystok("Białystok");
+    this.getDataKrakow("Kraków");
+    this.getDataWarszawa("Warszawa");
+    this.getDataPoznan("Poznan");
+
 
     $(document).ready(function () {
       $(".map").animate({ opacity: 1 }, 1500)
     })
-
   }
 
-  //dodanie do tablicy pobranego kierunku wiatru z danej miejscowości
+  //dodanie do tablicy pobranego kierunku wiatru z Białegostoku
   getDataBialystok(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
         //console.log(data[0].list[0].wind.deg
         this.northresults.push(data[0].list[0].wind.deg);
       })
+  }
+
+  getDataKrakow(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        //console.log(data[0].list[0].wind.deg
+        this.southresults.push(data[0].list[0].wind.deg);
+      })
+  }
+
+  getDataWarszawa(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        //console.log(data[0].list[0].wind.deg
+        this.centralresults.push(data[0].list[0].wind.deg);
+      })
+  }
+
+  getDataPoznan(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        //console.log(data[0].list[0].wind.deg
+        this.westresults.push(data[0].list[0].wind.deg);
+      })
+  }
+
+  //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
+  getDataCityCheck(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((winddata: any) => {
+        this.citywindspeedresults.push(winddata[0].list[0].wind.speed);
+        this.citywinddegresults.push(winddata[0].list[0].wind.deg);
+      }),
+      console.log(this.citywindspeedresults);
   }
 
 }

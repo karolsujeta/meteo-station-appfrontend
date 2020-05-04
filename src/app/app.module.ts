@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponentComponent } from './components/weather/weather-component.component';
 import { MapComponentComponent } from './components/map/map-component.component';
 import { StatsComponentComponent } from './components/stats-component/stats-component.component';
 import { QualityComponentComponent } from './components/quality/quality-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule, MatInputModule } from '@angular/material'
 // import { AirQualityComponentComponent } from './components/air-quality-component/air-quality-component.component';
 
 @NgModule({
@@ -24,7 +26,10 @@ import { QualityComponentComponent } from './components/quality/quality-componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
