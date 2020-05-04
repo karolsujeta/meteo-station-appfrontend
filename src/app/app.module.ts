@@ -10,7 +10,7 @@ import { MapComponentComponent } from './components/map/map-component.component'
 import { StatsComponentComponent } from './components/stats-component/stats-component.component';
 import { QualityComponentComponent } from './components/quality/quality-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatExpansionModule, MatInputModule } from '@angular/material'
+import { MatExpansionModule, MatInputModule } from '@angular/material';
 // import { AirQualityComponentComponent } from './components/air-quality-component/air-quality-component.component';
 
 @NgModule({
