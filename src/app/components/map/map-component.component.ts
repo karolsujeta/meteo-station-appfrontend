@@ -13,12 +13,12 @@ declare var $: any;
 
 export class MapComponentComponent implements OnInit {
 
-  private northresults = [];
-  private southresults = [];
-  private centralresults = [];
-  private westresults = [];
-  private citywinddegresults = [];
-  private citywindspeedresults = [];
+  public northresults = [];
+  public southresults = [];
+  public centralresults = [];
+  public westresults = [];
+  public citywinddegresults = [];
+  public citywindspeedresults = [];
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
