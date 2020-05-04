@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { WeatherServiceService } from '../../services/weather/weather-service.service';
 import { Chart } from 'chart.js';
 import { WeatherData } from '../../services/weather/weather-module';
+import { isNull } from 'util';
 declare var $: any;
 
 @Component({
@@ -19,6 +20,7 @@ export class WeatherComponentComponent implements OnInit {
   public resultsForecastToChartTemp = [];
   public resultsForecastToChartMinTemp = [];
   public resultsForecastToChartMaxTemp = [];
+  public resultsForecastToTable = [];
 
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
@@ -58,9 +60,36 @@ export class WeatherComponentComponent implements OnInit {
     this.service
       .getWeatherForecastData(term)
       .subscribe((data: any) => {
+        var maxTemp = data[0].list[0].main.temp_max;
+        var minTemp = data[0].list[0].main.temp_min;
+        var icon = data[0].list[0].weather[0].icon;
+        for (let i = 0; i < data[0].list.length - 1; i++) {
+          console.log(data);
+          var date = new Date(data[0].list[i].dt_txt);
+          if (date.getHours() == 12) {
+            icon = data[0].list[i].weather[0].icon;
+          }
+          if(date.getDate() == new Date(data[0].list[i+1].dt_txt).getDate()) {
+            if(maxTemp < data[0].list[i+1].main.temp_max) {
+              maxTemp = data[0].list[i+1].main.temp_max;
+            }
+            if (minTemp > data[0].list[i+1].main.temp_min){
+              minTemp = data[0].list[i+1].main.temp_min;
+            }
+
+          }
+          else {
+            this.resultsForecastToTable.push({date: date.getDate() + ".0" + (date.getMonth()+1), minTemp: minTemp, maxTemp: maxTemp, icon: icon});
+            maxTemp = data[0].list[i].main.temp_max;
+            minTemp = data[0].list[i].main.temp_min;
+          }
+        }
+
+
         for (let i = 0; i < data[0].list.length; i++) {
           //console.log(data[0].list[i].main);
-          this.resultsForecastToChartData.push(data[0].list[i].dt_txt);
+          var date = new Date(data[0].list[i].dt_txt);
+          this.resultsForecastToChartData.push(date.getDate() + ".0" + (1 + date.getMonth()) + " " + date.getHours() + ":00");
           this.resultsForecastToChartTemp.push(data[0].list[i].main.temp);
           this.resultsForecastToChartMinTemp.push(data[0].list[i].main.temp_min);
           this.resultsForecastToChartMaxTemp.push(data[0].list[i].main.temp_max);
