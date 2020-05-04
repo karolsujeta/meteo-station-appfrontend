@@ -3,13 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-=======
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
->>>>>>> b9652ae7b3d8ddee47649552b189b89faee3b8e8
 import { WeatherComponentComponent } from './components/weather/weather-component.component';
 import { MapComponentComponent } from './components/map/map-component.component';
 import { StatsComponentComponent } from './components/stats-component/stats-component.component';

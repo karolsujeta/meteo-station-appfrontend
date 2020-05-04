@@ -11,7 +11,8 @@ declare var $: any;
 /**
  * Stats component
  * Komponent odpowiedzialny za pobranie danych z API, obliczenie podstawowych statystyk temperatury, ciśnienia oraz siły wiatru
- * bazując na wybranych przez użytkownika parametrach, czyli: miejscowość, przedział czasowy, typ statystyk oraz wyświetlenie statystyk na stronie.
+ * bazując na wybranych przez użytkownika parametrach, czyli: miejscowość, przedział czasowy,
+ * typ statystyk oraz wyświetlenie statystyk na stronie.
  */
 @Component({
   selector: 'app-stats-component',
@@ -33,11 +34,15 @@ export class StatsComponentComponent implements OnInit {
    */
   selectedToDate: string;
   /**
-   * Zmienna przechowująca listę miejscowości, dla których możliwe jest policzenie statystyk. Ograniczona lista miejscowości wynika z dostępności zasobów API
+   * Zmienna przechowująca listę miejscowości, dla których możliwe jest policzenie statystyk.
+   * Ograniczona lista miejscowości wynika z dostępności zasobów API
    */
   stationList: any[];
   /**
-   * Zmienna przechowująca listę dostępnych typów statystyk - statystyki godzinowe, dzienne oraz miesięczne. Typ oznacza jakie dane są pobierane z API, czy są to pomiary miesięczne, dzienne czy godzinowe. Wybrany typ ma wpływ na dokładność statystyk, które są najbardziej dokładne przy danych rejestrowanych z częstotliwością godzinową.
+   * Zmienna przechowująca listę dostępnych typów statystyk - statystyki godzinowe,
+   * dzienne oraz miesięczne. Typ oznacza jakie dane są pobierane z API,
+   * czy są to pomiary miesięczne, dzienne czy godzinowe.
+   * Wybrany typ ma wpływ na dokładność statystyk, które są najbardziej dokładne przy danych rejestrowanych z częstotliwością godzinową.
    */
   statisticTypes: StatisticType[] = StatisticTypeList;
   /**
@@ -99,7 +104,8 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miaast możliwych do wyboru, ustawia domyślnie typ statystyk na godzinowy (zostaje zaznaczony radio button) oraz inicjalizuje daty przedziału czasowego.
+   * Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miaast możliwych do wyboru,
+   * ustawia domyślnie typ statystyk na godzinowy (zostaje zaznaczony radio button) oraz inicjalizuje daty przedziału czasowego.
    */
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
@@ -121,7 +127,8 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja pobierająca obiekt z listy typów statystyk, odpowiadający aktualnie zaznaczonemu przez użytkownika. Obiekt przypisywany jest do pola radioSel.
+   * Funkcja pobierająca obiekt z listy typów statystyk, odpowiadający aktualnie zaznaczonemu przez użytkownika.
+   * Obiekt przypisywany jest do pola radioSel.
    * Przypisywana zostaje również sama nazwa wybranego typu statystyk do pola radioSelectedString.
    */
   getSelecteditem() {
@@ -140,7 +147,8 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja pobierająca zaznaczony typo statystyk za każdym razem, gdy zostanie on zmieniony. Czy za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.
+   * Funkcja pobierająca zaznaczony typo statystyk za każdym razem, gdy zostanie on zmieniony.
+   * Czy za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.
    */
   onItemChange(item) {
     this.getSelecteditem();
@@ -148,7 +156,8 @@ export class StatsComponentComponent implements OnInit {
 
   /**
    * Funkcja sprawdzająca czy wszystkie dane podane przez użytkownika są poprawne oraz czy zostały podane wszystkie wymagane dane.
-   * Funkcja sprawsza czy została wybrana miejscowość oraz czy początkowa data podanego przedziału czasowego jest wczesńiejsza niż data końcowa.
+   * Funkcja sprawsza czy została wybrana miejscowość oraz czy początkowa data
+   * podanego przedziału czasowego jest wczesńiejsza niż data końcowa.
    */
   validateForm() {
     if (this.selectedStation === undefined) {
@@ -168,7 +177,8 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja wywołująca funkcję wyświetlającą statystyki, o ile wszystkie dane konieczne do wygenerowania statystyk, zostały poprawnie wprowadzone przez użytkownika.
+   * Funkcja wywołująca funkcję wyświetlającą statystyki, o ile wszystkie dane konieczne
+   * do wygenerowania statystyk, zostały poprawnie wprowadzone przez użytkownika.
    */
   generateReport() {
     this.isRequestSended = false;
@@ -222,7 +232,8 @@ export class StatsComponentComponent implements OnInit {
 
   /**
    * Funkcja wyznaczająca maksymalną i minimalną temperaturę, daty w których te temperatury zostały zarejestrowane
-   * oraz sumę temperatur i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
+   * oraz sumę temperatur i liczbę pomiarów w danych przedziale czasowym.
+   * Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
    */
   calculateTemperatureStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
@@ -270,7 +281,8 @@ export class StatsComponentComponent implements OnInit {
 
   /**
    * Funkcja wyznaczająca maksymalne i minimalne ciśnienie, daty w których te ciśniania zostały zarejestrowane
-   * oraz sumę ciśnień i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
+   * oraz sumę ciśnień i liczbę pomiarów w danych przedziale czasowym.
+   * Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
    */
   calculatePressureStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
@@ -316,7 +328,8 @@ export class StatsComponentComponent implements OnInit {
 
   /**
    * Funkcja wyznaczająca maksymalną i minimalną siłę wiatru, daty w których zostało to zarejestrowane
-   * oraz sumę sił wiatru i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
+   * oraz sumę sił wiatru i liczbę pomiarów w danych przedziale czasowym.
+   * Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
    */
   calculateWindPowerStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
