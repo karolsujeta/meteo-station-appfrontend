@@ -29,10 +29,12 @@ export class StatsComponentComponent implements OnInit {
   isRequestSended: boolean;
   isFormValid: boolean;
   validMessage: string;
+  isWindCalculated: boolean;
   constructor(private service: MeteoStatsService) {
     this.isDataLoaded = false;
     this.isRequestSended = false;
     this.isFormValid = true;
+    this.isWindCalculated = false;
   }
 
   ngOnInit() {
@@ -96,7 +98,10 @@ export class StatsComponentComponent implements OnInit {
   }
 
   showMeteoStats() {
-    return this.service.getStatsData(this.radioSelected, this.selectedStation, this.selectedFromDate, this.selectedToDate)
+    this.isWindCalculated = !(this.radioSelected === '3');
+    const startDate = this.radioSelected === '3' ? this.selectedFromDate.substring(0, 7) : this.selectedFromDate;
+    const endDate = this.radioSelected === '3' ? this.selectedToDate.substring(0, 7) : this.selectedToDate;
+    return this.service.getStatsData(this.radioSelected, this.selectedStation, startDate, endDate)
       .subscribe((results: any) => {
         console.log(results);
         this.results = results;
@@ -107,12 +112,13 @@ export class StatsComponentComponent implements OnInit {
   calculateStats() {
     console.log(this.results.data.length);
     const dataLength = this.results.data.length;
+    this.isRequestSended = true;
     if (dataLength > 0) {
       const tempStats = this.calculateTemperatureStats(this.radioSelected, dataLength);
       const pressureStats = this.calculatePressureStats(this.radioSelected, dataLength);
       const windPowerStats = this.calculateWindPowerStats(this.radioSelected, dataLength);
       this.statData = new Statistics(tempStats, pressureStats, windPowerStats);
-      this.isDataLoaded = this.isRequestSended = true;
+      this.isDataLoaded = true;
     } else {
       // trzeba cos wyswietlic na UI ze nie dostaliśmy danych
       this.isDataLoaded = false;
@@ -122,8 +128,8 @@ export class StatsComponentComponent implements OnInit {
 
   calculateTemperatureStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
-    for (j; j < dataLength ; j++) {
-      if (this.results.data[j].temperature === null) {
+    for (j; j < dataLength; j++) {
+      if (radioSelected === '3' ? this.results.data[j].temperature_mean : this.results.data[j].temperature === null) {
         continue;
       } else {
         j++;
@@ -131,9 +137,11 @@ export class StatsComponentComponent implements OnInit {
       }
     }
     j = j - 1;
-    let minTemperature = this.results.data[j].temperature;
-    let maxTemperature = this.results.data[j].temperature;
-    const firstDate = radioSelected === '1' ? this.results.data[j].time : this.results.data[j].date;
+    let minTemperature = radioSelected === '3' ? this.results.data[j].temperature_mean : this.results.data[j].temperature;
+    let maxTemperature = radioSelected === '3' ? this.results.data[j].temperature_mean : this.results.data[j].temperature;
+    const firstDate = radioSelected === '1' ? this.results.data[j].time :
+      radioSelected === '2' ? this.results.data[j].date :
+        this.results.data[j].month;
     let minTempDate = firstDate;
     let maxTempDate = firstDate;
     let sumTemperature = 0;
@@ -141,15 +149,18 @@ export class StatsComponentComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.results.data.length; i++) {
       const element = this.results.data[i];
-      if (element.temperature != null) {
-        const date = radioSelected === '1' ? element.time : element.date;
-        sumTemperature += element.temperature;
-        if (element.temperature < minTemperature) {
-          minTemperature = element.temperature;
+      const temperature = radioSelected === '3' ? element.temperature_mean : element.temperature;
+      if (temperature != null) {
+        const date = radioSelected === '1' ? element.time :
+          radioSelected === '2' ? element.date :
+            element.month;
+        sumTemperature += temperature;
+        if (temperature < minTemperature) {
+          minTemperature = temperature;
           minTempDate = date;
         }
-        if (element.temperature > maxTemperature) {
-          maxTemperature = element.temperature;
+        if (temperature > maxTemperature) {
+          maxTemperature = temperature;
           maxTempDate = date;
         }
         dataCount++;
@@ -161,7 +172,7 @@ export class StatsComponentComponent implements OnInit {
 
   calculatePressureStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
-    for (j; j < dataLength ; j++) {
+    for (j; j < dataLength; j++) {
       if (this.results.data[j].pressure === null) {
         continue;
       } else {
@@ -172,34 +183,38 @@ export class StatsComponentComponent implements OnInit {
     j = j - 1;
     let minPressure = this.results.data[j].pressure;
     let maxPressure = this.results.data[j].pressure;
-    const firstDate = radioSelected === '1' ? this.results.data[j].time : this.results.data[j].date;
+    const firstDate = radioSelected === '1' ? this.results.data[j].time :
+      radioSelected === '2' ? this.results.data[j].date :
+        this.results.data[j].month;
     let minPressureDate = firstDate;
     let maxPressureDate = firstDate;
     let sumPressure = 0;
     let dataCount = 0;
-        // tslint:disable-next-line:prefer-for-of
+    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.results.data.length; i++) {
-        const element = this.results.data[i];
-        if (element.pressure != null) {
-          const date = radioSelected === '1' ? element.time : element.date;
-          sumPressure += element.pressure;
-          if (element.pressure < minPressure) {
-            minPressure = element.pressure;
-            minPressureDate = date;
-          }
-          if (element.pressure > maxPressure) {
-            maxPressure = element.pressure;
-            maxPressureDate = date;
-          }
-          dataCount++;
-          }
+      const element = this.results.data[i];
+      if (element.pressure != null) {
+        const date = radioSelected === '1' ? element.time :
+          radioSelected === '2' ? element.date :
+            element.month;
+        sumPressure += element.pressure;
+        if (element.pressure < minPressure) {
+          minPressure = element.pressure;
+          minPressureDate = date;
         }
+        if (element.pressure > maxPressure) {
+          maxPressure = element.pressure;
+          maxPressureDate = date;
+        }
+        dataCount++;
+      }
+    }
     return new CalculatedProps(minPressure, minPressureDate, maxPressure, maxPressureDate, sumPressure, dataCount);
   }
 
   calculateWindPowerStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
-    for (j; j < dataLength ; j++) {
+    for (j; j < dataLength; j++) {
       if (this.results.data[j].windspeed === null) {
         continue;
       } else {
@@ -210,7 +225,9 @@ export class StatsComponentComponent implements OnInit {
     j = j - 1;
     let minWindPower = this.results.data[j].windspeed;
     let maxWindPower = this.results.data[j].windspeed;
-    const firstDate = radioSelected === '1' ? this.results.data[j].time : this.results.data[j].date;
+    const firstDate = radioSelected === '1' ? this.results.data[j].time :
+      radioSelected === '2' ? this.results.data[j].date :
+        this.results.data[j].month;
     let minWindPowerDate = firstDate;
     let maxWindPowerDate = firstDate;
     let sumWindPower = 0;
@@ -219,7 +236,9 @@ export class StatsComponentComponent implements OnInit {
     for (let i = 0; i < this.results.data.length; i++) {
       const element = this.results.data[i];
       if (element.windspeed != null) {
-        const date = radioSelected === '1' ? element.time : element.date;
+        const date = radioSelected === '1' ? element.time :
+          radioSelected === '2' ? element.date :
+            element.month;
         sumWindPower += element.windspeed;
         if (element.windspeed < minWindPower) {
           minWindPower = element.windspeed;
