@@ -1,0 +1,1293 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>meteo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">meteo-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>WeatherComponentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/weather/weather-component.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Weather component</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-weather-component</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./weather-component.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./weather-component.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMsg">errorMsg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resultsForecast">resultsForecast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resultsForecastToChartData">resultsForecastToChartData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resultsForecastToChartMaxTemp">resultsForecastToChartMaxTemp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resultsForecastToChartMinTemp">resultsForecastToChartMinTemp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resultsForecastToChartTemp">resultsForecastToChartTemp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resultsWeather">resultsWeather</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#drawChart">drawChart</a>
+                            </li>
+                            <li>
+                                <a href="#getForecastService">getForecastService</a>
+                            </li>
+                            <li>
+                                <a href="#getWeatherService">getWeatherService</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#showContent">showContent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, service: <a href="../injectables/WeatherServiceService.html">WeatherServiceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/weather/weather-component.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>service</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WeatherServiceService.html" target="_self" >WeatherServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drawChart"></a>
+                    <span class="name">
+                        <b>
+                            drawChart
+                        </b>
+                        <a href="#drawChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>drawChart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/app/components/weather/weather-component.component.ts:127</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja rysująca wykres prognozy pogody. Odwołujemy się do niej w funkcji &#39;getForecastService()&#39;.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getForecastService"></a>
+                    <span class="name">
+                        <b>
+                            getForecastService
+                        </b>
+                        <a href="#getForecastService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getForecastService(term: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/components/weather/weather-component.component.ts:107</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja inicująca pobieranie danych z prognozą pogody oraz przypisanie ich pod ospowiednie zmienne.</p>
+<p>Przypisanie pod zmienną &#39;resultsForecast&#39; danych do wyświetlenia
+w tabeli z prognozą pogody na najbliższe dni.
+Dane pobierane są dzięki funkcji &#39;getWeatherForecastData()&#39; .</p>
+<p>Z danych uzyskanych przez funkcję &#39;getWeatherForecastData()&#39; wyciągamy i przypisujemy pod odpowiednie zmienne czas pomiaru,
+temperaturę, temperaturę minimalną i temperaturę maksymalną. Zmienne wykorzystujemy do rysowania wykresu, 
+funkcja &#39;drawChart()&#39;</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Parametr określający miejsowość, dla której pobieramy dane.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWeatherService"></a>
+                    <span class="name">
+                        <b>
+                            getWeatherService
+                        </b>
+                        <a href="#getWeatherService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWeatherService(term: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/components/weather/weather-component.component.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Przypisanie pod zmienną &#39;resultWeather&#39; danych, które będą wyświetlone w tabeli z aktualnym stanem pogody
+w miejscowości podanej przez użytkownika. Dane pobierane są dzięki funkcji &#39;getWeatherData()&#39;.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Parametr określający miejscowość, dla której wyświetlamy dane</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/components/weather/weather-component.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showContent"></a>
+                    <span class="name">
+                        <b>
+                            showContent
+                        </b>
+                        <a href="#showContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showContent()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/components/weather/weather-component.component.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja inicjue wyświetlanie się tabel z danymi oraz wykresu poprzez nacisnięcie przycisku &quot;Pokaż dane!&quot;
+Odwołuje się do tabel z pogodą w danym momencie &#39;.content__table&#39;, z prognozą pogody &#39;.content__chart&#39; oraz wykresem &#39;.chart-area&#39;.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMsg"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorMsg</b>
+                            <a href="#errorMsg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/weather/weather-component.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Informacja o błędzie przy wprowadzaniu przez użytkownika nazwy miasta.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsForecast"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            resultsForecast</b>
+                            <a href="#resultsForecast"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/weather/weather-component.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca dane z prognozą pogody na najbliższe dni analizowanego miasta.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsForecastToChartData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            resultsForecastToChartData</b>
+                            <a href="#resultsForecastToChartData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/weather/weather-component.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Przechowuje dane o czasie pomiaru, wyciągnięte z danych prognozy pogody.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsForecastToChartMaxTemp"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            resultsForecastToChartMaxTemp</b>
+                            <a href="#resultsForecastToChartMaxTemp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/weather/weather-component.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Przechowuje temperatury maksymalne wyciągnięte z danych prognozy pogody.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsForecastToChartMinTemp"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            resultsForecastToChartMinTemp</b>
+                            <a href="#resultsForecastToChartMinTemp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/weather/weather-component.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Przechowuje temperatury minimalne wyciągnięte z danych prognozy pogody.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsForecastToChartTemp"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            resultsForecastToChartTemp</b>
+                            <a href="#resultsForecastToChartTemp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/weather/weather-component.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Przechowuje temperatury wyciągnięte z danych prognozy pogody.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resultsWeather"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            resultsWeather</b>
+                            <a href="#resultsWeather"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/weather/weather-component.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca dane z aktualnym stanem pogody analizowanego miasta.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { WeatherServiceService } from &#x27;../../services/weather/weather-service.service&#x27;;
+import { Chart } from &#x27;chart.js&#x27;;
+import { WeatherData } from &#x27;../../services/weather/weather-module&#x27;;
+declare var $: any;
+
+/**
+ * Weather component
+ */
+@Component({
+  selector: &#x27;app-weather-component&#x27;,
+  templateUrl: &#x27;./weather-component.component.html&#x27;,
+  styleUrls: [&#x27;./weather-component.component.css&#x27;]
+})
+/**
+ * Klasa odpowiadająca za informacje wyświetlane na stronie głownej aplikacji
+ */
+export class WeatherComponentComponent implements OnInit {
+
+ /**
+  * Zmienna przechowująca dane z aktualnym stanem pogody analizowanego miasta.
+  */
+ public resultsWeather &#x3D; [];
+ /**
+ * Zmienna przechowująca dane z prognozą pogody na najbliższe dni analizowanego miasta.
+ */
+public resultsForecast: any;
+/**
+ * Informacja o błędzie przy wprowadzaniu przez użytkownika nazwy miasta.
+ */
+public errorMsg;
+/**
+ * Przechowuje dane o czasie pomiaru, wyciągnięte z danych prognozy pogody.
+ */
+public resultsForecastToChartData &#x3D; [];
+/**
+ * Przechowuje temperatury wyciągnięte z danych prognozy pogody.
+ */
+public resultsForecastToChartTemp &#x3D; [];
+/**
+ * Przechowuje temperatury minimalne wyciągnięte z danych prognozy pogody.
+ */
+public resultsForecastToChartMinTemp &#x3D; [];
+/**
+ * Przechowuje temperatury maksymalne wyciągnięte z danych prognozy pogody.
+ */
+public resultsForecastToChartMaxTemp &#x3D; [];
+
+/**
+ * 
+ * @param http 
+ * @param service 
+ */
+  constructor(private http: HttpClient, private service: WeatherServiceService) { }
+
+  ngOnInit() {
+    //podstawowe animacje dla dwóch głownych okien na pierwszej stronie aplikacji
+    $(document).ready(function () {
+      $(&quot;.content&quot;).animate({ opacity: 1, }, 1500);
+      $(&quot;.nav&quot;).fadeTo(&quot;slow&quot;, 1);
+    })
+  }
+
+  /**
+   * Funkcja inicjue wyświetlanie się tabel z danymi oraz wykresu poprzez nacisnięcie przycisku &quot;Pokaż dane!&quot;
+   * Odwołuje się do tabel z pogodą w danym momencie &#x27;.content__table&#x27;, z prognozą pogody &#x27;.content__chart&#x27; oraz wykresem &#x27;.chart-area&#x27;.
+   */
+  showContent() {
+    $(document).ready(function () {
+      $(&quot;.content__table&quot;).show();
+      $(&quot;.content__chart&quot;).show();
+      $(&quot;.chart-area&quot;).show();
+    })
+  }
+
+  /**
+   * Przypisanie pod zmienną &#x27;resultWeather&#x27; danych, które będą wyświetlone w tabeli z aktualnym stanem pogody
+   * w miejscowości podanej przez użytkownika. Dane pobierane są dzięki funkcji &#x27;getWeatherData()&#x27;.
+   * @param {string} term Parametr określający miejscowość, dla której wyświetlamy dane
+   */
+  getWeatherService(term: string) {
+    this.service
+      .getWeatherData(term)
+      .subscribe((records: any) &#x3D;&gt; {
+        console.log(records);
+        this.resultsWeather.push(records);
+      },
+        error &#x3D;&gt; this.errorMsg &#x3D; &quot;Nie wprowadzono miejscowości lub wprowadzono złą nazwę!&quot;,
+      )
+    this.errorMsg &#x3D; null;
+  }
+
+  /**
+   * Funkcja inicująca pobieranie danych z prognozą pogody oraz przypisanie ich pod ospowiednie zmienne.
+   * 
+   * Przypisanie pod zmienną &#x27;resultsForecast&#x27; danych do wyświetlenia
+   * w tabeli z prognozą pogody na najbliższe dni.
+   * Dane pobierane są dzięki funkcji &#x27;getWeatherForecastData()&#x27; .
+   * 
+   * Z danych uzyskanych przez funkcję &#x27;getWeatherForecastData()&#x27; wyciągamy i przypisujemy pod odpowiednie zmienne czas pomiaru,
+   * temperaturę, temperaturę minimalną i temperaturę maksymalną. Zmienne wykorzystujemy do rysowania wykresu, 
+   * funkcja &#x27;drawChart()&#x27;
+   * @param {string} term Parametr określający miejsowość, dla której pobieramy dane.
+   * @return 
+   */
+  getForecastService(term: string) {
+    this.service
+      .getWeatherForecastData(term)
+      .subscribe((data: any) &#x3D;&gt; {
+        for (let i &#x3D; 0; i &lt; data[0].list.length; i++) {
+          //console.log(data[0].list[i].main);
+          this.resultsForecastToChartData.push(data[0].list[i].dt_txt);
+          this.resultsForecastToChartTemp.push(data[0].list[i].main.temp);
+          this.resultsForecastToChartMinTemp.push(data[0].list[i].main.temp_min);
+          this.resultsForecastToChartMaxTemp.push(data[0].list[i].main.temp_max);
+        }
+        this.resultsForecast &#x3D; data;
+        this.drawChart();
+      },
+      )
+  }
+
+  /**
+   * Funkcja rysująca wykres prognozy pogody. Odwołujemy się do niej w funkcji &#x27;getForecastService()&#x27;.
+   */
+  drawChart() {
+    //console.log(this.resultsForecastToChartData);
+    var myChart &#x3D; new Chart(&#x27;chart__forecast&#x27;, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: this.resultsForecastToChartData, //dt_txt,
+
+        datasets: [{
+          label: &#x27;Wartość temperatury&#x27;,
+          data: this.resultsForecastToChartTemp, //main.temp_max main.temp_min
+          borderColor: &#x27;#037ffc&#x27;,
+          backgroundColor:&#x27;#E8B67C&#x27;,
+
+        }],
+      },
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: &#x27;Prognozowana temperatura w przeciągu najbliższych 5 dni&#x27;
+        },
+      }
+    });
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;nav&quot;&gt;
+    &lt;div class&#x3D;&quot;nav__header&quot;&gt;
+        &lt;h1&gt;Sprawdź pogodę w swoim mieście&lt;/h1&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;nav__buttons&quot;&gt;
+        &lt;input class&#x3D;&quot;nav__buttons__input&quot; placeholder&#x3D;&quot;PODAJ MIASTO!&quot; #city&gt;
+        &lt;button class&#x3D;&quot;nav__buttons__btn&quot; (click)&#x3D;&quot;getWeatherService(city.value)&quot;
+            (click)&#x3D;&quot;getForecastService(city.value)&quot; (click)&#x3D;&quot;showContent()&quot;&gt;Pokaż
+            dane!&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;nav__error&quot; *ngIf&#x3D;&quot;errorMsg&quot;&gt;
+        &lt;strong&gt;{{errorMsg}}&lt;/strong&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;content&quot;&gt;
+    &lt;div class&#x3D;&quot;content__table&quot;&gt;
+        &lt;table class&#x3D;&quot;table table-responsive&quot;&gt;
+
+            &lt;thead&gt;
+                &lt;tr class&#x3D;&quot;bg-primary text-white&quot;&gt;
+                    &lt;th&gt;Miasto&lt;/th&gt;
+                    &lt;th&gt;Temperatura&lt;/th&gt;
+                    &lt;th&gt;Temperatura Odczuwalna&lt;/th&gt;
+                    &lt;th&gt;Temperatura Minimalna&lt;/th&gt;
+                    &lt;th&gt;Temperatura Maksymalna&lt;/th&gt;
+                    &lt;th&gt;Ciśnienie&lt;/th&gt;
+                    &lt;th&gt;Wilgotność&lt;/th&gt;
+                    &lt;th&gt;Pogoda&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+
+            &lt;tbody class&#x3D;&quot;bg-light text-dark&quot; *ngFor&#x3D;&quot;let result of resultsWeather&quot;&gt;
+                &lt;td&gt;{{result[0].name}}&lt;/td&gt;
+                &lt;td&gt;{{result[0].main.temp}} C&lt;/td&gt;
+                &lt;td&gt;{{result[0].main.feels_like}} C&lt;/td&gt;
+                &lt;td&gt;{{result[0].main.temp_min}} C&lt;/td&gt;
+                &lt;td&gt;{{result[0].main.temp_max}} C&lt;/td&gt;
+                &lt;td&gt;{{result[0].main.pressure}} hPa&lt;/td&gt;
+                &lt;td&gt;{{result[0].main.humidity}} %&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;img className&#x3D;&quot;img-fluid&quot;
+                        src&#x3D;&#x27;http://openweathermap.org/img/w/{{result[0].weather[0].icon}}.png&#x27; /&gt;
+                &lt;/td&gt;
+            &lt;/tbody&gt;
+
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;content__chart content__my-custom-scrollbar&quot; *ngFor&#x3D;&quot;let result of resultsForecast&quot;&gt;
+        &lt;table class&#x3D;&quot;table&quot;&gt;
+
+            &lt;thead&gt;
+                &lt;tr class&#x3D;&quot;bg-primary text-white&quot;&gt;
+                    &lt;th&gt;Czas pomiaru&lt;/th&gt;
+                    &lt;th&gt;Temperatura max/min&lt;/th&gt;
+                    &lt;th&gt;Pogoda&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+
+            &lt;tbody class&#x3D;&quot;bg-light text-dark&quot; *ngFor&#x3D;&quot;let x of result.list&quot;&gt;
+                &lt;td&gt;
+                    {{x.dt_txt}}
+                &lt;/td&gt;
+                &lt;td&gt;
+                    {{x.main.temp_max}} C / {{x.main.temp_min}} C
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;img className&#x3D;&quot;img-fluid&quot; src&#x3D;&#x27;http://openweathermap.org/img/w/{{x.weather[0].icon}}.png&#x27; /&gt;
+                &lt;/td&gt;
+            &lt;/tbody&gt;
+
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;chart-area&quot;&gt;
+    &lt;canvas id&#x3D;&quot;chart__forecast&quot;&gt;{{chart}}&lt;/canvas&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./weather-component.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.navigation{
+    background-color: #ffffff;
+}
+
+.nav{
+    height: 40vh;
+    background-color: #ffffff;
+
+    background: url(https://www.setaswall.com/wp-content/uploads/2017/03/Sun-Sky-Summer-Wallpaper-2560x1600.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+}
+
+h2{
+    color: #ffffff;
+    font-family: &quot;Lato&quot;, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav__buttons__input{
+    border-radius: 100px;
+    padding: 25px 60px;
+    height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+
+    animation-name: moveToBottom;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.nav__buttons__input:hover{
+    background: linear-gradient(#626d329f,#6e5f33af);
+    color: #ffffff;
+    transition-duration: 2s;
+}
+
+.nav__buttons__btn{
+    border-radius: 100px;
+    padding: 7px 10px;
+    margin-left: 5px;
+
+    animation-name: moveToLeft;
+    animation-duration: 1.5s;
+    animation-delay: 1.2s;
+    animation-fill-mode: backwards;
+}
+
+.nav__buttons__btn:hover{
+    background: linear-gradient(#626d329f,#6e5f33af);
+    color: #ffffff;
+    transition-duration: 0.5s;
+}
+
+.content{
+    opacity: 0;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.content__table{
+    display: none;
+    text-align: center;
+    width: 50%;
+    height:0px;
+    box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
+
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+    animation-delay: 0.2;
+}
+
+.content__chart{
+    display: block;
+    text-align: center;
+    width: 40%;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
+
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: backwards;
+}
+
+.table{
+    box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
+}
+
+.nav__error{
+    font-size: 22px;
+    color: #ffffff;
+    text-shadow: 1px 1px 6px rgba(172,91,0,0.88);
+}
+
+.content__my-custom-scrollbar {
+    position: relative;
+    height: 350px;
+    overflow: auto;
+}
+
+.chart-area{
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: none;
+    background-color: #ffffff;
+
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+
+    box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="nav">    <div class="nav__header">        <h1>Sprawdź pogodę w swoim mieście</h1>    </div>    <div class="nav__buttons">        <input class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>        <button class="nav__buttons__btn" (click)="getWeatherService(city.value)"            (click)="getForecastService(city.value)" (click)="showContent()">Pokaż            dane!</button>    </div>    <div class="nav__error" *ngIf="errorMsg">        <strong>{{errorMsg}}</strong>    </div></div><div class="content">    <div class="content__table">        <table class="table table-responsive">            <thead>                <tr class="bg-primary text-white">                    <th>Miasto</th>                    <th>Temperatura</th>                    <th>Temperatura Odczuwalna</th>                    <th>Temperatura Minimalna</th>                    <th>Temperatura Maksymalna</th>                    <th>Ciśnienie</th>                    <th>Wilgotność</th>                    <th>Pogoda</th>                </tr>            </thead>            <tbody class="bg-light text-dark" *ngFor="let result of resultsWeather">                <td>{{result[0].name}}</td>                <td>{{result[0].main.temp}} C</td>                <td>{{result[0].main.feels_like}} C</td>                <td>{{result[0].main.temp_min}} C</td>                <td>{{result[0].main.temp_max}} C</td>                <td>{{result[0].main.pressure}} hPa</td>                <td>{{result[0].main.humidity}} %</td>                <td>                    <img className="img-fluid"                        src=\'http://openweathermap.org/img/w/{{result[0].weather[0].icon}}.png\' />                </td>            </tbody>        </table>    </div>    <div class="content__chart content__my-custom-scrollbar" *ngFor="let result of resultsForecast">        <table class="table">            <thead>                <tr class="bg-primary text-white">                    <th>Czas pomiaru</th>                    <th>Temperatura max/min</th>                    <th>Pogoda</th>                </tr>            </thead>            <tbody class="bg-light text-dark" *ngFor="let x of result.list">                <td>                    {{x.dt_txt}}                </td>                <td>                    {{x.main.temp_max}} C / {{x.main.temp_min}} C                </td>                <td>                    <img className="img-fluid" src=\'http://openweathermap.org/img/w/{{x.weather[0].icon}}.png\' />                </td>            </tbody>        </table>    </div></div><div class="chart-area">    <canvas id="chart__forecast">{{chart}}</canvas></div></div>'
+    var COMPONENTS = [{'name': 'AirQualityComponentComponent', 'selector': 'app-air-quality-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MapComponentComponent', 'selector': 'app-map-component'},{'name': 'QualityComponentComponent', 'selector': 'app-quality-component'},{'name': 'StatsComponentComponent', 'selector': 'app-stats-component'},{'name': 'WeatherComponentComponent', 'selector': 'app-weather-component'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'WeatherComponentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'WeatherComponentComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

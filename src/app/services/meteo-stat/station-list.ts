@@ -1,5 +1,8 @@
 import { Station } from '../../models/station';
 
+/**
+ * Klasa reprezentująca listę miejscowości możliwych do wyboru przy wyznaczaniu statysyk. 
+ */
 export class StationList {
     stationList: Array<Station>;
 
