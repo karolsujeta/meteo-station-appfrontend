@@ -114,7 +114,6 @@ export class QualityComponentComponent implements OnInit {
       longitude = lonlat[0];
       latitude = lonlat[1];
       (`lat: ${latitude} long: ${longitude}`);
-      var mapTmp = this;
       serviceTmp
         .getAirData(latitude, longitude)
         .subscribe((records: any) => {
