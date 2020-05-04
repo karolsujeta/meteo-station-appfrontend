@@ -1,31 +1,42 @@
-<div class="results">
-  <input class="nav__buttons__input" id="inputLat" #lat>
-  <input class="nav__buttons__input" id="inputLon" #lon>
-  <table class="table">
-    <thead>
-      <tr class="bg-primary text-white">
-        <th>Wartość PM1 (µg/m3)</th>
-        <th>Wartość PM10 (µg/m3)</th>
-        <th>Wartość PM25 (µg/m3)</th>
-        <th>Wartość CAQI (µg/m3)</th>
-        <th>Poziom</th>
-        <th>Opis</th>
-      </tr>
-    </thead>
-    <tbody class="bg-light text-dark" *ngFor="let result of results">
-      <td>{{result.current.values[0].value}} </td>
-      <td>{{result.current.values[2].value}} </td>
-      <td>{{result.current.values[1].value}} </td>
-      <td>{{result.current.indexes[0].value}} </td>
-      <td>{{result.current.indexes[0].level}} </td>
-      <td>{{result.current.indexes[0].description}} </td>
-    </tbody>
-    </table>
-</div>
 <div class="map-container">
   <div class="map-frame">
-    
-    <div id="map" class="map" (click)="getAirService(lat.value,lon.value)"></div>
+    <div id="map" class="map"></div>
+    <div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content">
+        <table *ngIf="results != undefined && results[0].current.indexes[0].level != 'UNKNOWN'; else noDataErrorMessage"
+          class="table">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th>PM1 (µg/m3)</th>
+              <th>PM10 (µg/m3)</th>
+              <th>PM25 (µg/m3)</th>
+              <th>CAQI (µg/m3)</th>
+              <th>Poziom</th>
+              <th>Opis</th>
+            </tr>
+          </thead>
+          <tbody class="bg-light text-dark" *ngFor="let result of results">
+            <td>{{result.current.values[0].value}} </td>
+            <td>{{result.current.values[2].value}} </td>
+            <td>{{result.current.values[1].value}} </td>
+            <td>{{result.current.indexes[0].value}} </td>
+            <td>{{result.current.indexes[0].level}} </td>
+            <td>{{result.current.indexes[0].description}} </td>
+          </tbody>
+        </table>
+        <ng-template #noDataErrorMessage>
+          <p>Brak danych w tym miejscu :(</p>
+        </ng-template>
+      </div>
+    </div>
+    <div id="cloudPopup">
+      <div id="cloudPopup-content">
+        <img class="cloudImage" *ngIf="results != undefined; else cloudErrorImage" src="assets/pollution_pictures/{{results[0].current.indexes[0].level}}.png"/>
+        <ng-template #cloudErrorImage>
+          <img class="cloudImage" src="assets/pollution_pictures/UNKNOWN.png"/>
+        </ng-template>
+      </div>
+    </div>
   </div>
-  </div>
-
+</div>

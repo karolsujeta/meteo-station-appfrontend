@@ -1,7 +1,7 @@
 <div class="nav">
     <div class="container">
         <div style="text-align: center; padding: 10px;">
-            <h1>Głębsze statystyki</h1>
+            <h1>STATYSTYKI</h1>
         </div>
         <div style="padding: 0px 400px;">
             <select [(ngModel)]="selectedStation" class="form-control">
@@ -26,20 +26,84 @@
                     <label for="fromDate">Od:</label>
                     <input type="text" [(ngModel)]="selectedFromDate" name="fromDate" type="date" class="form-control">
                 </div>
-    
+
                 <div style="padding:10px 0px;">
                     <label for="toDate">Do:</label>
                     <input type="text" [(ngModel)]="selectedToDate" name="toDate" type="date" class="form-control">
                 </div>
-    
+
                 <div style="padding:20px 0px;">
                     <button class="btn btn-info" style="width:100%" (click)="generateReport($event)">Generuj</button>
                 </div>
+
+                <div style="color:red; text-align: center;" *ngIf="!isFormValid">
+                    <i>{{validMessage}}</i>
+                </div>
             </div>
-            
-            <div class="col-8">
+
+
+            <div class="col-8" style="padding: 30px 50px">
+                <div *ngIf="isRequestSended">
+                    <div *ngIf="isDataLoaded">
+                        <table id="statDiv" class="table">
+                            <thead>
+                                <th></th>
+                                <th>Temperatura [°C]</th>
+                                <th>Ciśnienie [hPa]</th>
+                                <th *ngIf="isWindCalculated">Prędkość wiatru [m/s]</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Średnia</td>
+                                    <td>{{this.statData.temperature.average}}</td>
+                                    <td>{{this.statData.pressure.average}}</td>
+                                    <td *ngIf="isWindCalculated">{{this.statData.windPower.average}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Minimum</td>
+                                    <td>
+                                        {{this.statData.temperature.min}}
+                                        <br>
+                                        <i style="font-size: 0.75rem">({{this.statData.temperature.minaDate}})</i>
+                                    </td>
+                                    <td>
+                                        {{this.statData.pressure.min}}
+                                        <br>
+                                        <i style="font-size: 0.75rem">({{this.statData.pressure.minaDate}})</i>
+
+                                    </td>
+                                    <td *ngIf="isWindCalculated">
+                                        {{this.statData.windPower.min}}
+                                        <br>
+                                        <i style="font-size: 0.75rem">({{this.statData.windPower.minaDate}})</i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Maksimum</td>
+                                    <td>
+                                        {{this.statData.temperature.max}}
+                                        <br>
+                                        <i style="font-size: 0.75rem">({{this.statData.temperature.maxDate}})</i>
+                                    </td>
+                                    <td>
+                                        {{this.statData.pressure.max}}
+                                        <br>
+                                        <i style="font-size: 0.75rem">({{this.statData.pressure.maxDate}})</i>
+                                    </td>
+                                    <td *ngIf="isWindCalculated">
+                                        {{this.statData.windPower.max}}
+                                        <br>
+                                        <i style="font-size: 0.75rem">({{this.statData.windPower.maxDate}})</i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="emptyDataDiv" *ngIf="!isDataLoaded">
+                        <i>Brak danych do wyświetlenia</i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </div>

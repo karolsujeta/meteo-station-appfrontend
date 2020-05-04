@@ -1,0 +1,2010 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>meteo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">meteo-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>StatsComponentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/stats-component/stats-component.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Stats component
+Komponent odpowiedzialny za pobranie danych z API, obliczenie podstawowych statystyk temperatury, ciśnienia oraz siły wiatru
+bazując na wybranych przez użytkownika parametrach, czyli: miejscowość, przedział czasowy, typ statystyk oraz wyświetlenie statystyk na stronie.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-stats-component</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./stats-component.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./stats-component.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isDataLoaded">isDataLoaded</a>
+                            </li>
+                            <li>
+                                <a href="#isFormValid">isFormValid</a>
+                            </li>
+                            <li>
+                                <a href="#isRequestSended">isRequestSended</a>
+                            </li>
+                            <li>
+                                <a href="#radioSel">radioSel</a>
+                            </li>
+                            <li>
+                                <a href="#radioSelected">radioSelected</a>
+                            </li>
+                            <li>
+                                <a href="#radioSelectedString">radioSelectedString</a>
+                            </li>
+                            <li>
+                                <a href="#results">results</a>
+                            </li>
+                            <li>
+                                <a href="#selectedFromDate">selectedFromDate</a>
+                            </li>
+                            <li>
+                                <a href="#selectedStation">selectedStation</a>
+                            </li>
+                            <li>
+                                <a href="#selectedToDate">selectedToDate</a>
+                            </li>
+                            <li>
+                                <a href="#statData">statData</a>
+                            </li>
+                            <li>
+                                <a href="#stationList">stationList</a>
+                            </li>
+                            <li>
+                                <a href="#statisticTypes">statisticTypes</a>
+                            </li>
+                            <li>
+                                <a href="#validMessage">validMessage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#calculatePressureStats">calculatePressureStats</a>
+                            </li>
+                            <li>
+                                <a href="#calculateStats">calculateStats</a>
+                            </li>
+                            <li>
+                                <a href="#calculateTemperatureStats">calculateTemperatureStats</a>
+                            </li>
+                            <li>
+                                <a href="#calculateWindPowerStats">calculateWindPowerStats</a>
+                            </li>
+                            <li>
+                                <a href="#generateReport">generateReport</a>
+                            </li>
+                            <li>
+                                <a href="#getDateNow">getDateNow</a>
+                            </li>
+                            <li>
+                                <a href="#getSelecteditem">getSelecteditem</a>
+                            </li>
+                            <li>
+                                <a href="#initializeDate">initializeDate</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onItemChange">onItemChange</a>
+                            </li>
+                            <li>
+                                <a href="#showMeteoStats">showMeteoStats</a>
+                            </li>
+                            <li>
+                                <a href="#validateForm">validateForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(service: <a href="../injectables/MeteoStatsService.html">MeteoStatsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor klasy głównej: StatsComponentComponent</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>service</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MeteoStatsService.html" target="_self" >MeteoStatsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculatePressureStats"></a>
+                    <span class="name">
+                        <b>
+                            calculatePressureStats
+                        </b>
+                        <a href="#calculatePressureStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculatePressureStats(radioSelected, dataLength)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="261"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:261</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja wyznaczająca maksymalne i minimalne ciśnienie, daty w których te ciśniania zostały zarejestrowane
+oraz sumę ciśnień i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>radioSelected</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dataLength</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CalculatedProps.html" target="_self" >CalculatedProps</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateStats"></a>
+                    <span class="name">
+                        <b>
+                            calculateStats
+                        </b>
+                        <a href="#calculateStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateStats()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="198"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:198</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja generująca oraz wyświetlająca statystyki, jeżeli dane pobrane z API są kompletne.
+Jeżeli dane z API nie są kompletne, wyświetlona zostaje informacja o braku danych.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateTemperatureStats"></a>
+                    <span class="name">
+                        <b>
+                            calculateTemperatureStats
+                        </b>
+                        <a href="#calculateTemperatureStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateTemperatureStats(radioSelected, dataLength)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="218"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:218</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja wyznaczająca maksymalną i minimalną temperaturę, daty w których te temperatury zostały zarejestrowane
+oraz sumę temperatur i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>radioSelected</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dataLength</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CalculatedProps.html" target="_self" >CalculatedProps</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateWindPowerStats"></a>
+                    <span class="name">
+                        <b>
+                            calculateWindPowerStats
+                        </b>
+                        <a href="#calculateWindPowerStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateWindPowerStats(radioSelected, dataLength)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="303"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:303</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja wyznaczająca maksymalną i minimalną siłę wiatru, daty w których zostało to zarejestrowane
+oraz sumę sił wiatru i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>radioSelected</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dataLength</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CalculatedProps.html" target="_self" >CalculatedProps</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateReport"></a>
+                    <span class="name">
+                        <b>
+                            generateReport
+                        </b>
+                        <a href="#generateReport"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateReport()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:168</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja wywołująca funkcję wyświetlającą statystyki, o ile wszystkie dane konieczne do wygenerowania statystyk, zostały poprawnie wprowadzone przez użytkownika.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDateNow"></a>
+                    <span class="name">
+                        <b>
+                            getDateNow
+                        </b>
+                        <a href="#getDateNow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDateNow()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:131</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca oraz konwertująca na tekst aktualną datę.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSelecteditem"></a>
+                    <span class="name">
+                        <b>
+                            getSelecteditem
+                        </b>
+                        <a href="#getSelecteditem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSelecteditem()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:122</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca obiekt z listy typów statystyk, odpowiadający aktualnie zaznaczonemu przez użytkownika. Obiekt przypisywany jest do pola radioSel.
+Przypisywana zostaje również sama nazwa wybranego typu statystyk do pola radioSelectedString.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeDate"></a>
+                    <span class="name">
+                        <b>
+                            initializeDate
+                        </b>
+                        <a href="#initializeDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeDate()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja ustawia domyślną początkową i końcową datę przedziału czasowego do obliczania statystyk.
+Użytkownik po wyświetleniu strony widzi na obu kalendarzach zaznaczony aktualny dzień.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miaast możliwych do wyboru, ustawia domyślnie typ statystyk na godzinowy (zostaje zaznaczony radio button) oraz inicjalizuje daty przedziału czasowego.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onItemChange"></a>
+                    <span class="name">
+                        <b>
+                            onItemChange
+                        </b>
+                        <a href="#onItemChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onItemChange(item)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:140</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca zaznaczony typo statystyk za każdym razem, gdy zostanie on zmieniony. Czy za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>item</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showMeteoStats"></a>
+                    <span class="name">
+                        <b>
+                            showMeteoStats
+                        </b>
+                        <a href="#showMeteoStats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showMeteoStats()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:185</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca dane z API.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateForm"></a>
+                    <span class="name">
+                        <b>
+                            validateForm
+                        </b>
+                        <a href="#validateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja sprawdzająca czy wszystkie dane podane przez użytkownika są poprawne oraz czy zostały podane wszystkie wymagane dane.
+Funkcja sprawsza czy została wybrana miejscowość oraz czy początkowa data podanego przedziału czasowego jest wczesńiejsza niż data końcowa.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isDataLoaded"></a>
+                        <span class="name">
+                            <b>
+                            isDataLoaded</b>
+                            <a href="#isDataLoaded"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca informację na temat tego, czy dane zostały poprawnie pobrane z API oraz że są kompletne.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isFormValid"></a>
+                        <span class="name">
+                            <b>
+                            isFormValid</b>
+                            <a href="#isFormValid"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca informację na temat poprawności podanych przez użytkownika danych niezbędnych do wygenerowania statystyk.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isRequestSended"></a>
+                        <span class="name">
+                            <b>
+                            isRequestSended</b>
+                            <a href="#isRequestSended"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:74</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca informację na temat tego, czy obliczone statystyki zostały wyświetlone użytkownikowi na stronie.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="radioSel"></a>
+                        <span class="name">
+                            <b>
+                            radioSel</b>
+                            <a href="#radioSel"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca obiekt składający się z id i nazwy typu statystyk wybranego przez użytkownika.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="radioSelected"></a>
+                        <span class="name">
+                            <b>
+                            radioSelected</b>
+                            <a href="#radioSelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca id typu statystyk wybranego przez użytkownika.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="radioSelectedString"></a>
+                        <span class="name">
+                            <b>
+                            radioSelectedString</b>
+                            <a href="#radioSelectedString"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca nazwę typu statystyk wybranego przez użytkownika.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="results"></a>
+                        <span class="name">
+                            <b>
+                            results</b>
+                            <a href="#results"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca dane pobrane z API z podanego przedziału czasowego.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedFromDate"></a>
+                        <span class="name">
+                            <b>
+                            selectedFromDate</b>
+                            <a href="#selectedFromDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca początkową datę przedziału czasowego, dla którego liczone są statystyki - jest wybierana przez użytkownika.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedStation"></a>
+                        <span class="name">
+                            <b>
+                            selectedStation</b>
+                            <a href="#selectedStation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:58</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca nazwę miejscowości wybranej przez użytkownika.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedToDate"></a>
+                        <span class="name">
+                            <b>
+                            selectedToDate</b>
+                            <a href="#selectedToDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca końcową datę przedziału czasowego, dla którego liczone są statystyki - jest wybierana przez użytkownika.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statData"></a>
+                        <span class="name">
+                            <b>
+                            statData</b>
+                            <a href="#statData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Statistics.html" target="_self" >Statistics</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:66</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca obiekt Statistics, czyli obiekt zawierający obliczone statystyki temperatury, ciśnienia oraz wiatru.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stationList"></a>
+                        <span class="name">
+                            <b>
+                            stationList</b>
+                            <a href="#stationList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca listę miejscowości, dla których możliwe jest policzenie statystyk. Ograniczona lista miejscowości wynika z dostępności zasobów API</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statisticTypes"></a>
+                        <span class="name">
+                            <b>
+                            statisticTypes</b>
+                            <a href="#statisticTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/StatisticType.html" target="_self" >StatisticType[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>StatisticTypeList</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca listę dostępnych typów statystyk - statystyki godzinowe, dzienne oraz miesięczne. Typ oznacza jakie dane są pobierane z API, czy są to pomiary miesięczne, dzienne czy godzinowe. Wybrany typ ma wpływ na dokładność statystyk, które są najbardziej dokładne przy danych rejestrowanych z częstotliwością godzinową.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validMessage"></a>
+                        <span class="name">
+                            <b>
+                            validMessage</b>
+                            <a href="#validMessage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/stats-component/stats-component.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Zmienna przechowująca informację wyświetloną w przypadku, gdy podane przez użytkownika dane nie są poprawne.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { StationList } from &#x27;../../services/meteo-stat/station-list&#x27;;
+import { Station } from &#x27;../../models/station&#x27;;
+import { StatisticTypeList, StatisticType } from &#x27;../../models/statistic-type&#x27;;
+import { MeteoStatsService } from &#x27;../../services/meteo-stat/meteo-stats.service&#x27;;
+import { Statistics } from &#x27;../../models/calculated-stats&#x27;;
+import { MeteoStatsData } from &#x27;../../models/meteo-stats-data&#x27;;
+import { CalculatedProps } from &#x27;../../models/statistics&#x27;;
+declare var $: any;
+
+/**
+ * Stats component
+ * Komponent odpowiedzialny za pobranie danych z API, obliczenie podstawowych statystyk temperatury, ciśnienia oraz siły wiatru
+ * bazując na wybranych przez użytkownika parametrach, czyli: miejscowość, przedział czasowy, typ statystyk oraz wyświetlenie statystyk na stronie.
+ */
+@Component({
+  selector: &#x27;app-stats-component&#x27;,
+  templateUrl: &#x27;./stats-component.component.html&#x27;,
+  styleUrls: [&#x27;./stats-component.component.css&#x27;]
+})
+
+/**
+ * Klasa odpowiadająca za obliczenie i wyświetlenie statystyk pogodowych
+ */
+export class StatsComponentComponent implements OnInit {
+
+  /**
+   * Zmienna przechowująca początkową datę przedziału czasowego, dla którego liczone są statystyki - jest wybierana przez użytkownika.
+   */
+  selectedFromDate: string;
+  /**
+   * Zmienna przechowująca końcową datę przedziału czasowego, dla którego liczone są statystyki - jest wybierana przez użytkownika.
+   */
+  selectedToDate: string;
+  /**
+   * Zmienna przechowująca listę miejscowości, dla których możliwe jest policzenie statystyk. Ograniczona lista miejscowości wynika z dostępności zasobów API
+   */
+  stationList: any[];
+  /**
+   * Zmienna przechowująca listę dostępnych typów statystyk - statystyki godzinowe, dzienne oraz miesięczne. Typ oznacza jakie dane są pobierane z API, czy są to pomiary miesięczne, dzienne czy godzinowe. Wybrany typ ma wpływ na dokładność statystyk, które są najbardziej dokładne przy danych rejestrowanych z częstotliwością godzinową.
+   */
+  statisticTypes: StatisticType[] &#x3D; StatisticTypeList;
+  /**
+   * Zmienna przechowująca id typu statystyk wybranego przez użytkownika.
+   */
+  radioSelected: any;
+  /**
+   * Zmienna przechowująca obiekt składający się z id i nazwy typu statystyk wybranego przez użytkownika.
+   */
+  radioSel: any;
+  /**
+   * Zmienna przechowująca nazwę typu statystyk wybranego przez użytkownika.
+   */
+  radioSelectedString: string;
+  /**
+   * Zmienna przechowująca nazwę miejscowości wybranej przez użytkownika.
+   */
+  selectedStation: string;
+  /**
+   * Zmienna przechowująca dane pobrane z API z podanego przedziału czasowego.
+   */
+  results: any;
+  /**
+   * Zmienna przechowująca obiekt Statistics, czyli obiekt zawierający obliczone statystyki temperatury, ciśnienia oraz wiatru.
+   */
+  statData: Statistics;
+  /**
+   * Zmienna przechowująca informację na temat tego, czy dane zostały poprawnie pobrane z API oraz że są kompletne.
+   */
+  isDataLoaded: boolean;
+  /**
+   * Zmienna przechowująca informację na temat tego, czy obliczone statystyki zostały wyświetlone użytkownikowi na stronie.
+   */
+  isRequestSended: boolean;
+  /**
+   * Zmienna przechowująca informację na temat poprawności podanych przez użytkownika danych niezbędnych do wygenerowania statystyk.
+   */
+  isFormValid: boolean;
+  /**
+   * Zmienna przechowująca informację wyświetloną w przypadku, gdy podane przez użytkownika dane nie są poprawne.
+   */
+  validMessage: string;
+
+
+
+  /**
+   *
+   * Konstruktor klasy głównej: StatsComponentComponent
+   */
+  constructor(private service: MeteoStatsService) {
+    this.isDataLoaded &#x3D; false;
+    this.isRequestSended &#x3D; false;
+    this.isFormValid &#x3D; true;
+  }
+
+  /**
+   * Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miaast możliwych do wyboru, ustawia domyślnie typ statystyk na godzinowy (zostaje zaznaczony radio button) oraz inicjalizuje daty przedziału czasowego.
+   */
+  ngOnInit() {
+    // tslint:disable-next-line:only-arrow-functions
+    $(document).ready(function() {
+      $(&#x27;.nav&#x27;).fadeTo(&#x27;slow&#x27;, 1);
+    });
+    this.stationList &#x3D; new StationList().stationList;
+    this.radioSelected &#x3D; &#x27;1&#x27;;
+    this.initializeDate();
+  }
+
+  /**
+   * Funkcja ustawia domyślną początkową i końcową datę przedziału czasowego do obliczania statystyk.
+   * Użytkownik po wyświetleniu strony widzi na obu kalendarzach zaznaczony aktualny dzień.
+   */
+  initializeDate() {
+    this.selectedFromDate &#x3D; this.getDateNow();
+    this.selectedToDate &#x3D; this.getDateNow();
+  }
+
+  /**
+   * Funkcja pobierająca obiekt z listy typów statystyk, odpowiadający aktualnie zaznaczonemu przez użytkownika. Obiekt przypisywany jest do pola radioSel.
+   * Przypisywana zostaje również sama nazwa wybranego typu statystyk do pola radioSelectedString.
+   */
+  getSelecteditem() {
+    // tslint:disable-next-line:no-shadowed-variable
+    this.radioSel &#x3D; StatisticTypeList.find(StatisticType &#x3D;&gt; StatisticType.id &#x3D;&#x3D;&#x3D; this.radioSelected);
+    this.radioSelectedString &#x3D; JSON.stringify(this.radioSel);
+  }
+
+  /**
+   * Funkcja pobierająca oraz konwertująca na tekst aktualną datę.
+   */
+  getDateNow() {
+    const dateNow &#x3D; Date.now();
+    const date &#x3D; new Date(dateNow);
+    return date.toISOString().split(&#x27;T&#x27;)[0];
+  }
+
+  /**
+   * Funkcja pobierająca zaznaczony typo statystyk za każdym razem, gdy zostanie on zmieniony. Czy za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.
+   */
+  onItemChange(item) {
+    this.getSelecteditem();
+  }
+
+  /**
+   * Funkcja sprawdzająca czy wszystkie dane podane przez użytkownika są poprawne oraz czy zostały podane wszystkie wymagane dane.
+   * Funkcja sprawsza czy została wybrana miejscowość oraz czy początkowa data podanego przedziału czasowego jest wczesńiejsza niż data końcowa.
+   */
+  validateForm() {
+    if (this.selectedStation &#x3D;&#x3D;&#x3D; undefined) {
+      this.validMessage &#x3D; &#x27;Proszę wybrać stację meteorologiczną&#x27;;
+      return false;
+    }
+
+    const fromDate &#x3D; new Date(this.selectedFromDate);
+    const toDate &#x3D; new Date(this.selectedToDate);
+    if (fromDate &gt; toDate) {
+      this.validMessage &#x3D; &#x27;Data rozpoczęcia musi być wcześniejsza niż data zakończenia&#x27;; //
+      return false;
+    }
+
+    this.validMessage &#x3D; &#x27;&#x27;;
+    return true;
+  }
+
+  /**
+   * Funkcja wywołująca funkcję wyświetlającą statystyki, o ile wszystkie dane konieczne do wygenerowania statystyk, zostały poprawnie wprowadzone przez użytkownika.
+   */
+  generateReport() {
+    this.isRequestSended &#x3D; false;
+    console.log(this.selectedFromDate);
+    console.log(this.selectedToDate);
+    console.log(this.radioSelected);
+    console.log(this.selectedStation);
+    const isValid &#x3D; this.validateForm();
+    this.isFormValid &#x3D; isValid;
+    if (isValid) {
+      this.showMeteoStats();
+    }
+  }
+
+
+  /**
+   * Funkcja pobierająca dane z API.
+   */
+  showMeteoStats() {
+    return this.service.getStatsData(this.radioSelected, this.selectedStation, this.selectedFromDate, this.selectedToDate)
+      .subscribe((results: any) &#x3D;&gt; {
+        console.log(results);
+        this.results &#x3D; results;
+        this.calculateStats();
+      });
+  }
+
+  /**
+   * Funkcja generująca oraz wyświetlająca statystyki, jeżeli dane pobrane z API są kompletne.
+   * Jeżeli dane z API nie są kompletne, wyświetlona zostaje informacja o braku danych.
+   */
+  calculateStats() {
+    console.log(this.results.data.length);
+    const dataLength &#x3D; this.results.data.length;
+    if (dataLength &gt; 0) {
+      const tempStats &#x3D; this.calculateTemperatureStats(this.radioSelected, dataLength);
+      const pressureStats &#x3D; this.calculatePressureStats(this.radioSelected, dataLength);
+      const windPowerStats &#x3D; this.calculateWindPowerStats(this.radioSelected, dataLength);
+      this.statData &#x3D; new Statistics(tempStats, pressureStats, windPowerStats);
+      this.isDataLoaded &#x3D; this.isRequestSended &#x3D; true;
+    } else {
+      // trzeba cos wyswietlic na UI ze nie dostaliśmy danych
+      this.isDataLoaded &#x3D; false;
+      console.log(&#x27;[StatsComponentComponent.calulateStats()] -&gt; No data on API response&#x27;);
+    }
+  }
+
+  /**
+   * Funkcja wyznaczająca maksymalną i minimalną temperaturę, daty w których te temperatury zostały zarejestrowane
+   * oraz sumę temperatur i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
+   */
+  calculateTemperatureStats(radioSelected, dataLength): CalculatedProps {
+    let j &#x3D; 0;
+    for (j; j &lt; dataLength ; j++) {
+      if (this.results.data[j].temperature &#x3D;&#x3D;&#x3D; null) {
+        continue;
+      } else {
+        j++;
+        break;
+      }
+    }
+    j &#x3D; j - 1;
+    let minTemperature &#x3D; this.results.data[j].temperature;
+    let maxTemperature &#x3D; this.results.data[j].temperature;
+    const firstDate &#x3D; radioSelected &#x3D;&#x3D;&#x3D; &#x27;1&#x27; ? this.results.data[j].time : this.results.data[j].date;
+    let minTempDate &#x3D; firstDate;
+    let maxTempDate &#x3D; firstDate;
+    let sumTemperature &#x3D; 0;
+    let dataCount &#x3D; 0;
+    // tslint:disable-next-line:prefer-for-of
+    for (let i &#x3D; 0; i &lt; this.results.data.length; i++) {
+      const element &#x3D; this.results.data[i];
+      if (element.temperature !&#x3D; null) {
+        const date &#x3D; radioSelected &#x3D;&#x3D;&#x3D; &#x27;1&#x27; ? element.time : element.date;
+        sumTemperature +&#x3D; element.temperature;
+        if (element.temperature &lt; minTemperature) {
+          minTemperature &#x3D; element.temperature;
+          minTempDate &#x3D; date;
+        }
+        if (element.temperature &gt; maxTemperature) {
+          maxTemperature &#x3D; element.temperature;
+          maxTempDate &#x3D; date;
+        }
+        dataCount++;
+      }
+    }
+    const temp &#x3D; new CalculatedProps(minTemperature, minTempDate, maxTemperature, maxTempDate, sumTemperature, dataCount);
+    return temp;
+  }
+
+  /**
+   * Funkcja wyznaczająca maksymalne i minimalne ciśnienie, daty w których te ciśniania zostały zarejestrowane
+   * oraz sumę ciśnień i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
+   */
+  calculatePressureStats(radioSelected, dataLength): CalculatedProps {
+    let j &#x3D; 0;
+    for (j; j &lt; dataLength ; j++) {
+      if (this.results.data[j].pressure &#x3D;&#x3D;&#x3D; null) {
+        continue;
+      } else {
+        j++;
+        break;
+      }
+    }
+    j &#x3D; j - 1;
+    let minPressure &#x3D; this.results.data[j].pressure;
+    let maxPressure &#x3D; this.results.data[j].pressure;
+    const firstDate &#x3D; radioSelected &#x3D;&#x3D;&#x3D; &#x27;1&#x27; ? this.results.data[j].time : this.results.data[j].date;
+    let minPressureDate &#x3D; firstDate;
+    let maxPressureDate &#x3D; firstDate;
+    let sumPressure &#x3D; 0;
+    let dataCount &#x3D; 0;
+        // tslint:disable-next-line:prefer-for-of
+    for (let i &#x3D; 0; i &lt; this.results.data.length; i++) {
+        const element &#x3D; this.results.data[i];
+        if (element.pressure !&#x3D; null) {
+          const date &#x3D; radioSelected &#x3D;&#x3D;&#x3D; &#x27;1&#x27; ? element.time : element.date;
+          sumPressure +&#x3D; element.pressure;
+          if (element.pressure &lt; minPressure) {
+            minPressure &#x3D; element.pressure;
+            minPressureDate &#x3D; date;
+          }
+          if (element.pressure &gt; maxPressure) {
+            maxPressure &#x3D; element.pressure;
+            maxPressureDate &#x3D; date;
+          }
+          dataCount++;
+          }
+        }
+    return new CalculatedProps(minPressure, minPressureDate, maxPressure, maxPressureDate, sumPressure, dataCount);
+  }
+
+  /**
+   * Funkcja wyznaczająca maksymalną i minimalną siłę wiatru, daty w których zostało to zarejestrowane
+   * oraz sumę sił wiatru i liczbę pomiarów w danych przedziale czasowym. Wartości te zostają przekazane do konstruktora obiektu CalculatedProps.
+   */
+  calculateWindPowerStats(radioSelected, dataLength): CalculatedProps {
+    let j &#x3D; 0;
+    for (j; j &lt; dataLength ; j++) {
+      if (this.results.data[j].windspeed &#x3D;&#x3D;&#x3D; null) {
+        continue;
+      } else {
+        j++;
+        break;
+      }
+    }
+    j &#x3D; j - 1;
+    let minWindPower &#x3D; this.results.data[j].windspeed;
+    let maxWindPower &#x3D; this.results.data[j].windspeed;
+    const firstDate &#x3D; radioSelected &#x3D;&#x3D;&#x3D; &#x27;1&#x27; ? this.results.data[j].time : this.results.data[j].date;
+    let minWindPowerDate &#x3D; firstDate;
+    let maxWindPowerDate &#x3D; firstDate;
+    let sumWindPower &#x3D; 0;
+    let dataCount &#x3D; 0;
+    // tslint:disable-next-line:prefer-for-of
+    for (let i &#x3D; 0; i &lt; this.results.data.length; i++) {
+      const element &#x3D; this.results.data[i];
+      if (element.windspeed !&#x3D; null) {
+        const date &#x3D; radioSelected &#x3D;&#x3D;&#x3D; &#x27;1&#x27; ? element.time : element.date;
+        sumWindPower +&#x3D; element.windspeed;
+        if (element.windspeed &lt; minWindPower) {
+          minWindPower &#x3D; element.windspeed;
+          minWindPowerDate &#x3D; date;
+        }
+        if (element.windspeed &gt; maxWindPower) {
+          maxWindPower &#x3D; element.windspeed;
+          maxWindPowerDate &#x3D; date;
+        }
+        dataCount++;
+      }
+    }
+    return new CalculatedProps(minWindPower, minWindPowerDate, maxWindPower, maxWindPowerDate, sumWindPower, dataCount);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;nav&quot;&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+        &lt;div style&#x3D;&quot;text-align: center; padding: 10px;&quot;&gt;
+            &lt;h1&gt;STATYSTYKI&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div style&#x3D;&quot;padding: 0px 400px;&quot;&gt;
+            &lt;select [(ngModel)]&#x3D;&quot;selectedStation&quot; class&#x3D;&quot;form-control&quot;&gt;
+                &lt;option *ngFor&#x3D;&quot;let station of stationList&quot; [ngValue]&#x3D;&quot;station.id&quot;&gt;{{station.name}}&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div style&#x3D;&quot;color: #cdd6da; width:100%; height: 5px;&quot;&gt;
+
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;columnGradient&quot;&gt;
+    &lt;div&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-4&quot; style&#x3D;&quot;border-right:5px #cdd6da solid; padding: 10px 50px;&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;padding:10px 0px;&quot;&gt;
+                    &lt;div class&#x3D;&quot;col&quot; *ngFor&#x3D;&quot;let item of statisticTypes&quot;&gt;
+                        &lt;input type&#x3D;&quot;radio&quot; [(ngModel)]&#x3D;&quot;radioSelected&quot; name&#x3D;&quot;radioMonth&quot; value&#x3D;&quot;{{item.id}}&quot; (change)&#x3D;&quot;onItemChange(item)&quot; /&gt; {{item.name}}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div style&#x3D;&quot;padding:10px 0px;&quot;&gt;
+                    &lt;label for&#x3D;&quot;fromDate&quot;&gt;Od:&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;selectedFromDate&quot; name&#x3D;&quot;fromDate&quot; type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div style&#x3D;&quot;padding:10px 0px;&quot;&gt;
+                    &lt;label for&#x3D;&quot;toDate&quot;&gt;Do:&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;selectedToDate&quot; name&#x3D;&quot;toDate&quot; type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div style&#x3D;&quot;padding:20px 0px;&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn btn-info&quot; style&#x3D;&quot;width:100%&quot; (click)&#x3D;&quot;generateReport($event)&quot;&gt;Generuj&lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;div style&#x3D;&quot;color:red; text-align: center;&quot; *ngIf&#x3D;&quot;!isFormValid&quot;&gt;
+                    &lt;i&gt;{{validMessage}}&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+
+            &lt;div class&#x3D;&quot;col-8&quot; style&#x3D;&quot;padding: 30px 50px&quot;&gt;
+                &lt;div *ngIf&#x3D;&quot;isRequestSended&quot;&gt;
+                    &lt;table id&#x3D;&quot;statDiv&quot; class&#x3D;&quot;table&quot; *ngIf&#x3D;&quot;isDataLoaded; else emptyDataDiv&quot;&gt;
+                        &lt;thead&gt;
+                            &lt;th&gt;&lt;/th&gt;
+                            &lt;th&gt;Temperatura [°C]&lt;/th&gt;
+                            &lt;th&gt;Ciśnienie [hPa]&lt;/th&gt;
+                            &lt;th&gt;Prędkość wiatru [m/s]&lt;/th&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Średnia&lt;/td&gt;
+                                &lt;td&gt;{{this.statData.temperature.average}}&lt;/td&gt;
+                                &lt;td&gt;{{this.statData.pressure.average}}&lt;/td&gt;
+                                &lt;td&gt;{{this.statData.windPower.average}}&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Minimum&lt;/td&gt;
+                                &lt;td&gt;
+                                    {{this.statData.temperature.min}}
+                                    &lt;br&gt;
+                                    &lt;i style&#x3D;&quot;font-size: 0.75rem&quot;&gt;({{this.statData.temperature.minaDate}})&lt;/i&gt;
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    {{this.statData.pressure.min}}
+                                    &lt;br&gt;
+                                    &lt;i style&#x3D;&quot;font-size: 0.75rem&quot;&gt;({{this.statData.pressure.minaDate}})&lt;/i&gt;
+    
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    {{this.statData.windPower.min}}
+                                    &lt;br&gt;
+                                    &lt;i style&#x3D;&quot;font-size: 0.75rem&quot;&gt;({{this.statData.windPower.minaDate}})&lt;/i&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Maksimum&lt;/td&gt;
+                                &lt;td&gt;
+                                    {{this.statData.temperature.max}}
+                                    &lt;br&gt;
+                                    &lt;i style&#x3D;&quot;font-size: 0.75rem&quot;&gt;({{this.statData.temperature.maxDate}})&lt;/i&gt;
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    {{this.statData.pressure.max}}
+                                    &lt;br&gt;
+                                    &lt;i style&#x3D;&quot;font-size: 0.75rem&quot;&gt;({{this.statData.pressure.maxDate}})&lt;/i&gt;
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    {{this.statData.windPower.max}}
+                                    &lt;br&gt;
+                                    &lt;i style&#x3D;&quot;font-size: 0.75rem&quot;&gt;({{this.statData.windPower.maxDate}})&lt;/i&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                    &lt;ng-template #emptyDataDiv&gt;
+                        &lt;i&gt;Brak danych do wyświetlenia&lt;/i&gt;
+                    &lt;/ng-template&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./stats-component.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.nav{
+    height: 30vh;
+    background: linear-gradient(#2e85b88e, #af6d2285),
+        url(https://cdn.benchmark.pl/uploads/article/33432/MODERNICON/365f2a6b41e4456b9a0c46e76860b1306722e665.jpg);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.columnGradient {
+    background: linear-gradient(to bottom, #708192, #cdd6da)
+}
+
+table {
+    /* display: inherit; */
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+    /* border: 5px solid white; */
+}
+table thead{
+    text-align: center;
+    padding: 1rem;
+}
+table tbody{
+    text-align: center;
+    padding: 1rem;
+}
+
+#emptyDataDiv{
+    text-align: center;
+}
+
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="nav">    <div class="container">        <div style="text-align: center; padding: 10px;">            <h1>STATYSTYKI</h1>        </div>        <div style="padding: 0px 400px;">            <select [(ngModel)]="selectedStation" class="form-control">                <option *ngFor="let station of stationList" [ngValue]="station.id">{{station.name}}</option>            </select>        </div>    </div></div><div style="color: #cdd6da; width:100%; height: 5px;"></div><div class="columnGradient">    <div>        <div class="row">            <div class="col-4" style="border-right:5px #cdd6da solid; padding: 10px 50px;">                <div class="row" style="padding:10px 0px;">                    <div class="col" *ngFor="let item of statisticTypes">                        <input type="radio" [(ngModel)]="radioSelected" name="radioMonth" value="{{item.id}}" (change)="onItemChange(item)" /> {{item.name}}                    </div>                </div>                <div style="padding:10px 0px;">                    <label for="fromDate">Od:</label>                    <input type="text" [(ngModel)]="selectedFromDate" name="fromDate" type="date" class="form-control">                </div>                <div style="padding:10px 0px;">                    <label for="toDate">Do:</label>                    <input type="text" [(ngModel)]="selectedToDate" name="toDate" type="date" class="form-control">                </div>                <div style="padding:20px 0px;">                    <button class="btn btn-info" style="width:100%" (click)="generateReport($event)">Generuj</button>                </div>                <div style="color:red; text-align: center;" *ngIf="!isFormValid">                    <i>{{validMessage}}</i>                </div>            </div>            <div class="col-8" style="padding: 30px 50px">                <div *ngIf="isRequestSended">                    <table id="statDiv" class="table" *ngIf="isDataLoaded; else emptyDataDiv">                        <thead>                            <th></th>                            <th>Temperatura [°C]</th>                            <th>Ciśnienie [hPa]</th>                            <th>Prędkość wiatru [m/s]</th>                        </thead>                        <tbody>                            <tr>                                <td>Średnia</td>                                <td>{{this.statData.temperature.average}}</td>                                <td>{{this.statData.pressure.average}}</td>                                <td>{{this.statData.windPower.average}}</td>                            </tr>                            <tr>                                <td>Minimum</td>                                <td>                                    {{this.statData.temperature.min}}                                    <br>                                    <i style="font-size: 0.75rem">({{this.statData.temperature.minaDate}})</i>                                </td>                                <td>                                    {{this.statData.pressure.min}}                                    <br>                                    <i style="font-size: 0.75rem">({{this.statData.pressure.minaDate}})</i>                                    </td>                                <td>                                    {{this.statData.windPower.min}}                                    <br>                                    <i style="font-size: 0.75rem">({{this.statData.windPower.minaDate}})</i>                                </td>                            </tr>                            <tr>                                <td>Maksimum</td>                                <td>                                    {{this.statData.temperature.max}}                                    <br>                                    <i style="font-size: 0.75rem">({{this.statData.temperature.maxDate}})</i>                                </td>                                <td>                                    {{this.statData.pressure.max}}                                    <br>                                    <i style="font-size: 0.75rem">({{this.statData.pressure.maxDate}})</i>                                </td>                                <td>                                    {{this.statData.windPower.max}}                                    <br>                                    <i style="font-size: 0.75rem">({{this.statData.windPower.maxDate}})</i>                                </td>                            </tr>                        </tbody>                    </table>                    <ng-template #emptyDataDiv>                        <i>Brak danych do wyświetlenia</i>                    </ng-template>                </div>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AirQualityComponentComponent', 'selector': 'app-air-quality-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MapComponentComponent', 'selector': 'app-map-component'},{'name': 'QualityComponentComponent', 'selector': 'app-quality-component'},{'name': 'StatsComponentComponent', 'selector': 'app-stats-component'},{'name': 'WeatherComponentComponent', 'selector': 'app-weather-component'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'StatsComponentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatsComponentComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
