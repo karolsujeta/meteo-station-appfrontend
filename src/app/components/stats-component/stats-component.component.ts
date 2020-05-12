@@ -6,6 +6,8 @@ import { MeteoStatsService } from '../../services/meteo-stat/meteo-stats.service
 import { Statistics } from '../../models/calculated-stats';
 import { MeteoStatsData } from '../../models/meteo-stats-data';
 import { CalculatedProps } from '../../models/statistics';
+import * as CanvasJS from '../../../canvasjs/canvasjs.min';
+import { ChartService } from '../../services/meteo-stat/chart-service';
 declare var $: any;
 
 /**
@@ -90,8 +92,7 @@ export class StatsComponentComponent implements OnInit {
    */
   isWindCalculated: boolean;
 
-
-
+  chartService: ChartService = new ChartService();
   /**
    *
    * Konstruktor klasy głównej: StatsComponentComponent
@@ -114,6 +115,7 @@ export class StatsComponentComponent implements OnInit {
     });
     this.stationList = new StationList().stationList;
     this.radioSelected = '1';
+    this.selectedStation = '0: -1';
     this.initializeDate();
   }
 
@@ -160,7 +162,7 @@ export class StatsComponentComponent implements OnInit {
    * podanego przedziału czasowego jest wczesńiejsza niż data końcowa.
    */
   validateForm() {
-    if (this.selectedStation === undefined) {
+    if (this.selectedStation === undefined || this.selectedStation === '0: -1') {
       this.validMessage = 'Proszę wybrać stację meteorologiczną';
       return false;
     }
@@ -182,6 +184,7 @@ export class StatsComponentComponent implements OnInit {
    */
   generateReport() {
     this.isRequestSended = false;
+    this.destroyChart('temperatureChart');
     console.log(this.selectedFromDate);
     console.log(this.selectedToDate);
     console.log(this.radioSelected);
@@ -191,6 +194,8 @@ export class StatsComponentComponent implements OnInit {
     if (isValid) {
       this.showMeteoStats();
     }
+
+
   }
 
 
@@ -228,6 +233,28 @@ export class StatsComponentComponent implements OnInit {
       this.isDataLoaded = false;
       console.log('[StatsComponentComponent.calulateStats()] -> No data on API response');
     }
+
+    const tempCharList = this.chartService.CalculateTemperatureData(this.radioSelected, this.results.data);
+    if (tempCharList.length > 0) {
+      const temperatureChart = new CanvasJS.Chart('temperatureChart', {
+        title: {
+          text: 'Temperatura'
+        },
+        data: [
+          {
+            // type: 'bar',
+            color: 'blue',
+            dataPoints: tempCharList
+          }
+        ]
+      });
+      temperatureChart.render();
+    }
+    const pressureChart = new CanvasJS.Chart('pressureChart', {
+      title: {
+        text: 'Ciśnienie'
+      }
+    });
   }
 
   /**
@@ -371,5 +398,10 @@ export class StatsComponentComponent implements OnInit {
       }
     }
     return new CalculatedProps(minWindPower, minWindPowerDate, maxWindPower, maxWindPowerDate, sumWindPower, dataCount);
+  }
+
+  destroyChart(id: string) {
+    const temperatureChart = new CanvasJS.Chart(id);
+    temperatureChart.destroy();
   }
 }
