@@ -185,6 +185,7 @@ export class StatsComponentComponent implements OnInit {
   generateReport() {
     this.isRequestSended = false;
     this.destroyChart('temperatureChart');
+    this.destroyChart('pressureChart');
     console.log(this.selectedFromDate);
     console.log(this.selectedToDate);
     console.log(this.radioSelected);
@@ -228,33 +229,45 @@ export class StatsComponentComponent implements OnInit {
       const windPowerStats = this.calculateWindPowerStats(this.radioSelected, dataLength);
       this.statData = new Statistics(tempStats, pressureStats, windPowerStats);
       this.isDataLoaded = true;
+      const tempCharList = this.chartService.CalculateTemperatureData(this.radioSelected, this.results.data);
+      if (tempCharList.length > 0) {
+        const temperatureChart = new CanvasJS.Chart('temperatureChart', {
+          title: {
+            text: 'Temperatura'
+          },
+          height: 300,
+          data: [
+            {
+              // type: 'bar',
+              color: 'blue',
+              dataPoints: tempCharList
+            }
+          ]
+        });
+        temperatureChart.render();
+        const pressCharList = this.chartService.CalculatePressureData(this.radioSelected, this.results.data);
+        const pressureChart = new CanvasJS.Chart('pressureChart', {
+          title: {
+            text: 'Ciśnienie'
+          },
+          axisY: {
+            minimum: Number(pressureStats.min) - 5
+          },
+          height: 300,
+          data: [
+            {
+              color: 'red',
+              dataPoints: pressCharList
+            }
+          ]
+        });
+        pressureChart.render();
+      }
     } else {
       // trzeba cos wyswietlic na UI ze nie dostaliśmy danych
       this.isDataLoaded = false;
       console.log('[StatsComponentComponent.calulateStats()] -> No data on API response');
     }
-
-    const tempCharList = this.chartService.CalculateTemperatureData(this.radioSelected, this.results.data);
-    if (tempCharList.length > 0) {
-      const temperatureChart = new CanvasJS.Chart('temperatureChart', {
-        title: {
-          text: 'Temperatura'
-        },
-        data: [
-          {
-            // type: 'bar',
-            color: 'blue',
-            dataPoints: tempCharList
-          }
-        ]
-      });
-      temperatureChart.render();
-    }
-    const pressureChart = new CanvasJS.Chart('pressureChart', {
-      title: {
-        text: 'Ciśnienie'
-      }
-    });
   }
 
   /**
@@ -265,7 +278,7 @@ export class StatsComponentComponent implements OnInit {
   calculateTemperatureStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
     for (j; j < dataLength; j++) {
-      if (radioSelected === '3' ? this.results.data[j].temperature_mean : this.results.data[j].temperature === null) {
+      if (radioSelected === '3' ? this.results.data[j].temperature_mean === null : this.results.data[j].temperature === null) {
         continue;
       } else {
         j++;
