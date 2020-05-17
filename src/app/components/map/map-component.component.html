@@ -3,17 +3,17 @@
     <div class="map">
       <img [src]=" 'assets/map_pictures/mapa.png '" alt="image">
 
-      <div class="map__bialystok" *ngFor="let result of northresults">
-
+      <div class="map__bialystok" *ngFor="let result of bialystokWindResults">
+        <h6 class="b">BIAŁYSTOK</h6>
         <div class="map__bialystok--north-wind" *ngIf="result >= 0 && result <= 89">
-          <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
+          <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
         <div class="map__bialystok--south-wind" *ngIf="result >= 90 && result <= 179">
           <img [src]=" 'assets/map_pictures/prawo.png '" alt="image">
         </div>
 
-        <div class="map__bialystok--east-wind" *ngIf="result >= 108 && result <= 269">
+        <div class="arrow map__bialystok--east-wind" *ngIf="result >= 108 && result <= 269">
           <img [src]=" 'assets/map_pictures/dol.png '" alt="image">
         </div>
 
@@ -24,7 +24,8 @@
       </div>
 
 
-      <div class="map__krakow" *ngFor="let result of southresults">
+      <div class="map__krakow" *ngFor="let result of krakowWindResults">
+        <h6 class="k">KRAKÓW</h6>
         <div class="map__krakow--north-wind" *ngIf="result >= 0 && result <= 89">
           <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
@@ -42,7 +43,8 @@
         </div>
       </div>
 
-      <div class="map__warszawa" *ngFor="let result of centralresults">
+      <div class="map__warszawa" *ngFor="let result of warszawaWindResults">
+        <h6 class="w">WARSZAWA</h6>
         <div class="map__warszawa--north-wind" *ngIf="result >= 0 && result <= 89">
           <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
@@ -60,7 +62,8 @@
         </div>
       </div>
 
-      <div class="map__poznan" *ngFor="let result of westresults">
+      <div class="map__poznan" *ngFor="let result of poznanWindResults">
+        <h6 class="p">POZNAŃ</h6>
         <div class="map__poznan--north-wind" *ngIf="result >= 0 && result <= 89">
           <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
@@ -77,8 +80,188 @@
           <img [src]=" 'assets/map_pictures/lewo.png '" alt="image">
         </div>
       </div>
+
+      <div class="map__gdansk" *ngFor="let result of gdanskWindResults">
+        <h6 class="g">GDAŃSK</h6>
+        <div class="map__gdansk--north-wind" *ngIf="result >= 0 && result <= 89">
+          <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
+        </div>
+
+        <div class="map__gdansk--south-wind" *ngIf="result >= 90 && result <= 179">
+          <img [src]=" 'assets/map_pictures/prawo.png '" alt="image">
+        </div>
+
+        <div class="map__gdansk--east-wind" *ngIf="result >= 108 && result <= 269">
+          <img [src]=" 'assets/map_pictures/dol.png '" alt="image">
+        </div>
+
+        <div class="map__gdansk--west-wind" *ngIf="result >= 270 && result <= 359">
+          <img [src]=" 'assets/map_pictures/lewo.png '" alt="image">
+        </div>
+      </div>
+
+      <div class="map__wroclaw" *ngFor="let result of wroclawWindResults">
+        <h6 class="wr">WROCŁAW</h6>
+        <div class="map__wroclaw--north-wind" *ngIf="result >= 0 && result <= 89">
+          <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
+        </div>
+
+        <div class="map__wroclaw--south-wind" *ngIf="result >= 90 && result <= 179">
+          <img [src]=" 'assets/map_pictures/prawo.png '" alt="image">
+        </div>
+
+        <div class="map__wroclaw--east-wind" *ngIf="result >= 108 && result <= 269">
+          <img [src]=" 'assets/map_pictures/dol.png '" alt="image">
+        </div>
+
+        <div class="map__wroclaw--west-wind" *ngIf="result >= 270 && result <= 359">
+          <img [src]=" 'assets/map_pictures/lewo.png '" alt="image">
+        </div>
+      </div>
+
+      <div class="map__lublin" *ngFor="let result of lublinWindResults">
+        <h6 class="l">LUBLIN</h6>
+        <div class="map__lublin--north-wind" *ngIf="result >= 0 && result <= 89">
+          <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
+        </div>
+
+        <div class="map__lublin--south-wind" *ngIf="result >= 90 && result <= 179">
+          <img [src]=" 'assets/map_pictures/prawo.png '" alt="image">
+        </div>
+
+        <div class="map__lublin--east-wind" *ngIf="result >= 108 && result <= 269">
+          <img [src]=" 'assets/map_pictures/dol.png '" alt="image">
+        </div>
+
+        <div class="map__lublin--west-wind" *ngIf="result >= 270 && result <= 359">
+          <img [src]=" 'assets/map_pictures/lewo.png '" alt="image">
+        </div>
+      </div>
+
+      <div class="map__lodz" *ngFor="let result of lodzWindResults">
+        <h6 class="lo">ŁÓDŹ</h6>
+        <div class="map__lodz--north-wind" *ngIf="result >= 0 && result <= 89">
+          <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
+        </div>
+
+        <div class="map__lodz--south-wind" *ngIf="result >= 90 && result <= 179">
+          <img [src]=" 'assets/map_pictures/prawo.png '" alt="image">
+        </div>
+
+        <div class="map__lodz--east-wind" *ngIf="result >= 108 && result <= 269">
+          <img [src]=" 'assets/map_pictures/dol.png '" alt="image">
+        </div>
+
+        <div class="map__lodz--west-wind" *ngIf="result >= 270 && result <= 359">
+          <img [src]=" 'assets/map_pictures/lewo.png '" alt="image">
+        </div>
+      </div>
+
+      <div class="map__olsztyn" *ngFor="let result of olsztynWindResults">
+        <h6 class="o">OLSZTYN</h6>
+        <div class="map__olsztyn--north-wind" *ngIf="result >= 0 && result <= 89">
+          <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
+        </div>
+
+        <div class="map__olsztyn--south-wind" *ngIf="result >= 90 && result <= 179">
+          <img [src]=" 'assets/map_pictures/prawo.png '" alt="image">
+        </div>
+
+        <div class="map__olsztyn--east-wind" *ngIf="result >= 108 && result <= 269">
+          <img [src]=" 'assets/map_pictures/dol.png '" alt="image">
+        </div>
+
+        <div class="map__olsztyn--west-wind" *ngIf="result >= 270 && result <= 359">
+          <img [src]=" 'assets/map_pictures/lewo.png '" alt="image">
+        </div>
+      </div>
+
+      <div class="map__szczecin" *ngFor="let result of szczecinWindResults">
+        <h6 class="sz">SZCZECIN</h6>
+        <div class="map__szczecini--north-wind" *ngIf="result >= 0 && result <= 89">
+          <img [src]=" 'assets/map_pictures/gora.png '" alt="image">
+        </div>
+
+        <div class="map__szczecin--south-wind" *ngIf="result >= 90 && result <= 179">
+          <img [src]=" 'assets/map_pictures/prawo.png '" alt="image">
+        </div>
+
+        <div class="map__szczecin--east-wind" *ngIf="result >= 108 && result <= 269">
+          <img [src]=" 'assets/map_pictures/dol.png '" alt="image">
+        </div>
+
+        <div class="map__szczecin--west-wind" *ngIf="result >= 270 && result <= 359">
+          <img [src]=" 'assets/map_pictures/lewo.png '" alt="image">
+        </div>
+      </div>
+    </div>
+
+    <!-- -------------------------------------------------------------------MAPA DLA TEMPERATURY------------------------------------------------------------------- -->
+    <div class="map">
+      <img [src]=" 'assets/map_pictures/mapa.png '" alt="image">
+      <div class="map__bialystok" *ngFor="let result of bialystokTempResults">
+        <h6 class="b">BIAŁYSTOK
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+
+      <div class="map__krakow" *ngFor="let result of krakowTempResults">
+        <h6 class="k">KRAKÓW
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__warszawa" *ngFor="let result of warszawaTempResults">
+        <h6 class="w">WARSZAWA
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__poznan" *ngFor="let result of poznanTempResults">
+        <h6 class="p">POZNAŃ
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__gdansk" *ngFor="let result of gdanskTempResults">
+        <h6 class="g">GDAŃSK
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__wroclaw" *ngFor="let result of wroclawTempResults">
+        <h6 class="wr">WROCŁAW
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__lublin" *ngFor="let result of lublinTempResults">
+        <h6 class="l">LUBLIN
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__lodz" *ngFor="let result of lodzTempResults">
+        <h6 class="lo">ŁÓDŹ
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__olsztyn" *ngFor="let result of olsztynTempResults">
+        <h6 class="o">OLSZTYN
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
+
+      <div class="map__szczecin" *ngFor="let result of szczecinTempResults">
+        <h6 class="sz">SZCZECIN
+          <p>{{result}}℃</p>
+        </h6>
+      </div>
     </div>
   </div>
+
 
   <div class="content__right-side">
     <!-- stworzenie wysuwanego panelu dla sprawdzenia wiatru w wybranej miejscowości -->
@@ -95,26 +278,64 @@
         <mat-form-field>
           <input matInput placeholder="Miasto" #city>
         </mat-form-field>
-        <button mat-button id="expansion-button" (click)="getDataCityCheck(city.value)">Sprawdź dane!</button>
+        <button mat-button id="expansion-button" (click)="getDataCityWind(city.value)">Sprawdź Wiatr!</button>
         <!-- miejsce na wyświetlenie pobranych wyników -->
-        <div class="city-wind-result" *ngFor="let winddeg of citywinddegresults">
-          <div class="city-wind-result--deg" *ngFor="let winddeg of citywinddegresults">
-            <p>Kierunek wiatru:</p>
-            <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/wiater.png '" alt="image">
+        <div class="error" *ngIf="errorWind">
+          <p>WPROWADZONO BŁĘDNĄ NAZWĘ!</p>
+        </div>
+        <div class="city-wind-result--deg" *ngFor="let result of cityWindDegreesResults">
+          <h6>Kierunek wiatru:</h6>
+          <div class="c" *ngIf="result >= 0 && result <= 89">
+            <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/gora.png '" alt="image">
           </div>
-          <div class="city-wind-result--speed" *ngFor="let windspeed of citywindspeedresults">
-            <p>Siła wiatru:</p>
-            <p>{{windspeed}}</p>
+
+          <div class="c" *ngIf="result >= 90 && result <= 179">
+            <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/prawo.png '" alt="image">
           </div>
+
+          <div class="c" *ngIf="result >= 108 && result <= 269">
+            <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/dol.png '" alt="image">
+          </div>
+
+          <div class="c" *ngIf="result >= 270 && result <= 359">
+            <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/lewo.png '" alt="image">
+          </div>
+        </div>
+        <div class="city-wind-result--speed" *ngFor="let windspeed of cityWindSpeedResults">
+          <h6>Siła wiatru:</h6>
+          <p>{{windspeed}} m/s</p>
+        </div>
+        <!-- miejsce na wyświetlenie pobranych wyników -->
+      </mat-expansion-panel>
+    </div>
+
+    <div class="city-wind-check">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Sprawdź temperaturę w wybranym mieście!
+          </mat-panel-title>
+          <mat-panel-description>
+            Wprowadź miasto!
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input matInput placeholder="Miasto" #cityy>
+        </mat-form-field>
+        <button mat-button id="expansion-button" (click)="getDataCityTemp(cityy.value)">Sprawdź Temperaturę!</button>
+        <!-- miejsce na wyświetlenie pobranych wyników -->
+        <div class="error" *ngIf="errorTemp">
+          <p>WPROWADZONO BŁĘDNĄ NAZWĘ!</p>
+        </div>
+        <div class="city-wind-result--deg" *ngFor="let result of cityTemp">
+          <h6>Temperatura:</h6>
+          <p>{{result}}℃</p>
         </div>
         <!-- miejsce na wyświetlenie pobranych wyników -->
       </mat-expansion-panel>
     </div>
   </div>
 </div>
-
-
-
 
 
 

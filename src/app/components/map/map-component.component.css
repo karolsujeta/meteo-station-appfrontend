@@ -25,38 +25,86 @@
 
 .map__bialystok img{
     position: absolute;
-    top: 22%;
+    top: 20%;
     left: 50%;
-    width: 12%;
+    width: 7%;
     height: auto;
 }
 
 .map__krakow img{
     position: absolute;
-    top: 68%;
-    left: 35%;
-    width: 12%;
+    top: 67%;
+    left: 34%;
+    width: 7%;
     height: auto;
 }
 
 .map__warszawa img{
     position: absolute;
-    top: 35%;
-    left: 38%;
-    width: 12%;
+    top: 31%;
+    left: 40%;
+    width: 7%;
     height: auto;
 }
 
 .map__poznan img{
     position: absolute;
-    top: 32%;
-    left: 15%;
-    width: 12%;
+    top: 28%;
+    left: 16%;
+    width: 7%;
     height: auto;
 }
 
+.map__gdansk img{
+    position: absolute;
+    top: 17%;
+    left: 27%;
+    width: 7%;
+    height: auto;
+}
+
+.map__wroclaw img{
+    position: absolute;
+    top: 49%;
+    left: 16%;
+    width: 7%;
+    height: auto;
+}
+
+.map__lublin img{
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    width: 7%;
+    height: auto;
+}
+
+.map__lodz img{
+    position: absolute;
+    top: 40%;
+    left: 31%;
+    width: 7%;
+    height: auto;
+}
+
+.map__olsztyn img{
+    position: absolute;
+    top: 22%;
+    left: 36%;
+    width: 7%;
+    height: auto;
+}
+
+.map__szczecin img{
+    position: absolute;
+    top: 28%;
+    left: 5%;
+    width: 7%;
+    height: auto;
+}
 .city-wind-check{
     width: 60%;
+    height: 40vh;
     margin-top: 55px;
 
     animation-name: moveToBottom;
@@ -71,7 +119,7 @@
 }
 
 .city-wind-result--icon{
-    width: 12%;
+    width: 35%;
     height: auto;
 }
 
@@ -89,40 +137,137 @@
     height: auto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* .map-container {
+h6.b{
     position: absolute;
-    top: 10%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 30px;
+    top: 30%;
+    left: 49%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
 }
 
-.map-frame {
-    border: 2px solid black;
-    height: 100%;
+h6.b p{
+    text-align: center;
 }
-.results {
+
+h6.o{
     position: absolute;
-    top: 5%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 30px;
+    top: 19%;
+    left: 36%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
 }
 
-#map {
-    height: 100%;
-} */
+h6.o p{
+    text-align: center;
+}
+
+h6.w{
+    position: absolute;
+    top: 41%;
+    left: 39%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.w p{
+    text-align: center;
+}
+
+h6.l{
+    position: absolute;
+    top: 58%;
+    left: 51%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.l p{
+    text-align: center;
+}
+
+h6.k{
+    position: absolute;
+    top: 77%;
+    left: 34%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.k p{
+    text-align: center;
+}
+
+h6.lo{
+    position: absolute;
+    top: 50%;
+    left: 32%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.lo p{
+    text-align: center;
+}
+
+h6.wr{
+    position: absolute;
+    top:59%;
+    left: 15%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.wr p{
+    text-align: center;
+}
+
+h6.p{
+    position: absolute;
+    top:38%;
+    left: 16%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.p p{
+    text-align: center;
+}
+
+h6.sz{
+    position: absolute;
+    top:25%;
+    left: 5%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.sz p{
+    text-align: center;
+}
+
+h6.g{
+    position: absolute;
+    top:14%;
+    left: 27%;
+    font-size: 0.9vw;
+    color: #ffffff;
+    z-index: 10;
+}
+
+h6.g p{
+    text-align: center;
+}
+
+.error{
+    height: 20px;
+    color: red;
+}
