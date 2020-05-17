@@ -25,4 +25,18 @@ export class ChartService {
         }
         return new DataPointsList(tempList).dataPoints;
     }
+
+    public CalculatePressureData(type: string, data): Array<DataPoints> {
+        const tempList = new Array<TempChart>();
+        for (const element of data) {
+            if (type === '1') {
+                tempList.push(new TempChart(element.pressure, element.time));
+            } else if (type === '2') {
+                tempList.push(new TempChart(element.pressure, element.date));
+            } else if (type === '3') {
+                tempList.push(new TempChart(element.pressure, element.month));
+            }
+        }
+        return new DataPointsList(tempList).dataPoints;
+    }
 }
