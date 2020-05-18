@@ -7,22 +7,18 @@
         <table *ngIf="results != undefined && results[0].current.indexes[0].level != 'UNKNOWN'; else noDataErrorMessage"
           class="table">
           <thead>
-            <tr class="bg-primary text-white">
-              <th>PM1 (µg/m3)</th>
-              <th>PM10 (µg/m3)</th>
-              <th>PM25 (µg/m3)</th>
-              <th>CAQI (µg/m3)</th>
-              <th>Poziom</th>
-              <th>Opis</th>
+            <tr>
+              <th>PM1</th>
+              <th>PM10</th>
+              <th>PM25</th>
+              <th>CAQI</th>
             </tr>
           </thead>
-          <tbody class="bg-light text-dark" *ngFor="let result of results">
-            <td>{{result.current.values[0].value}} </td>
-            <td>{{result.current.values[2].value}} </td>
-            <td>{{result.current.values[1].value}} </td>
-            <td>{{result.current.indexes[0].value}} </td>
-            <td>{{result.current.indexes[0].level}} </td>
-            <td>{{result.current.indexes[0].description}} </td>
+          <tbody *ngFor="let result of results">
+            <td>{{result.current.values[0].value}} µg/m3 </td>
+            <td>{{result.current.values[2].value}} µg/m3</td>
+            <td>{{result.current.values[1].value}} µg/m3</td>
+            <td>{{result.current.indexes[0].value}} µg/m3</td>
           </tbody>
         </table>
         <ng-template #noDataErrorMessage>
