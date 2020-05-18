@@ -52,7 +52,7 @@ export class QualityComponentComponent implements OnInit {
 /**
    * Zmienna przechowująca odpowiedź z API Airly.
    */
-  private results: any;
+  public results: any;
     /**
    * Konstruktor klasy 'QualityComponentComponent'.
    * @param http
