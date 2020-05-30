@@ -20,7 +20,7 @@ import { AirQualityComponentComponent } from './components/air-quality-component
     MapComponentComponent,
     StatsComponentComponent,
     QualityComponentComponent,
-    AirQualityComponentComponent
+    AirQualityComponentComponent,
   ],
   imports: [
     BrowserModule,

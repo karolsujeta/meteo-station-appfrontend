@@ -92,6 +92,10 @@ export class StatsComponentComponent implements OnInit {
    */
   isWindCalculated: boolean;
 
+  title: string;
+
+  popupResult: any;
+
   chartService: ChartService = new ChartService();
   /**
    *
@@ -215,6 +219,57 @@ export class StatsComponentComponent implements OnInit {
       });
   }
 
+  getDataAndRenderPopupChart(type: number, dateType: string, dateFrom: string, dateTo: string) {
+    return this.service.getStatsData(dateType, this.selectedStation, dateFrom, dateTo)
+      .subscribe((results: any) => {
+        this.popupResult = results;
+        const popupData = type === 1 ?
+          this.chartService.CalculateTemperatureData(dateType, this.popupResult.data) :
+          this.chartService.CalculatePressureData(dateType, this.popupResult.data);
+        if (popupData.length > 0) {
+          const popupChart = new CanvasJS.Chart('popupChart', {
+            title: {
+              text: dateFrom
+            },
+            height: 300,
+            width: 800,
+            data: [
+              {
+                // type: 'bar',
+                type: 'line',
+                color: type === 1 ? 'blue' : 'red',
+                dataPoints: popupData
+              }
+            ]
+          });
+          popupChart.render();
+        }
+      });
+  }
+
+  displayDaily(day: string, type: number) {
+    this.destroyChart('popupChart');
+    const dateType = '1';
+    const dateFrom = day;
+    const dateTo = day;
+    this.getDataAndRenderPopupChart(type, dateType, dateFrom, dateTo);
+    $('#modalTitle').text(day);
+    $('#chartModal').modal('show');
+  }
+
+  displayMonthly(month: string, type: number) {
+    this.destroyChart('popupChart');
+    const dateType = '2';
+    const monthDate = new Date(month);
+    const dateFrom = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+    const parsedDateFrom = this.getDateToRequest(dateFrom);
+    const dateTo = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0);
+    const parsedDateTo = this.getDateToRequest(dateTo);
+    this.getDataAndRenderPopupChart(type, dateType, parsedDateFrom, parsedDateTo);
+    $('#modalTitle').text(month);
+    $('#chartModal').modal('show');
+  }
+
   /**
    * Funkcja generująca oraz wyświetlająca statystyki, jeżeli dane pobrane z API są kompletne.
    * Jeżeli dane z API nie są kompletne, wyświetlona zostaje informacja o braku danych.
@@ -231,6 +286,7 @@ export class StatsComponentComponent implements OnInit {
       this.isDataLoaded = true;
       const tempCharList = this.chartService.CalculateTemperatureData(this.radioSelected, this.results.data);
       if (tempCharList.length > 0) {
+        const me = this;
         const temperatureChart = new CanvasJS.Chart('temperatureChart', {
           title: {
             text: 'Temperatura'
@@ -238,6 +294,14 @@ export class StatsComponentComponent implements OnInit {
           height: 300,
           data: [
             {
+              // tslint:disable-next-line:only-arrow-functions
+              click(e) {
+                if (me.radioSelected === '2') {
+                  me.displayDaily(e.dataPoint.label, 1);
+                } else if (me.radioSelected === '3') {
+                  me.displayMonthly(e.dataPoint.label, 1);
+                }
+              },
               // type: 'bar',
               color: 'blue',
               dataPoints: tempCharList
@@ -256,6 +320,13 @@ export class StatsComponentComponent implements OnInit {
           height: 300,
           data: [
             {
+              click(e) {
+                if (me.radioSelected === '2') {
+                  me.displayDaily(e.dataPoint.label, 2);
+                } else if (me.radioSelected === '3') {
+                  me.displayMonthly(e.dataPoint.label, 2);
+                }
+              },
               color: 'red',
               dataPoints: pressCharList
             }
@@ -417,4 +488,21 @@ export class StatsComponentComponent implements OnInit {
     const temperatureChart = new CanvasJS.Chart(id);
     temperatureChart.destroy();
   }
+
+  getDateToRequest(date: Date): string {
+    const parsedDate = date.toLocaleString();
+    const length = parsedDate.length;
+    const offset = length === 20 ? 1 : 0;
+
+    let day = parsedDate.substring(0, 1 + offset);
+    if (offset === 0) {
+      day = '0' + day;
+    }
+    const month = parsedDate.substring(2 + offset, 4 + offset);
+    const year = parsedDate.substring(5 + offset, 9 + offset);
+    const result = year + '-' + month + '-' + day;
+    console.log(result);
+    return result;
+  }
+
 }
