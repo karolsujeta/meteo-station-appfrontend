@@ -59,6 +59,14 @@
             <code>src/app/services/meteo-stat/meteo-stats.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Klasa łącząca się z API meteostat oraz pobierająca dane z danej stacji w podanym przedziale czasowym o podanym typie statystyk:
+1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne</p>
+
+            </p>
 
 
 
@@ -127,12 +135,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:32</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor klasy MeteoStatsService</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -192,14 +202,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:46</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja łącząca się z API, pobierająca dane o określonych parametrach.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -208,6 +220,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -219,6 +232,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>zmienna określająca typ statystyk.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>station</td>
@@ -228,6 +245,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>zmienna przechowująca stację, z którą mamy się połączyć przez API.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>dateFrom</td>
@@ -237,6 +258,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>zmienna przechowująca datę od której chcemy pobrać dane.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>dateTo</td>
@@ -246,6 +271,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>zmienna przechowująca datę do której chcemy pobrać dane.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -285,14 +314,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:57</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca informację o typie statystyk wybranych przez użytkownika.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -301,6 +332,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -312,6 +344,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>zmienna określająca typ statystyk: 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -360,10 +396,17 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>zmienna przechowująca bazowy adres API, z którego pobierane będą dane historyczne 
+wykorzystywane przy wyznaczaniu statystyk.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -392,10 +435,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>zmienna zawierająca klucz API</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -419,10 +468,17 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:28</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>zmienna przechowująca adres API umożliwiający pobranie konkretnie ustalonych wartości. 
+Stworzony adres odwołuje się do danych o określonym typie statystyk, konkretnej stacji, w danym przedziale czasowym.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -446,10 +502,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/services/meteo-stat/meteo-stats.service.ts:32</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>zmienna przechowująca typ statystyk: 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -464,23 +526,46 @@ import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { pipe, Observable } from &#x27;rxjs&#x27;;
 import { MeteoStatsModel } from &#x27;../../models/stats-api-model&#x27;;
 
-@Injectable({
-  providedIn: &#x27;root&#x27;
-})
-
-
 /**
  * Klasa łącząca się z API meteostat oraz pobierająca dane z danej stacji w podanym przedziale czasowym o podanym typie statystyk:
  * 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne
  */
-export class MeteoStatsService {
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
 
+export class MeteoStatsService {
+  /**
+   * zmienna przechowująca bazowy adres API, z którego pobierane będą dane historyczne 
+   * wykorzystywane przy wyznaczaniu statystyk.
+   */
   apiBaseUrl &#x3D; &#x27;https://api.meteostat.net/v1/history/&#x27;;
+  /**
+   * zmienna zawierająca klucz API
+   */
   apiKey &#x3D; &#x27;&amp;key&#x3D;XWfTSLqc&#x27;;
+  /**
+   * zmienna przechowująca adres API umożliwiający pobranie konkretnie ustalonych wartości. 
+   * Stworzony adres odwołuje się do danych o określonym typie statystyk, konkretnej stacji, w danym przedziale czasowym.
+   */
   apiURL: string;
+  /**
+   * zmienna przechowująca typ statystyk: 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne
+   */
   statsType: string;
+  /**
+   * Konstruktor klasy MeteoStatsService
+   * @param http 
+   */
   constructor(private http: HttpClient) { }
 
+  /**
+   * Funkcja łącząca się z API, pobierająca dane o określonych parametrach.
+   * @param type zmienna określająca typ statystyk.
+   * @param station zmienna przechowująca stację, z którą mamy się połączyć przez API.
+   * @param dateFrom zmienna przechowująca datę od której chcemy pobrać dane.
+   * @param dateTo zmienna przechowująca datę do której chcemy pobrać dane.
+   */
   getStatsData(type, station, dateFrom, dateTo): Observable&lt;MeteoStatsModel&gt; {
     this.getType(type);
     this.apiURL &#x3D; this.apiBaseUrl + this.statsType + &#x27;?station&#x3D;&#x27; + station + &#x27;&amp;start&#x3D;&#x27; + dateFrom + &#x27;&amp;end&#x3D;&#x27; + dateTo + this.apiKey;
@@ -488,6 +573,10 @@ export class MeteoStatsService {
       .get&lt;MeteoStatsModel&gt;(this.apiURL);
   }
 
+  /**
+   * Funkcja pobierająca informację o typie statystyk wybranych przez użytkownika.
+   * @param type zmienna określająca typ statystyk: 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne.
+   */
   getType(type) {
     switch (type) {
       case &#x27;1&#x27;: this.statsType &#x3D; &#x27;hourly&#x27;; break;

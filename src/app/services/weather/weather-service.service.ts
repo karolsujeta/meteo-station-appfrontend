@@ -8,7 +8,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 /**
- * Klasa z funkcjami pobierającymi dane z api openweathermap.org.
+ * Klasa z funkcjami pobierającymi dane z api openweathermap.org. Wybrane API jest darmowe, daje możliwość pobrania danych o aktualnym
+ * stanie pogody oraz prognozę pięciodniową.
  */
 @Injectable({
   providedIn: 'root'
@@ -49,7 +50,7 @@ export class WeatherServiceService {
   }
 
    /**
-    * Funkcja pobiera z api openwethermap.org dane opisujące prognozę pogody na najbliższe pięć dni.
+    * Funkcja pobiera z api openweathermap.org dane opisujące prognozę pogody na najbliższe pięć dni.
     * @param {string} term Parametr określający miejscowość wybraną przez użytkownika.
     */
   public getWeatherForecastData(term: string): Observable<ForecastData[]> {

@@ -64,6 +64,15 @@
     <code>src/app/components/map/map-component.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Komponent zakładki Mapy.</p>
+<p>Wyświetlanie kierunków wiatru na mapie oraz danych o wietrze dla wybranej
+przez użytkownika miejscowości.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -131,7 +140,27 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#centralresults">centralresults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#citywinddegresults">citywinddegresults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#citywindspeedresults">citywindspeedresults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#northresults">northresults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#southresults">southresults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#westresults">westresults</a>
                             </li>
                         </ul>
                     </td>
@@ -147,6 +176,18 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#getDataBialystok">getDataBialystok</a>
+                            </li>
+                            <li>
+                                <a href="#getDataCityCheck">getDataCityCheck</a>
+                            </li>
+                            <li>
+                                <a href="#getDataKrakow">getDataKrakow</a>
+                            </li>
+                            <li>
+                                <a href="#getDataPoznan">getDataPoznan</a>
+                            </li>
+                            <li>
+                                <a href="#getDataWarszawa">getDataWarszawa</a>
                             </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
@@ -174,12 +215,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/map/map-component.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/map/map-component.component.ts:43</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor klaasy głównej: MapComponentComponent</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -255,14 +298,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/components/map/map-component.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:73</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru w Białymstoku i zapisujaca go w tablicy &quot;northresults[]&quot;&quot;. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+która pobiera dane z API openweathermap.org</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -271,6 +317,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -282,6 +329,306 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataCityCheck"></a>
+                    <span class="name">
+                        <b>
+                            getDataCityCheck
+                        </b>
+                        <a href="#getDataCityCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataCityCheck(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:122</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca dane z API o wietrze w wybranej przez użytkownika miejscowości. Odwoluje się do funkcji &quot;getWeatherForecastData()&quot;,
+pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są ddawane do tabeli z danymi &quot;winddata&quot;.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataKrakow"></a>
+                    <span class="name">
+                        <b>
+                            getDataKrakow
+                        </b>
+                        <a href="#getDataKrakow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataKrakow(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru w Krakowie i zapisujaca go w tablicy &quot;southresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+która pobiera dane z API openweathermap.org</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataPoznan"></a>
+                    <span class="name">
+                        <b>
+                            getDataPoznan
+                        </b>
+                        <a href="#getDataPoznan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataPoznan(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru w Poznaniu i zapisujaca go w tablicy &quot;westresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+która pobiera dane z API openweathermap.org</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataWarszawa"></a>
+                    <span class="name">
+                        <b>
+                            getDataWarszawa
+                        </b>
+                        <a href="#getDataWarszawa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataWarszawa(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru w Warszawie i zapisujaca go w tablicy &quot;centralresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+która pobiera dane z API openweathermap.org</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -321,14 +668,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/components/map/map-component.component.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:55</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja inicajlizująca wywłanie funkcji pobierających kierunek wiatru w Białymstoku, Krakowie, Warszawie, Poznaniu. 
+Pobrane informacje zostaną przedstawione na mapie w postaci strzałek prezentujących kierunek wiatru.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -344,6 +694,123 @@
         <h3 id="inputs">
             Properties
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="centralresults"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            centralresults</b>
+                            <a href="#centralresults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/map/map-component.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tablica przechowująca dane o kierunku wiatru w centralnej części kraju.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="citywinddegresults"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            citywinddegresults</b>
+                            <a href="#citywinddegresults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/map/map-component.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tablica przechowująca dane pobrane z api o kierunkach wiatru w wybranych przez użytkownika miejscowościach.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="citywindspeedresults"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            citywindspeedresults</b>
+                            <a href="#citywindspeedresults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/map/map-component.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tablica przechowująca dane pobrane z api o prędkości wiatru w wybranych przez użytkownika miejscowościach.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -370,10 +837,94 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/map/map-component.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/map/map-component.component.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tablica przechowująca dane o kierunku wiatru w północnej części kraju.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="southresults"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            southresults</b>
+                            <a href="#southresults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/map/map-component.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tablica przechowująca dane o kierunku wiatru w południowej części kraju.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="westresults"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            westresults</b>
+                            <a href="#westresults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/map/map-component.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tablica przechowująca dane o kierunku wiatru w zachodniej części kraju.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -386,9 +937,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { WeatherServiceService } from &#x27;../../services/weather/weather-service.service&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
+
 declare var $: any;
 
-
+/**
+ * Komponent zakładki Mapy.
+ * 
+ * Wyświetlanie kierunków wiatru na mapie oraz danych o wietrze dla wybranej
+ * przez użytkownika miejscowości.
+ */
 @Component({
   selector: &#x27;app-map-component&#x27;,
   templateUrl: &#x27;./map-component.component.html&#x27;,
@@ -396,28 +953,115 @@ declare var $: any;
 })
 
 export class MapComponentComponent implements OnInit {
-
+/**
+ * Tablica przechowująca dane o kierunku wiatru w północnej części kraju.
+ */
   private northresults &#x3D; [];
-
+  /**
+ * Tablica przechowująca dane o kierunku wiatru w południowej części kraju.
+ */
+  private southresults &#x3D; [];
+  /**
+ * Tablica przechowująca dane o kierunku wiatru w centralnej części kraju.
+ */
+  private centralresults &#x3D; [];
+  /**
+ * Tablica przechowująca dane o kierunku wiatru w zachodniej części kraju.
+ */
+  private westresults &#x3D; [];
+  /**
+   * Tablica przechowująca dane pobrane z api o kierunkach wiatru w wybranych przez użytkownika miejscowościach.
+   */
+  private citywinddegresults &#x3D; [];
+   /**
+   * Tablica przechowująca dane pobrane z api o prędkości wiatru w wybranych przez użytkownika miejscowościach.
+   */
+  private citywindspeedresults &#x3D; [];
+/**
+ * Konstruktor klaasy głównej: MapComponentComponent
+ * @param http 
+ * @param service 
+ */
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
+  /**
+   * Funkcja inicajlizująca wywłanie funkcji pobierających kierunek wiatru w Białymstoku, Krakowie, Warszawie, Poznaniu. 
+   * Pobrane informacje zostaną przedstawione na mapie w postaci strzałek prezentujących kierunek wiatru.
+   */
   ngOnInit() {
     //wywołanie funkcji, które pobiorą kierunek wiatru; na podstawie tych danych na mapie pojawią się odpowiednie strzałki reprezentujace kierunek wiatru
     this.getDataBialystok(&quot;Białystok&quot;);
+    this.getDataKrakow(&quot;Kraków&quot;);
+    this.getDataWarszawa(&quot;Warszawa&quot;);
+    this.getDataPoznan(&quot;Poznan&quot;);
+
 
     $(document).ready(function () {
       $(&quot;.map&quot;).animate({ opacity: 1 }, 1500)
     })
-
   }
-
-  //dodanie do tablicy pobranego kierunku wiatru z danej miejscowości
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Białymstoku i zapisujaca go w tablicy &quot;northresults[]&quot;&quot;. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+  //dodanie do tablicy pobranego kierunku wiatru z Białegostoku
   getDataBialystok(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) &#x3D;&gt; {
         //console.log(data[0].list[0].wind.deg
         this.northresults.push(data[0].list[0].wind.deg);
       })
+  }
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Krakowie i zapisujaca go w tablicy &quot;southresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+  getDataKrakow(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) &#x3D;&gt; {
+        //console.log(data[0].list[0].wind.deg
+        this.southresults.push(data[0].list[0].wind.deg);
+      })
+  }
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Warszawie i zapisujaca go w tablicy &quot;centralresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+  getDataWarszawa(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) &#x3D;&gt; {
+        //console.log(data[0].list[0].wind.deg
+        this.centralresults.push(data[0].list[0].wind.deg);
+      })
+  }
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Poznaniu i zapisujaca go w tablicy &quot;westresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+  getDataPoznan(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) &#x3D;&gt; {
+        //console.log(data[0].list[0].wind.deg
+        this.westresults.push(data[0].list[0].wind.deg);
+      })
+  }
+/**
+ * Funkcja pobierająca dane z API o wietrze w wybranej przez użytkownika miejscowości. Odwoluje się do funkcji &quot;getWeatherForecastData()&quot;,
+ * pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są ddawane do tabeli z danymi &quot;winddata&quot;.
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+  //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
+  getDataCityCheck(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((winddata: any) &#x3D;&gt; {
+        this.citywindspeedresults.push(winddata[0].list[0].wind.speed);
+        this.citywinddegresults.push(winddata[0].list[0].wind.deg);
+      }),
+      console.log(this.citywindspeedresults);
   }
 
 }
@@ -491,37 +1135,120 @@ export class MapComponentComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;map&quot;&gt;
-  &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/mapa.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;content&quot;&gt;
+  &lt;div class&#x3D;&quot;content__left-side&quot;&gt;
+    &lt;div class&#x3D;&quot;map&quot;&gt;
+      &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/mapa.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
 
-  &lt;div class&#x3D;&quot;map__bialystok&quot; *ngFor&#x3D;&quot;let result of northresults&quot;&gt;
+      &lt;div class&#x3D;&quot;map__bialystok&quot; *ngFor&#x3D;&quot;let result of northresults&quot;&gt;
 
-    &lt;!-- &lt;div class&#x3D;&quot;map__bialystok--north-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 0 &amp;&amp; result &lt;&#x3D; 89&quot;&gt;
-      &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/wiater.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;div class&#x3D;&quot;map__bialystok--north-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 0 &amp;&amp; result &lt;&#x3D; 89&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/gora.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__bialystok--south-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 90 &amp;&amp; result &lt;&#x3D; 179&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/prawo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__bialystok--east-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 108 &amp;&amp; result &lt;&#x3D; 269&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/dol.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__bialystok--west-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 270 &amp;&amp; result &lt;&#x3D; 359&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/lewo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+
+      &lt;div class&#x3D;&quot;map__krakow&quot; *ngFor&#x3D;&quot;let result of southresults&quot;&gt;
+        &lt;div class&#x3D;&quot;map__krakow--north-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 0 &amp;&amp; result &lt;&#x3D; 89&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/gora.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__krakow--south-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 90 &amp;&amp; result &lt;&#x3D; 179&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/prawo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__krakow--east-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 108 &amp;&amp; result &lt;&#x3D; 269&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/dol.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__krakow--west-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 270 &amp;&amp; result &lt;&#x3D; 359&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/lewo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;map__warszawa&quot; *ngFor&#x3D;&quot;let result of centralresults&quot;&gt;
+        &lt;div class&#x3D;&quot;map__warszawa--north-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 0 &amp;&amp; result &lt;&#x3D; 89&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/gora.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__warszawa--south-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 90 &amp;&amp; result &lt;&#x3D; 179&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/prawo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__warszawa--east-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 108 &amp;&amp; result &lt;&#x3D; 269&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/dol.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__warszawa--west-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 270 &amp;&amp; result &lt;&#x3D; 359&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/lewo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;map__poznan&quot; *ngFor&#x3D;&quot;let result of westresults&quot;&gt;
+        &lt;div class&#x3D;&quot;map__poznan--north-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 0 &amp;&amp; result &lt;&#x3D; 89&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/gora.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__poznan--south-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 90 &amp;&amp; result &lt;&#x3D; 179&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/prawo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__poznan--east-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 108 &amp;&amp; result &lt;&#x3D; 269&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/dol.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__poznan--west-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 270 &amp;&amp; result &lt;&#x3D; 359&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/lewo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-
-    &lt;div class&#x3D;&quot;map__bialystok--south-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 90 &amp;&amp; result &lt;&#x3D; 179&quot;&gt;
-      &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/wiater.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
-    &lt;/div&gt;
-
-    &lt;div class&#x3D;&quot;map__bialystok--east-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 108 &amp;&amp; result &lt;&#x3D; 269&quot;&gt;
-      &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/wiater.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
-    &lt;/div&gt;
-
-    &lt;div class&#x3D;&quot;map__bialystok--west-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 270 &amp;&amp; result &lt;&#x3D; 359&quot;&gt;
-      &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/wiater.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
-    &lt;/div&gt; --&gt;
-
   &lt;/div&gt;
 
-
-  &lt;div class&#x3D;&quot;map map__krakow&quot;&gt;&lt;/div&gt;
-  &lt;div class&#x3D;&quot;map map__warszawa&quot;&gt;&lt;/div&gt;
-  &lt;div class&#x3D;&quot;map map__poznan&quot;&gt;&lt;/div&gt;
+  &lt;div class&#x3D;&quot;content__right-side&quot;&gt;
+    &lt;!-- stworzenie wysuwanego panelu dla sprawdzenia wiatru w wybranej miejscowości --&gt;
+    &lt;div class&#x3D;&quot;city-wind-check&quot;&gt;
+      &lt;mat-expansion-panel&gt;
+        &lt;mat-expansion-panel-header&gt;
+          &lt;mat-panel-title&gt;
+            Sprawdź wiatr w wybranym mieście!
+          &lt;/mat-panel-title&gt;
+          &lt;mat-panel-description&gt;
+            Wprowadź miasto!
+          &lt;/mat-panel-description&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;mat-form-field&gt;
+          &lt;input matInput placeholder&#x3D;&quot;Miasto&quot; #city&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-button id&#x3D;&quot;expansion-button&quot; (click)&#x3D;&quot;getDataCityCheck(city.value)&quot;&gt;Sprawdź dane!&lt;/button&gt;
+        &lt;!-- miejsce na wyświetlenie pobranych wyników --&gt;
+        &lt;div class&#x3D;&quot;city-wind-result&quot; *ngFor&#x3D;&quot;let winddeg of citywinddegresults&quot;&gt;
+          &lt;div class&#x3D;&quot;city-wind-result--deg&quot; *ngFor&#x3D;&quot;let winddeg of citywinddegresults&quot;&gt;
+            &lt;p&gt;Kierunek wiatru:&lt;/p&gt;
+            &lt;img class&#x3D;&quot;city-wind-result--icon&quot; [src]&#x3D;&quot; &#x27;assets/map_pictures/wiater.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;city-wind-result--speed&quot; *ngFor&#x3D;&quot;let windspeed of citywindspeedresults&quot;&gt;
+            &lt;p&gt;Siła wiatru:&lt;/p&gt;
+            &lt;p&gt;{{windspeed}}&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- miejsce na wyświetlenie pobranych wyników --&gt;
+      &lt;/mat-expansion-panel&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
-
-
-
 
 
 
@@ -576,27 +1303,96 @@ export class MapComponentComponent implements OnInit {
                 <p class="comment">
                     <code>./map-component.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.map{
-    position: absolute;
+                <pre class="line-numbers"><code class="language-scss">.content{
+    display: flex;
+}
+
+.content__left-side{
+    width: 50%;
+    height: 40%;
+}
+
+.content__right-side{
+    width: 50%;
+    height: 40%;
+}
+
+.map{
     opacity: 0;
+    position: relative;
+    display: block;
+}
+
+.map img{
+    width: 65%;
+    height: auto;
 }
 
 .map__bialystok img{
     position: absolute;
-    top: 130px;
-    left: 390px;
-    width: 100px;
+    top: 22%;
+    left: 50%;
+    width: 12%;
     height: auto;
 }
 
+.map__krakow img{
+    position: absolute;
+    top: 68%;
+    left: 35%;
+    width: 12%;
+    height: auto;
+}
 
+.map__warszawa img{
+    position: absolute;
+    top: 35%;
+    left: 38%;
+    width: 12%;
+    height: auto;
+}
 
+.map__poznan img{
+    position: absolute;
+    top: 32%;
+    left: 15%;
+    width: 12%;
+    height: auto;
+}
 
+.city-wind-check{
+    width: 60%;
+    margin-top: 55px;
 
+    animation-name: moveToBottom;
+    animation-duration: 1.5s;
+    animation-delay: 0.6s;
+    animation-fill-mode: backwards;
+}
 
+#expansion-button{
+    width: 40%;
+    margin-left: 10px;
+}
 
+.city-wind-result--icon{
+    width: 12%;
+    height: auto;
+}
 
+.city-wind-result{
+    display: flex;
+}
 
+.city-wind-result--deg{
+    width: 50%;
+    height: auto;
+}
+
+.city-wind-result--speed{
+    width: 50%;
+    height: auto;
+}
 
 
 
@@ -662,7 +1458,7 @@ export class MapComponentComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="map">  <img [src]=" \'assets/map_pictures/mapa.png \'" alt="image">  <div class="map__bialystok" *ngFor="let result of northresults">    <!-- <div class="map__bialystok--north-wind" *ngIf="result >= 0 && result <= 89">      <img [src]=" \'assets/map_pictures/wiater.png \'" alt="image">    </div>    <div class="map__bialystok--south-wind" *ngIf="result >= 90 && result <= 179">      <img [src]=" \'assets/map_pictures/wiater.png \'" alt="image">    </div>    <div class="map__bialystok--east-wind" *ngIf="result >= 108 && result <= 269">      <img [src]=" \'assets/map_pictures/wiater.png \'" alt="image">    </div>    <div class="map__bialystok--west-wind" *ngIf="result >= 270 && result <= 359">      <img [src]=" \'assets/map_pictures/wiater.png \'" alt="image">    </div> -->  </div>  <div class="map map__krakow"></div>  <div class="map map__warszawa"></div>  <div class="map map__poznan"></div></div><!-- -----PIERWSZA WERSJA MAPY----- --><!-- <div class="map-container">    <div class="map-frame">      <div id="map"></div>    </div>  </div> --><!-- -----DRUGA WERSJA MAPY----- --><!-- <div class="results">  <input class="nav__buttons__input" id="inputLat" value="53.1324886" #lat>  <input class="nav__buttons__input" id="inputLon" value="23.1688403" #lon></div><div class="map-container">  <div class="map-frame">    <div id="map" class="map"></div>    <div id="mouse-position"></div>  </div>  </div> --></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="content">  <div class="content__left-side">    <div class="map">      <img [src]=" \'assets/map_pictures/mapa.png \'" alt="image">      <div class="map__bialystok" *ngFor="let result of northresults">        <div class="map__bialystok--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__bialystok--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__bialystok--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__bialystok--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__krakow" *ngFor="let result of southresults">        <div class="map__krakow--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__krakow--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__krakow--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__krakow--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__warszawa" *ngFor="let result of centralresults">        <div class="map__warszawa--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__warszawa--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__warszawa--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__warszawa--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__poznan" *ngFor="let result of westresults">        <div class="map__poznan--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__poznan--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__poznan--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__poznan--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>    </div>  </div>  <div class="content__right-side">    <!-- stworzenie wysuwanego panelu dla sprawdzenia wiatru w wybranej miejscowości -->    <div class="city-wind-check">      <mat-expansion-panel>        <mat-expansion-panel-header>          <mat-panel-title>            Sprawdź wiatr w wybranym mieście!          </mat-panel-title>          <mat-panel-description>            Wprowadź miasto!          </mat-panel-description>        </mat-expansion-panel-header>        <mat-form-field>          <input matInput placeholder="Miasto" #city>        </mat-form-field>        <button mat-button id="expansion-button" (click)="getDataCityCheck(city.value)">Sprawdź dane!</button>        <!-- miejsce na wyświetlenie pobranych wyników -->        <div class="city-wind-result" *ngFor="let winddeg of citywinddegresults">          <div class="city-wind-result--deg" *ngFor="let winddeg of citywinddegresults">            <p>Kierunek wiatru:</p>            <img class="city-wind-result--icon" [src]=" \'assets/map_pictures/wiater.png \'" alt="image">          </div>          <div class="city-wind-result--speed" *ngFor="let windspeed of citywindspeedresults">            <p>Siła wiatru:</p>            <p>{{windspeed}}</p>          </div>        </div>        <!-- miejsce na wyświetlenie pobranych wyników -->      </mat-expansion-panel>    </div>  </div></div><!-- -----PIERWSZA WERSJA MAPY----- --><!-- <div class="map-container">    <div class="map-frame">      <div id="map"></div>    </div>  </div> --><!-- -----DRUGA WERSJA MAPY----- --><!-- <div class="results">  <input class="nav__buttons__input" id="inputLat" value="53.1324886" #lat>  <input class="nav__buttons__input" id="inputLon" value="23.1688403" #lon></div><div class="map-container">  <div class="map-frame">    <div id="map" class="map"></div>    <div id="mouse-position"></div>  </div>  </div> --></div>'
     var COMPONENTS = [{'name': 'AirQualityComponentComponent', 'selector': 'app-air-quality-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MapComponentComponent', 'selector': 'app-map-component'},{'name': 'QualityComponentComponent', 'selector': 'app-quality-component'},{'name': 'StatsComponentComponent', 'selector': 'app-stats-component'},{'name': 'WeatherComponentComponent', 'selector': 'app-weather-component'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MapComponentComponent'};

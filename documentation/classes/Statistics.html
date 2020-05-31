@@ -128,6 +128,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor obiektu klasy Statistics</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -136,6 +138,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -150,6 +153,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>zmienna przechowująca informacje o temperaturze.</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>pressure</td>
@@ -162,6 +169,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>zmienna przechowująca informacje o ciśnienu.</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>windPower</td>
@@ -174,6 +185,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>zmeinna przechowująca informacje o sile wiatru.</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -210,10 +225,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/models/calculated-stats.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/models/calculated-stats.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">zmienna przechowująca informacje o ciśnienu.</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -238,10 +258,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/models/calculated-stats.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/models/calculated-stats.ts:15</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">zmienna przechowująca informacje o temperaturze.</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -266,10 +291,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/models/calculated-stats.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/models/calculated-stats.ts:17</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">zmeinna przechowująca informacje o sile wiatru.</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -293,12 +323,11 @@
 export class Statistics {
 
   /**
-   *
-   * @param temperature
-   * @param pressure
-   * @param windPower
+   * Konstruktor obiektu klasy Statistics
+   * @param temperature zmienna przechowująca informacje o temperaturze.
+   * @param pressure zmienna przechowująca informacje o ciśnienu.
+   * @param windPower zmeinna przechowująca informacje o sile wiatru.
    */
-
     constructor(
         public temperature: CalculatedProps,
         public pressure: CalculatedProps,

@@ -4,7 +4,12 @@ import { HttpClient } from '@angular/common/http';
 
 declare var $: any;
 
-
+/**
+ * Komponent zakładki Mapy.
+ * 
+ * Wyświetlanie kierunków wiatru na mapie oraz danych o wietrze dla wybranej
+ * przez użytkownika miejscowości.
+ */
 @Component({
   selector: 'app-map-component',
   templateUrl: './map-component.component.html',
@@ -12,16 +17,41 @@ declare var $: any;
 })
 
 export class MapComponentComponent implements OnInit {
-
+/**
+ * Tablica przechowująca dane o kierunku wiatru w północnej części kraju.
+ */
   private northresults = [];
+  /**
+ * Tablica przechowująca dane o kierunku wiatru w południowej części kraju.
+ */
   private southresults = [];
+  /**
+ * Tablica przechowująca dane o kierunku wiatru w centralnej części kraju.
+ */
   private centralresults = [];
+  /**
+ * Tablica przechowująca dane o kierunku wiatru w zachodniej części kraju.
+ */
   private westresults = [];
+  /**
+   * Tablica przechowująca dane pobrane z api o kierunkach wiatru w wybranych przez użytkownika miejscowościach.
+   */
   private citywinddegresults = [];
+   /**
+   * Tablica przechowująca dane pobrane z api o prędkości wiatru w wybranych przez użytkownika miejscowościach.
+   */
   private citywindspeedresults = [];
-
+/**
+ * Konstruktor klaasy głównej: MapComponentComponent
+ * @param http 
+ * @param service 
+ */
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
+  /**
+   * Funkcja inicajlizująca wywłanie funkcji pobierających kierunek wiatru w Białymstoku, Krakowie, Warszawie, Poznaniu. 
+   * Pobrane informacje zostaną przedstawione na mapie w postaci strzałek prezentujących kierunek wiatru.
+   */
   ngOnInit() {
     //wywołanie funkcji, które pobiorą kierunek wiatru; na podstawie tych danych na mapie pojawią się odpowiednie strzałki reprezentujace kierunek wiatru
     this.getDataBialystok("Białystok");
@@ -34,7 +64,11 @@ export class MapComponentComponent implements OnInit {
       $(".map").animate({ opacity: 1 }, 1500)
     })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Białymstoku i zapisujaca go w tablicy "northresults[]"". Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   //dodanie do tablicy pobranego kierunku wiatru z Białegostoku
   getDataBialystok(term) {
     return this.service.getWeatherForecastData(term)
@@ -43,7 +77,11 @@ export class MapComponentComponent implements OnInit {
         this.northresults.push(data[0].list[0].wind.deg);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Krakowie i zapisujaca go w tablicy "southresults[]. Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataKrakow(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -51,7 +89,11 @@ export class MapComponentComponent implements OnInit {
         this.southresults.push(data[0].list[0].wind.deg);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Warszawie i zapisujaca go w tablicy "centralresults[]. Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataWarszawa(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -59,7 +101,11 @@ export class MapComponentComponent implements OnInit {
         this.centralresults.push(data[0].list[0].wind.deg);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru w Poznaniu i zapisujaca go w tablicy "westresults[]. Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataPoznan(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -67,7 +113,11 @@ export class MapComponentComponent implements OnInit {
         this.westresults.push(data[0].list[0].wind.deg);
       })
   }
-
+/**
+ * Funkcja pobierająca dane z API o wietrze w wybranej przez użytkownika miejscowości. Odwoluje się do funkcji "getWeatherForecastData()",
+ * pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są ddawane do tabeli z danymi "winddata".
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
   getDataCityCheck(term) {
     return this.service.getWeatherForecastData(term)
