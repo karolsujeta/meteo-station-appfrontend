@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherServiceService } from '../../services/weather/weather-service.service';
 import { Chart } from 'chart.js';
@@ -18,7 +18,7 @@ export class WeatherComponentComponent implements OnInit {
   public errorMsg;
   public resultsForecastToChartData = [];
   public resultsForecastToChartTemp = [];
-  public resultsForecastToTable = [];
+  public resultsForecastToTable: any;
 
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
@@ -58,15 +58,17 @@ export class WeatherComponentComponent implements OnInit {
     this.service
       .getWeatherForecastData(term)
       .subscribe((data: any) => {
+        this.resultsForecastToTable = [];
         var maxTemp = data[0].list[0].main.temp_max;
         var minTemp = data[0].list[0].main.temp_min;
         var icon = data[0].list[0].weather[0].icon;
         for (let i = 0; i < data[0].list.length - 1; i++) {
-          console.log(data);
+          //console.log(data);
           var date = new Date(data[0].list[i].dt_txt);
           if (date.getHours() == 12) {
             icon = data[0].list[i].weather[0].icon;
           }
+
           if(date.getDate() == new Date(data[0].list[i+1].dt_txt).getDate()) {
             if(maxTemp < data[0].list[i+1].main.temp_max) {
               maxTemp = data[0].list[i+1].main.temp_max;
@@ -78,8 +80,9 @@ export class WeatherComponentComponent implements OnInit {
           }
           else {
             this.resultsForecastToTable.push({date: date.getDate() + ".0" + (date.getMonth()+1), minTemp: minTemp, maxTemp: maxTemp, icon: icon});
-            maxTemp = data[0].list[i].main.temp_max;
-            minTemp = data[0].list[i].main.temp_min;
+            console.log(this.resultsForecastToTable);
+            maxTemp = data[0].list[i+1].main.temp_max;
+            minTemp = data[0].list[i+1].main.temp_min;
           }
         }
 
@@ -91,6 +94,7 @@ export class WeatherComponentComponent implements OnInit {
           this.resultsForecastToChartData.push(date.getDate() + ".0" + (1 + date.getMonth()) + " " + date.getHours() + ":00");
           this.resultsForecastToChartTemp.push(data[0].list[i].main.temp);
         }
+        //console.log(data);
         this.resultsForecast = data;
         this.drawChart();
       },
@@ -101,8 +105,14 @@ export class WeatherComponentComponent implements OnInit {
   drawChart() {
     //console.log(this.resultsForecastToChartData);
     var city = <HTMLInputElement> document.getElementById('cityInput');
-    console.log(city);
-    var myChart = new Chart('chart__forecast', {
+    var myChart = <HTMLInputElement> document.getElementById('chart__forecast');
+    if (myChart != null) {
+      console.log(1000000);
+      myChart.remove();
+      var chartArea =<HTMLInputElement> document.getElementById('chart-area');
+      chartArea.insertAdjacentHTML('afterbegin','<canvas id="chart__forecast"></canvas>');
+    }
+    new Chart('chart__forecast', {
       type: 'line',
       data: {
         labels: this.resultsForecastToChartData, //dt_txt,

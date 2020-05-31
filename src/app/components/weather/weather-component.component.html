@@ -50,7 +50,7 @@
         </table>
     </div>
 
-    <div class="content__chart content__my-custom-scrollbar" *ngFor="let result of resultsForecast">
+    <div class="content__chart content__my-custom-scrollbar" *ngIf="resultsForecastToTable != undefined ">
         <table class="table right_side_table">
 
             <thead>
@@ -77,6 +77,6 @@
     </div>
 </div>
 
-<div class="chart-area">
+<div id = "chart-area" class="chart-area">
     <canvas id="chart__forecast"></canvas>
 </div>

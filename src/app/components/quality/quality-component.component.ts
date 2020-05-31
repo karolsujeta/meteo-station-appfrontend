@@ -116,9 +116,15 @@ export class QualityComponentComponent implements OnInit {
       (`lat: ${latitude} long: ${longitude}`);
       serviceTmp
         .getAirData(latitude, longitude)
-        .subscribe((records: any) => {
+        .subscribe(
+          (records: any) => {
           console.log(records);
           qualityComponent.results = records;
+        },
+        error => {
+          if (error =! null){
+            qualityComponent.results = undefined;
+          };
         });
         overlay.setPosition(args.coordinate);
         cloudOverlay.setPosition(args.coordinate);
