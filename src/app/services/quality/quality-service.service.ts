@@ -8,7 +8,11 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 /**
- * Pobieranie danych z api airly.eu.
+ * Pobieranie danych z api airly.eu. 
+ * 
+ * API airly.eu pozwala na zadanie 100 zapytań dziennie,
+ * o północy jest liczone kolejne 100 zapytań. Po przekroczeniu limitu pojawia się komunikat "limit exceeded",
+ * nie sa pobierane żadne opłaty.
  */
 @Injectable({
   providedIn: 'root'
@@ -20,7 +24,7 @@ export class QualityServiceService {
    */
   list: any;
   /**
-   * Adres api, z którego pobieramy dane o jakości powietrza. 
+   * Adres api, z którego pobieramy dane o jakości powietrza.
    */
   apiUrl = 'https://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&maxDistanceKM=100';  unsubscribe: any;
 
@@ -32,6 +36,7 @@ export class QualityServiceService {
 
   /**
    * Funkcja pobiera dane z api o jakości powietrza w wybranym miejscu opisanym poprzez szerokość i długość geograficzną.
+   * Odwołuje się do obiektu klasy AirData.
    * @param lat szerokość geograficzna
    * @param lng długość geograficzna
    */

@@ -4,6 +4,11 @@
  * Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomiary będą w odtępach godzinowych, dniowych czy miesięcznych.
  */
 export class StatisticType {
+    /**
+     * Konstruktor obiektu klasy StatisticType
+     * @param id indywidualy numer rodzaju statystyk
+     * @param name zmienna określająca rodzaj statystyk
+     */
     constructor(public id: number, public name: string) {
 
     }

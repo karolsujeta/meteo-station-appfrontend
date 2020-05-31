@@ -126,6 +126,8 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor obiektu klasy StatisticType</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -134,6 +136,7 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,6 +151,10 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>indywidualy numer rodzaju statystyk</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>name</td>
@@ -160,6 +167,10 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>zmienna określająca rodzaj statystyk</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -196,10 +207,15 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/models/statistic-type.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/models/statistic-type.ts:12</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">indywidualy numer rodzaju statystyk</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -224,10 +240,15 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/models/statistic-type.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/models/statistic-type.ts:12</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">zmienna określająca rodzaj statystyk</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -244,6 +265,11 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class StatisticType {
+    /**
+     * Konstruktor obiektu klasy StatisticType
+     * @param id indywidualy numer rodzaju statystyk
+     * @param name zmienna określająca rodzaj statystyk
+     */
     constructor(public id: number, public name: string) {
 
     }

@@ -257,12 +257,14 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 
 import { AppRoutingModule } from &#x27;./app-routing.module&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
-import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { HttpClientModule, HttpClient } from &#x27;@angular/common/http&#x27;;
 import { WeatherComponentComponent } from &#x27;./components/weather/weather-component.component&#x27;;
 import { MapComponentComponent } from &#x27;./components/map/map-component.component&#x27;;
 import { StatsComponentComponent } from &#x27;./components/stats-component/stats-component.component&#x27;;
 import { QualityComponentComponent } from &#x27;./components/quality/quality-component.component&#x27;;
+import { BrowserAnimationsModule } from &#x27;@angular/platform-browser/animations&#x27;;
+import { MatExpansionModule, MatInputModule } from &#x27;@angular/material&#x27;;
 // import { AirQualityComponentComponent } from &#x27;./components/air-quality-component/air-quality-component.component&#x27;;
 
 @NgModule({
@@ -278,9 +280,12 @@ import { QualityComponentComponent } from &#x27;./components/quality/quality-com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

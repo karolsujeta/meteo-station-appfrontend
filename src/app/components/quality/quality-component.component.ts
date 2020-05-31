@@ -35,14 +35,20 @@ var popupCloser: any;
  */
 var cloudContainer: any;
 
-
+/**
+ * Quality component
+ * Komponent zakładki Jakość Powietrza odpowiedzialny za pobieranie danych z API, wyświetlanie
+ * danych o jakości powietrza, z wybranego przez użytkownika punktu na mapie, w postaci tabeli. 
+ */
 @Component({
   selector: 'app-quality-component',
   templateUrl: './quality-component.component.html',
   styleUrls: ['./quality-component.component.css']
 })
 
-
+/**
+ * Klasa odpowiadająca za wyświetlenie mapy w zakładce
+ */
 export class QualityComponentComponent implements OnInit {
 
   /**
@@ -52,15 +58,17 @@ export class QualityComponentComponent implements OnInit {
 /**
    * Zmienna przechowująca odpowiedź z API Airly.
    */
+
   public results: any;
     /**
+
    * Konstruktor klasy 'QualityComponentComponent'.
    * @param http
    * @param service
    */
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
-    /**
+  /**
    * Inicjowanie wyświetlenia mapy na stronie.
    */
   ngOnInit() {

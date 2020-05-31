@@ -12,6 +12,7 @@ declare var $: any;
 
 /**
  * Stats component
+ * 
  * Komponent odpowiedzialny za pobranie danych z API, obliczenie podstawowych statystyk temperatury, ciśnienia oraz siły wiatru
  * bazując na wybranych przez użytkownika parametrach, czyli: miejscowość, przedział czasowy,
  * typ statystyk oraz wyświetlenie statystyk na stronie.
@@ -109,7 +110,7 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miaast możliwych do wyboru,
+   * Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miast możliwych do wyboru,
    * ustawia domyślnie typ statystyk na godzinowy (zostaje zaznaczony radio button) oraz inicjalizuje daty przedziału czasowego.
    */
   ngOnInit() {
@@ -153,8 +154,8 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja pobierająca zaznaczony typo statystyk za każdym razem, gdy zostanie on zmieniony.
-   * Czy za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.
+   * Funkcja pobierająca zaznaczony typ statystyk za każdym razem, gdy zostanie on zmieniony.
+   * Czyli za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.
    */
   onItemChange(item) {
     this.getSelecteditem();
@@ -162,8 +163,8 @@ export class StatsComponentComponent implements OnInit {
 
   /**
    * Funkcja sprawdzająca czy wszystkie dane podane przez użytkownika są poprawne oraz czy zostały podane wszystkie wymagane dane.
-   * Funkcja sprawsza czy została wybrana miejscowość oraz czy początkowa data
-   * podanego przedziału czasowego jest wczesńiejsza niż data końcowa.
+   * Funkcja sprawdza czy została wybrana miejscowość oraz czy początkowa data
+   * podanego przedziału czasowego jest wcześniejsza niż data końcowa.
    */
   validateForm() {
     if (this.selectedStation === undefined || this.selectedStation === '0: -1') {

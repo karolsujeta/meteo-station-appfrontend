@@ -125,6 +125,8 @@ Obiekt składa się z id oraz nazwy miejscowości. </p>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor obiektu klasy Station</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -133,6 +135,7 @@ Obiekt składa się z id oraz nazwy miejscowości. </p>
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -147,6 +150,10 @@ Obiekt składa się z id oraz nazwy miejscowości. </p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>numer id</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>name</td>
@@ -159,6 +166,10 @@ Obiekt składa się z id oraz nazwy miejscowości. </p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>nazwa miejscowości</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -195,10 +206,15 @@ Obiekt składa się z id oraz nazwy miejscowości. </p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/station.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/models/station.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">numer id</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -223,10 +239,15 @@ Obiekt składa się z id oraz nazwy miejscowości. </p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/station.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/models/station.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">nazwa miejscowości</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -243,6 +264,11 @@ Obiekt składa się z id oraz nazwy miejscowości. </p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Station {
+    /**
+     * Konstruktor obiektu klasy Station
+     * @param id numer id
+     * @param name nazwa miejscowości
+     */
     constructor(public id: number, public name: string) {
     }
 }
