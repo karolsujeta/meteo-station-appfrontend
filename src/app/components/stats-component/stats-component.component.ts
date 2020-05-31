@@ -6,6 +6,8 @@ import { MeteoStatsService } from '../../services/meteo-stat/meteo-stats.service
 import { Statistics } from '../../models/calculated-stats';
 import { MeteoStatsData } from '../../models/meteo-stats-data';
 import { CalculatedProps } from '../../models/statistics';
+import * as CanvasJS from '../../../canvasjs/canvasjs.min';
+import { ChartService } from '../../services/meteo-stat/chart-service';
 declare var $: any;
 
 /**
@@ -91,8 +93,11 @@ export class StatsComponentComponent implements OnInit {
    */
   isWindCalculated: boolean;
 
+  title: string;
 
+  popupResult: any;
 
+  chartService: ChartService = new ChartService();
   /**
    *
    * Konstruktor klasy głównej: StatsComponentComponent
@@ -115,6 +120,7 @@ export class StatsComponentComponent implements OnInit {
     });
     this.stationList = new StationList().stationList;
     this.radioSelected = '1';
+    this.selectedStation = '0: -1';
     this.initializeDate();
   }
 
@@ -161,7 +167,7 @@ export class StatsComponentComponent implements OnInit {
    * podanego przedziału czasowego jest wcześniejsza niż data końcowa.
    */
   validateForm() {
-    if (this.selectedStation === undefined) {
+    if (this.selectedStation === undefined || this.selectedStation === '0: -1') {
       this.validMessage = 'Proszę wybrać stację meteorologiczną';
       return false;
     }
@@ -183,6 +189,8 @@ export class StatsComponentComponent implements OnInit {
    */
   generateReport() {
     this.isRequestSended = false;
+    this.destroyChart('temperatureChart');
+    this.destroyChart('pressureChart');
     console.log(this.selectedFromDate);
     console.log(this.selectedToDate);
     console.log(this.radioSelected);
@@ -192,6 +200,8 @@ export class StatsComponentComponent implements OnInit {
     if (isValid) {
       this.showMeteoStats();
     }
+
+
   }
 
 
@@ -210,6 +220,57 @@ export class StatsComponentComponent implements OnInit {
       });
   }
 
+  getDataAndRenderPopupChart(type: number, dateType: string, dateFrom: string, dateTo: string) {
+    return this.service.getStatsData(dateType, this.selectedStation, dateFrom, dateTo)
+      .subscribe((results: any) => {
+        this.popupResult = results;
+        const popupData = type === 1 ?
+          this.chartService.CalculateTemperatureData(dateType, this.popupResult.data) :
+          this.chartService.CalculatePressureData(dateType, this.popupResult.data);
+        if (popupData.length > 0) {
+          const popupChart = new CanvasJS.Chart('popupChart', {
+            title: {
+              text: dateFrom
+            },
+            height: 300,
+            width: 800,
+            data: [
+              {
+                // type: 'bar',
+                type: 'line',
+                color: type === 1 ? 'blue' : 'red',
+                dataPoints: popupData
+              }
+            ]
+          });
+          popupChart.render();
+        }
+      });
+  }
+
+  displayDaily(day: string, type: number) {
+    this.destroyChart('popupChart');
+    const dateType = '1';
+    const dateFrom = day;
+    const dateTo = day;
+    this.getDataAndRenderPopupChart(type, dateType, dateFrom, dateTo);
+    $('#modalTitle').text(day);
+    $('#chartModal').modal('show');
+  }
+
+  displayMonthly(month: string, type: number) {
+    this.destroyChart('popupChart');
+    const dateType = '2';
+    const monthDate = new Date(month);
+    const dateFrom = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+    const parsedDateFrom = this.getDateToRequest(dateFrom);
+    const dateTo = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0);
+    const parsedDateTo = this.getDateToRequest(dateTo);
+    this.getDataAndRenderPopupChart(type, dateType, parsedDateFrom, parsedDateTo);
+    $('#modalTitle').text(month);
+    $('#chartModal').modal('show');
+  }
+
   /**
    * Funkcja generująca oraz wyświetlająca statystyki, jeżeli dane pobrane z API są kompletne.
    * Jeżeli dane z API nie są kompletne, wyświetlona zostaje informacja o braku danych.
@@ -224,6 +285,56 @@ export class StatsComponentComponent implements OnInit {
       const windPowerStats = this.calculateWindPowerStats(this.radioSelected, dataLength);
       this.statData = new Statistics(tempStats, pressureStats, windPowerStats);
       this.isDataLoaded = true;
+      const tempCharList = this.chartService.CalculateTemperatureData(this.radioSelected, this.results.data);
+      if (tempCharList.length > 0) {
+        const me = this;
+        const temperatureChart = new CanvasJS.Chart('temperatureChart', {
+          title: {
+            text: 'Temperatura'
+          },
+          height: 300,
+          data: [
+            {
+              // tslint:disable-next-line:only-arrow-functions
+              click(e) {
+                if (me.radioSelected === '2') {
+                  me.displayDaily(e.dataPoint.label, 1);
+                } else if (me.radioSelected === '3') {
+                  me.displayMonthly(e.dataPoint.label, 1);
+                }
+              },
+              // type: 'bar',
+              color: 'blue',
+              dataPoints: tempCharList
+            }
+          ]
+        });
+        temperatureChart.render();
+        const pressCharList = this.chartService.CalculatePressureData(this.radioSelected, this.results.data);
+        const pressureChart = new CanvasJS.Chart('pressureChart', {
+          title: {
+            text: 'Ciśnienie'
+          },
+          axisY: {
+            minimum: Number(pressureStats.min) - 5
+          },
+          height: 300,
+          data: [
+            {
+              click(e) {
+                if (me.radioSelected === '2') {
+                  me.displayDaily(e.dataPoint.label, 2);
+                } else if (me.radioSelected === '3') {
+                  me.displayMonthly(e.dataPoint.label, 2);
+                }
+              },
+              color: 'red',
+              dataPoints: pressCharList
+            }
+          ]
+        });
+        pressureChart.render();
+      }
     } else {
       // trzeba cos wyswietlic na UI ze nie dostaliśmy danych
       this.isDataLoaded = false;
@@ -239,7 +350,7 @@ export class StatsComponentComponent implements OnInit {
   calculateTemperatureStats(radioSelected, dataLength): CalculatedProps {
     let j = 0;
     for (j; j < dataLength; j++) {
-      if (radioSelected === '3' ? this.results.data[j].temperature_mean : this.results.data[j].temperature === null) {
+      if (radioSelected === '3' ? this.results.data[j].temperature_mean === null : this.results.data[j].temperature === null) {
         continue;
       } else {
         j++;
@@ -373,4 +484,26 @@ export class StatsComponentComponent implements OnInit {
     }
     return new CalculatedProps(minWindPower, minWindPowerDate, maxWindPower, maxWindPowerDate, sumWindPower, dataCount);
   }
+
+  destroyChart(id: string) {
+    const temperatureChart = new CanvasJS.Chart(id);
+    temperatureChart.destroy();
+  }
+
+  getDateToRequest(date: Date): string {
+    const parsedDate = date.toLocaleString();
+    const length = parsedDate.length;
+    const offset = length === 20 ? 1 : 0;
+
+    let day = parsedDate.substring(0, 1 + offset);
+    if (offset === 0) {
+      day = '0' + day;
+    }
+    const month = parsedDate.substring(2 + offset, 4 + offset);
+    const year = parsedDate.substring(5 + offset, 9 + offset);
+    const result = year + '-' + month + '-' + day;
+    console.log(result);
+    return result;
+  }
+
 }

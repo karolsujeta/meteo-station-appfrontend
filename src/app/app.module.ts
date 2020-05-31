@@ -11,7 +11,7 @@ import { StatsComponentComponent } from './components/stats-component/stats-comp
 import { QualityComponentComponent } from './components/quality/quality-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule, MatInputModule } from '@angular/material';
-// import { AirQualityComponentComponent } from './components/air-quality-component/air-quality-component.component';
+import { AirQualityComponentComponent } from './components/air-quality-component/air-quality-component.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { MatExpansionModule, MatInputModule } from '@angular/material';
     WeatherComponentComponent,
     MapComponentComponent,
     StatsComponentComponent,
-    QualityComponentComponent
-    // AirQualityComponentComponent
+    QualityComponentComponent,
+    AirQualityComponentComponent,
   ],
   imports: [
     BrowserModule,

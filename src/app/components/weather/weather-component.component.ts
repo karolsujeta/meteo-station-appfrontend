@@ -6,53 +6,21 @@ import { WeatherData } from '../../services/weather/weather-module';
 import { isNull } from 'util';
 declare var $: any;
 
-/**
- * Weather component
- */
 @Component({
   selector: 'app-weather-component',
   templateUrl: './weather-component.component.html',
   styleUrls: ['./weather-component.component.css']
 })
-/**
- * Klasa odpowiadająca za informacje wyświetlane na stronie głownej aplikacji
- */
 export class WeatherComponentComponent implements OnInit {
 
- /**
-  * Zmienna przechowująca dane z aktualnym stanem pogody analizowanego miasta.
-  */
- public resultsWeather = [];
- /**
- * Zmienna przechowująca dane z prognozą pogody na najbliższe dni analizowanego miasta.
- */
-public resultsForecast: any;
-/**
- * Informacja o błędzie przy wprowadzaniu przez użytkownika nazwy miasta.
- */
-public errorMsg;
-/**
- * Przechowuje dane o czasie pomiaru, wyciągnięte z danych prognozy pogody.
- */
-public resultsForecastToChartData = [];
-/**
- * Przechowuje temperatury wyciągnięte z danych prognozy pogody.
- */
-public resultsForecastToChartTemp = [];
-/**
- * Przechowuje temperatury minimalne wyciągnięte z danych prognozy pogody.
- */
-public resultsForecastToChartMinTemp = [];
-/**
- * Przechowuje temperatury maksymalne wyciągnięte z danych prognozy pogody.
- */
-public resultsForecastToChartMaxTemp = [];
-public resultsForecastToTable = [];
-/**
- *
- * @param http
- * @param service
- */
+  public resultsWeather = [];
+  public resultsForecast: any;
+  public errorMsg;
+  public resultsForecastToChartData = [];
+  public resultsForecastToChartTemp = [];
+  public resultsForecastToTable = [];
+
+
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
   ngOnInit() {
@@ -63,10 +31,7 @@ public resultsForecastToTable = [];
     })
   }
 
-  /**
-   * Funkcja inicjue wyświetlanie się tabel z danymi oraz wykresu poprzez nacisnięcie przycisku "Pokaż dane!"
-   * Odwołuje się do tabel z pogodą w danym momencie '.content__table', z prognozą pogody '.content__chart' oraz wykresem '.chart-area'.
-   */
+  //wyświetlanie się tabel z danymi oraz wykresu po wywołaniu funcji poprzez nacisnięcie przycisku "Pokaż dane!"
   showContent() {
     $(document).ready(function () {
       $(".content__table").show();
@@ -75,11 +40,7 @@ public resultsForecastToTable = [];
     })
   }
 
-  /**
-   * Przypisanie pod zmienną 'resultWeather' danych, które będą wyświetlone w tabeli z aktualnym stanem pogody
-   * w miejscowości podanej przez użytkownika. Dane pobierane są dzięki funkcji 'getWeatherData()'.
-   * @param {string} term Parametr określający miejscowość, dla której wyświetlamy dane
-   */
+  //metoda do wyświetlania głównych danych pogodowych dla wskazanego miejsca
   getWeatherService(term: string) {
     this.service
       .getWeatherData(term)
@@ -92,19 +53,7 @@ public resultsForecastToTable = [];
     this.errorMsg = null;
   }
 
-  /**
-   * Funkcja inicująca pobieranie danych z prognozą pogody oraz przypisanie ich pod ospowiednie zmienne.
-   *
-   * Przypisanie pod zmienną 'resultsForecast' danych do wyświetlenia
-   * w tabeli z prognozą pogody na najbliższe dni.
-   * Dane pobierane są dzięki funkcji 'getWeatherForecastData()' .
-   *
-   * Z danych uzyskanych przez funkcję 'getWeatherForecastData()' wyciągamy i przypisujemy pod odpowiednie zmienne czas pomiaru,
-   * temperaturę, temperaturę minimalną i temperaturę maksymalną. Zmienne wykorzystujemy do rysowania wykresu,
-   * funkcja 'drawChart()'
-   * @param {string} term Parametr określający miejsowość, dla której pobieramy dane.
-   * @return
-   */
+  //metoda do wyświetlania danych pogodowych dla przyszłych pięciu dni
   getForecastService(term: string) {
     this.service
       .getWeatherForecastData(term)
@@ -134,14 +83,13 @@ public resultsForecastToTable = [];
           }
         }
 
-
+        this.resultsForecastToChartData = [];
+        this.resultsForecastToChartTemp = [];
         for (let i = 0; i < data[0].list.length; i++) {
           //console.log(data[0].list[i].main);
           var date = new Date(data[0].list[i].dt_txt);
           this.resultsForecastToChartData.push(date.getDate() + ".0" + (1 + date.getMonth()) + " " + date.getHours() + ":00");
           this.resultsForecastToChartTemp.push(data[0].list[i].main.temp);
-          this.resultsForecastToChartMinTemp.push(data[0].list[i].main.temp_min);
-          this.resultsForecastToChartMaxTemp.push(data[0].list[i].main.temp_max);
         }
         this.resultsForecast = data;
         this.drawChart();
@@ -149,11 +97,11 @@ public resultsForecastToTable = [];
       )
   }
 
-  /**
-   * Funkcja rysująca wykres prognozy pogody. Odwołujemy się do niej w funkcji 'getForecastService()'.
-   */
+  //rysowanie wykresu na podstawie danych pobranych z API
   drawChart() {
     //console.log(this.resultsForecastToChartData);
+    var city = <HTMLInputElement> document.getElementById('cityInput');
+    console.log(city);
     var myChart = new Chart('chart__forecast', {
       type: 'line',
       data: {
@@ -171,7 +119,7 @@ public resultsForecastToTable = [];
         responsive: true,
         title: {
           display: true,
-          text: 'Prognozowana temperatura w przeciągu najbliższych 5 dni'
+          text: 'Prognozowana temperatura w przeciągu najbliższych 5 dni dla miejscowości ' + city.value.toUpperCase(),
         },
       }
     });

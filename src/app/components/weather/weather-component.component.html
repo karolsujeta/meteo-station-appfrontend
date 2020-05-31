@@ -5,7 +5,7 @@
     </div>
 
     <div class="nav__buttons">
-        <input class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>
+        <input id="cityInput" class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>
         <button class="nav__buttons__btn" (click)="getWeatherService(city.value)"
             (click)="getForecastService(city.value)" (click)="showContent()">Pokaż
             dane!</button>
@@ -78,5 +78,5 @@
 </div>
 
 <div class="chart-area">
-    <canvas id="chart__forecast">{{chart}}</canvas>
+    <canvas id="chart__forecast"></canvas>
 </div>

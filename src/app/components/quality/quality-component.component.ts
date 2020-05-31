@@ -58,8 +58,10 @@ export class QualityComponentComponent implements OnInit {
 /**
    * Zmienna przechowująca odpowiedź z API Airly.
    */
-  private results: any;
-  /**
+
+  public results: any;
+    /**
+
    * Konstruktor klasy 'QualityComponentComponent'.
    * @param http
    * @param service
@@ -88,7 +90,7 @@ export class QualityComponentComponent implements OnInit {
       duration: 250
     }
   });
-
+  
   popupCloser.onclick = function() {
     overlay.setPosition(undefined);
     cloudOverlay.setPosition(undefined);
@@ -118,7 +120,7 @@ export class QualityComponentComponent implements OnInit {
       var lonlat = ol.proj.transform(args.coordinate, 'EPSG:3857', 'EPSG:4326');
       console.log(lonlat);
       longitude = lonlat[0];
-      latitude = lonlat[1];
+      latitude = lonlat[1];      
       (`lat: ${latitude} long: ${longitude}`);
       serviceTmp
         .getAirData(latitude, longitude)
@@ -131,3 +133,4 @@ export class QualityComponentComponent implements OnInit {
     });
   }
 }
+

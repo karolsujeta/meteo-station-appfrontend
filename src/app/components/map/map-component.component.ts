@@ -17,6 +17,7 @@ declare var $: any;
 })
 
 export class MapComponentComponent implements OnInit {
+
 /**
  * Tablica przechowująca dane o kierunku wiatru w północnej części kraju.
  */
@@ -46,6 +47,37 @@ export class MapComponentComponent implements OnInit {
  * @param http 
  * @param service 
  */
+
+
+  public bialystokWindResults = [];
+  public krakowWindResults = [];
+  public warszawaWindResults = [];
+  public poznanWindResults = [];
+  public gdanskWindResults = [];
+  public wroclawWindResults = [];
+  public lublinWindResults = [];
+  public kolobrzegWindResults = [];
+  public lodzWindResults = [];
+  public olsztynWindResults = [];
+  public szczecinWindResults = [];
+  public bialystokTempResults = [];
+  public krakowTempResults = [];
+  public warszawaTempResults = [];
+  public poznanTempResults = [];
+  public gdanskTempResults = [];
+  public wroclawTempResults = [];
+  public lublinTempResults = [];
+  public kolobrzegTempResults = [];
+  public lodzTempResults = [];
+  public olsztynTempResults = [];
+  public szczecinTempResults = [];
+  public cityWindSpeedResults = [];
+  public cityWindDegreesResults = [];
+  public cityTemp = [];
+  errorWind: boolean;
+  errorTemp: boolean;
+
+
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
   /**
@@ -58,23 +90,32 @@ export class MapComponentComponent implements OnInit {
     this.getDataKrakow("Kraków");
     this.getDataWarszawa("Warszawa");
     this.getDataPoznan("Poznan");
-
+    this.getDataGdansk("Gdańsk");
+    this.getDataWroclaw("Wrocław");
+    this.getDataLublin("Lublin");
+    this.getDataLodz("Łódź");
+    this.getDataOlsztyn("Olsztyn");
+    this.getDataSzczecin("Szczecin");
 
     $(document).ready(function () {
       $(".map").animate({ opacity: 1 }, 1500)
     })
   }
+
 /**
  * Funkcja pobierająca z API kierunek wiatru w Białymstoku i zapisujaca go w tablicy "northresults[]"". Odwołuje się do funkcji "getWeatherForecastData()",
  * która pobiera dane z API openweathermap.org
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
   //dodanie do tablicy pobranego kierunku wiatru z Białegostoku
+
   getDataBialystok(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
-        //console.log(data[0].list[0].wind.deg
-        this.northresults.push(data[0].list[0].wind.deg);
+        this.bialystokWindResults.push(data[0].list[0].wind.deg);
+        this.bialystokTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Białymstoku:", this.bialystokWindResults);
+        console.log("Temperatura w Białymstoku:", this.bialystokTempResults);
       })
   }
 /**
@@ -85,8 +126,10 @@ export class MapComponentComponent implements OnInit {
   getDataKrakow(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
-        //console.log(data[0].list[0].wind.deg
-        this.southresults.push(data[0].list[0].wind.deg);
+        this.krakowWindResults.push(data[0].list[0].wind.deg);
+        this.krakowTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Krakowie:", this.krakowWindResults);
+        console.log("Temperatura w Krakowie:", this.krakowTempResults);
       })
   }
 /**
@@ -97,8 +140,10 @@ export class MapComponentComponent implements OnInit {
   getDataWarszawa(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
-        //console.log(data[0].list[0].wind.deg
-        this.centralresults.push(data[0].list[0].wind.deg);
+        this.warszawaWindResults.push(data[0].list[0].wind.deg);
+        this.warszawaTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Warszawie:", this.warszawaWindResults);
+        console.log("Temperatura w Warszawie:", this.warszawaTempResults);
       })
   }
 /**
@@ -109,90 +154,116 @@ export class MapComponentComponent implements OnInit {
   getDataPoznan(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
-        //console.log(data[0].list[0].wind.deg
-        this.westresults.push(data[0].list[0].wind.deg);
+        this.poznanWindResults.push(data[0].list[0].wind.deg);
+        this.poznanTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Poznaniu:", this.poznanWindResults);
+        console.log("Temperatura w Poznaniu:", this.poznanTempResults);
       })
   }
+
 /**
  * Funkcja pobierająca dane z API o wietrze w wybranej przez użytkownika miejscowości. Odwoluje się do funkcji "getWeatherForecastData()",
  * pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są ddawane do tabeli z danymi "winddata".
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
   //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
-  getDataCityCheck(term) {
+ 
+  getDataGdansk(term) {
     return this.service.getWeatherForecastData(term)
-      .subscribe((winddata: any) => {
-        this.citywindspeedresults.push(winddata[0].list[0].wind.speed);
-        this.citywinddegresults.push(winddata[0].list[0].wind.deg);
-      }),
-      console.log(this.citywindspeedresults);
+      .subscribe((data: any) => {
+        this.gdanskWindResults.push(data[0].list[0].wind.deg);
+        this.gdanskTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Gdańsku:", this.gdanskWindResults);
+        console.log("Temperatura w Gdańsku:", this.gdanskTempResults);
+      })
   }
 
+  getDataWroclaw(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        this.wroclawWindResults.push(data[0].list[0].wind.deg);
+        this.wroclawTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru we Wrocławiu:", this.wroclawWindResults);
+        console.log("Temperatura we Wrocławiu:", this.wroclawTempResults);
+      })
+  }
+
+  getDataLublin(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        this.lublinWindResults.push(data[0].list[0].wind.deg);
+        this.lublinTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Lublinie:", this.lublinWindResults);
+        console.log("Temperatura w Lublinie:", this.lublinTempResults);
+      })
+  }
+
+  getDataKolobrzeg(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        this.kolobrzegWindResults.push(data[0].list[0].wind.deg);
+        this.kolobrzegTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Kołobrzegu:", this.kolobrzegWindResults);
+        console.log("Temperatura w Kołobrzegu:", this.kolobrzegTempResults);
+      })
+  }
+
+  getDataLodz(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        this.lodzWindResults.push(data[0].list[0].wind.deg);
+        this.lodzTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Łodzi:", this.lodzWindResults);
+        console.log("Temperatura w Łodzi:", this.lodzTempResults);
+      })
+  }
+
+  getDataOlsztyn(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        this.olsztynWindResults.push(data[0].list[0].wind.deg);
+        this.olsztynTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Olsztynie:", this.olsztynWindResults);
+        console.log("Temperatura w Olsztynie:", this.olsztynTempResults);
+      })
+  }
+
+  getDataSzczecin(term) {
+    return this.service.getWeatherForecastData(term)
+      .subscribe((data: any) => {
+        this.szczecinWindResults.push(data[0].list[0].wind.deg);
+        this.szczecinTempResults.push(data[0].list[0].main.temp);
+        console.log("Kierunek wiatru w Szczecinie:", this.szczecinWindResults);
+        console.log("Temperatura w Szczecinie:", this.szczecinTempResults);
+      })
+  }
+
+  //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
+  getDataCityWind(term) {
+    this.service.getWeatherForecastData(term)
+      .subscribe((wind: any) => {
+        this.errorWind = false;
+        this.cityWindSpeedResults.push(wind[0].list[0].wind.speed);
+        this.cityWindDegreesResults.push(wind[0].list[0].wind.deg);
+        console.log("Prędkość wiatru: ", this.cityWindSpeedResults);
+        console.log("Kierunek wiatru: ", this.cityWindDegreesResults);
+      },
+        (err) => {
+          this.errorWind = true;
+          console.error("Błąd! Wprowadzono złą nazwę!", err);
+        })
+  }
+
+  getDataCityTemp(term) {
+    this.service.getWeatherForecastData(term)
+      .subscribe((temp: any) => {
+        this.errorTemp = false;
+        this.cityTemp.push(temp[0].list[0].main.temp);
+        console.log("Temperatura: ", this.cityTemp);
+      },
+        (err) => {
+          this.errorTemp = true;
+          console.error("Błąd! Wprowadzono złą nazwę!", err)
+        })
+  }
 }
-
-
-
-  //************************************************************POPRZENIE WERSJE MAP*************************************************************************/
-
-// ---------------------------PIERWSZA WERSJA MAPY-------------------------------- //
-// export class MapComponentComponent implements AfterViewInit {
-
-//   private map;
-
-//   constructor() { }
-
-//   ngAfterViewInit(): void {
-//     this.initMap();
-//   }
-
-//   private initMap(): void {
-//     this.map = L.map('map', {
-//       center: [53.1324886, 23.1688403],
-//       zoom: 9
-//     });
-
-//     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//       maxZoom: 19,
-//       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-//     });
-
-//     tiles.addTo(this.map);
-//   }
-// }
-
-
-
-
-// ---------------------------DRUGA WERSJA MAPY-------------------------------- //
-
-//   this.map = new ol.Map({
-  //     target: 'map',
-  //     layers: [
-  //       new ol.layer.Tile({
-  //         source: new ol.source.OSM()
-  //       })
-  //     ],
-  //     view: new ol.View({
-  //       center: ol.proj.fromLonLat([23.1688403, 53.1324886]),
-  //       zoom: 8,
-
-  //     })
-  //   });
-
-  //   this.map.on('click', function (args) {
-  //     console.log(args.coordinate);
-  //     var lonlat = ol.proj.transform(args.coordinate, 'EPSG:3857', 'EPSG:4326');
-  //     console.log(lonlat);
-
-  //     var lon = lonlat[0];
-  //     var lat = lonlat[1];
-  //     var inputlat = document.getElementById("inputLat");
-  //     var inputlon = document.getElementById("inputLon");
-  //     inputlat.setAttribute('value',lat);
-  //     inputlon.setAttribute('value',lon);
-  //     (`lat: ${lat} long: ${lon}`);
-  //   });
-  // }
-
-
-  //************************************************************POPRZENIE WERSJE MAP*************************************************************************/

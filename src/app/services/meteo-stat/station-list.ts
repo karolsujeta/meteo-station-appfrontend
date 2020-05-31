@@ -15,7 +15,7 @@ export class StationList {
      */
     constructor() {
         this.stationList = new Array<Station>();
-
+        // this.stationList.push(new Station(-1, '--- Wybierz stację ---'));
         this.stationList.push(new Station(12100, 'Kolobrzeg                  '));
         this.stationList.push(new Station(12105, 'Koszalin                   '));
         this.stationList.push(new Station(12106, 'Koszalin Zegrze Pom.       '));
