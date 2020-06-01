@@ -95,7 +95,7 @@ export class StatsComponentComponent implements OnInit {
   title: string;
 
   popupResult: any;
-
+ 
   chartService: ChartService = new ChartService();
   /**
    *

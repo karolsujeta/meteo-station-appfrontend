@@ -5,13 +5,12 @@ import { CalculatedProps } from './statistics';
  */
 export class Statistics {
 
-  /**
-   *
-   * @param temperature
-   * @param pressure
-   * @param windPower
+ /**
+   * Konstruktor obiektu klasy Statistics
+   * @param temperature zmienna przechowująca informacje o temperaturze.
+   * @param pressure zmienna przechowująca informacje o ciśnienu.
+   * @param windPower zmeinna przechowująca informacje o sile wiatru.
    */
-
     constructor(
         public temperature: CalculatedProps,
         public pressure: CalculatedProps,

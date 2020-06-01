@@ -25,7 +25,15 @@ export class CalculatedProps {
       */
     public average: string;
 
-
+    /**
+     * Konstruktor klasy CalculatedProps
+     * @param min
+     * @param minaDate 
+     * @param max 
+     * @param maxDate 
+     * @param averageSum 
+     * @param dataCount 
+     */
     constructor(min: number, minaDate: Date, max: number, maxDate: Date, averageSum: number, dataCount: number
     ) {
         if (dataCount > 0) {

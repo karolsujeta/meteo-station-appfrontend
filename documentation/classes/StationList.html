@@ -67,7 +67,8 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasa reprezentująca listę miejscowości możliwych do wyboru przy wyznaczaniu statysyk. </p>
+                <p>Klasa reprezentująca listę miejscowości możliwych do wyboru przy wyznaczaniu statysyk. 
+Lista przechowuje id miejscowości i jej nazwę.</p>
 
             </p>
 
@@ -113,10 +114,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/services/meteo-stat/station-list.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/meteo-stat/station-list.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor kalsy StationList</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -146,10 +153,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/services/meteo-stat/station-list.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/meteo-stat/station-list.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Lista przechowująca id oraz nazwę stacji pogodowej.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -169,16 +182,19 @@
 
 /**
  * Klasa reprezentująca listę miejscowości możliwych do wyboru przy wyznaczaniu statysyk. 
+ * Lista przechowuje id miejscowości i jej nazwę.
  */
 export class StationList {
-    stationList: Array&lt;Station&gt;;
-
     /**
-     *
+     * Lista przechowująca id oraz nazwę stacji pogodowej.
+     */
+    stationList: Array&lt;Station&gt;;
+    /**
+     * Konstruktor kalsy StationList
      */
     constructor() {
         this.stationList &#x3D; new Array&lt;Station&gt;();
-
+        // this.stationList.push(new Station(-1, &#x27;--- Wybierz stację ---&#x27;));
         this.stationList.push(new Station(12100, &#x27;Kolobrzeg                  &#x27;));
         this.stationList.push(new Station(12105, &#x27;Koszalin                   &#x27;));
         this.stationList.push(new Station(12106, &#x27;Koszalin Zegrze Pom.       &#x27;));

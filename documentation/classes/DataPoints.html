@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>StatisticType</li>
+  <li>DataPoints</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,16 +60,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/models/statistic-type.ts</code>
+            <code>src/app/models/data-points.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasa określająca typ statystyk możliwych do wyboru przez użytkownika.
-Dostępne są trzy typy: statystyki godzinowe, statystyki dzienne oraz statystyki miesięczne.
-Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomiary będą w odtępach godzinowych, dniowych czy miesięcznych.</p>
+                <p>Klasa reprezentująca punkty prezentowane na wykrsach.</p>
 
             </p>
 
@@ -90,11 +88,15 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#id">id</a>
+                                <a href="#label">label</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#name">name</a>
+                                <a href="#x">x</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#y">y</a>
                             </li>
                         </ul>
                     </td>
@@ -115,18 +117,18 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, label: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/statistic-type.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/models/data-points.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor obiektu klasy StatisticType</p>
+                            <div class="io-description"><p>Konstruktor klasy DataPoints</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -141,7 +143,7 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>id</td>
+                                                        <td>x</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
@@ -152,12 +154,28 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>indywidualy numer rodzaju statystyk</p>
+                                                                <code><p>wartość punktu na osi poziomej</p>
 </code>
                                                         </td>
                                                 </tr>
                                                 <tr>
-                                                        <td>name</td>
+                                                        <td>y</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>wartość punktu na osi pionowej</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>label</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -168,7 +186,7 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>zmienna określająca rodzaj statystyk</p>
+                                                                <code><p>podpis punktu</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -190,45 +208,12 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="id"></a>
+                        <a name="label"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            id</b>
-                            <a href="#id"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/models/statistic-type.ts:12</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description">indywidualy numer rodzaju statystyk</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="name"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            name</b>
-                            <a href="#name"><span class="icon ion-ios-link"></span></a>
+                            label</b>
+                            <a href="#label"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -240,13 +225,79 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/models/statistic-type.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/models/data-points.ts:33</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description">zmienna określająca rodzaj statystyk</div>
+                        <div class="io-description">podpis punktu</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="x"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            x</b>
+                            <a href="#x"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/models/data-points.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">wartość punktu na osi poziomej</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="y"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            y</b>
+                            <a href="#y"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/models/data-points.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">wartość punktu na osi pionowej</div>
                     </td>
                 </tr>
 
@@ -264,33 +315,42 @@ Typ statystyk określa jakie dane zostaną pobrane z API, czyli czy pobrane pomi
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class StatisticType {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TempChart } from &#x27;./temp-chart&#x27;;
+/**
+ * Klasa przechowująca listę danych, które mają zostać wyświetlone na wykresach. 
+ * Dane są przechowywane w postaci listy z elementami klasy DataPoints.
+ */
+export class DataPointsList {
     /**
-     * Konstruktor obiektu klasy StatisticType
-     * @param id indywidualy numer rodzaju statystyk
-     * @param name zmienna określająca rodzaj statystyk
+     * 
      */
-    constructor(public id: number, public name: string) {
+    dataPoints: Array&lt;DataPoints&gt; &#x3D; new Array&lt;DataPoints&gt;();
+    /**
+     * Konstruktor klasy DataPointsList
+     * @param tempCharts zmienna przechowująca dane, które mają zostać przedstawione na wykresie.
+     */
+    constructor(tempCharts: Array&lt;TempChart&gt;) {
+        let i &#x3D; 1;
+        for (const tempData of tempCharts) {
+            this.dataPoints.push(new DataPoints(i, tempData.value, tempData.period));
+            i++;
+        }
+    }
+}
+/**
+ * Klasa reprezentująca punkty prezentowane na wykrsach.
+ */
+export class DataPoints {
+    /**
+     * Konstruktor klasy DataPoints
+     * @param x wartość punktu na osi poziomej
+     * @param y wartość punktu na osi pionowej
+     * @param label podpis punktu
+     */
+    constructor(public x: number, public y: number, public label: string) {
 
     }
 }
-
-
-export const StatisticTypeList: StatisticType[] &#x3D;
-    [
-        {
-            id: 1,
-            name: &#x27;Godzinowy&#x27;
-        },
-        {
-            id: 2,
-            name: &#x27;Dzienny&#x27;
-        },
-        {
-            id: 3,
-            name: &#x27;Miesięczny&#x27;
-        }
-    ];
 </code></pre>
     </div>
 </div>
@@ -319,7 +379,7 @@ export const StatisticTypeList: StatisticType[] &#x3D;
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'StatisticType.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'DataPoints.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

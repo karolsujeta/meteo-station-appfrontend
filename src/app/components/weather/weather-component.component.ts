@@ -6,21 +6,51 @@ import { WeatherData } from '../../services/weather/weather-module';
 import { isNull } from 'util';
 declare var $: any;
 
+/**
+ * Komponent zakładki Strona główna.
+
+ * Wyświetlanie aktualnego stanu pogody oraz prognozy pogody na najbliższe pięć dni dla wybranego przez użytkownila miasta.
+ */
 @Component({
   selector: 'app-weather-component',
   templateUrl: './weather-component.component.html',
   styleUrls: ['./weather-component.component.css']
 })
+/**
+ * Klasa odpowiadająca za informacje wyświetlane na stronie głownej aplikacji
+ */
 export class WeatherComponentComponent implements OnInit {
 
+ /**
+  * Zmienna przechowująca dane z aktualnym stanem pogody analizowanego miasta.
+  */
   public resultsWeather = [];
+   /**
+ * Zmienna przechowująca dane z prognozą pogody na najbliższe dni analizowanego miasta.
+ */
   public resultsForecast: any;
+  /**
+ * Informacja o błędzie przy wprowadzaniu przez użytkownika nazwy miasta.
+ */
   public errorMsg;
+  /**
+ * Przechowuje dane o czasie pomiaru, wyciągnięte z danych prognozy pogody.
+ */
   public resultsForecastToChartData = [];
+  /**
+ * Przechowuje temperatury wyciągnięte z danych prognozy pogody.
+ */
   public resultsForecastToChartTemp = [];
+  /**
+ * Przechowuje dane do wyświetlenia w tabeli z prognozą pogody.
+ */
   public resultsForecastToTable = [];
 
-
+/**
+ *
+ * @param http
+ * @param service
+ */
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
 
   ngOnInit() {
@@ -31,7 +61,10 @@ export class WeatherComponentComponent implements OnInit {
     })
   }
 
-  //wyświetlanie się tabel z danymi oraz wykresu po wywołaniu funcji poprzez nacisnięcie przycisku "Pokaż dane!"
+  /**
+   * Funkcja inicjue wyświetlanie się tabel z danymi oraz wykresu poprzez nacisnięcie przycisku "Pokaż dane!"
+   * Odwołuje się do tabel z pogodą w danym momencie '.content__table', z prognozą pogody '.content__chart' oraz wykresem '.chart-area'.
+   */
   showContent() {
     $(document).ready(function () {
       $(".content__table").show();
@@ -39,8 +72,11 @@ export class WeatherComponentComponent implements OnInit {
       $(".chart-area").show();
     })
   }
-
-  //metoda do wyświetlania głównych danych pogodowych dla wskazanego miejsca
+  /**
+   * Przypisanie pod zmienną 'resultWeather' danych, które będą wyświetlone w tabeli z aktualnym stanem pogody
+   * w miejscowości podanej przez użytkownika. Dane pobierane są dzięki funkcji 'getWeatherData()'.
+   * @param {string} term Parametr określający miejscowość, dla której wyświetlamy dane
+   */
   getWeatherService(term: string) {
     this.service
       .getWeatherData(term)
@@ -53,7 +89,19 @@ export class WeatherComponentComponent implements OnInit {
     this.errorMsg = null;
   }
 
-  //metoda do wyświetlania danych pogodowych dla przyszłych pięciu dni
+    /**
+   * Funkcja inicująca pobieranie danych z prognozą pogody oraz przypisanie ich pod odpowiednie zmienne.
+   *
+   * Przypisanie pod zmienną 'resultsForecast' danych do wyświetlenia
+   * w tabeli z prognozą pogody na najbliższe dni.
+   * Dane pobierane są dzięki funkcji 'getWeatherForecastData()' .
+   *
+   * Z danych uzyskanych przez funkcję 'getWeatherForecastData()' wyciągamy i przypisujemy pod odpowiednie zmienne czas pomiaru,
+   * temperaturę, temperaturę minimalną i temperaturę maksymalną. Zmienne wykorzystujemy do rysowania wykresu,
+   * funkcja 'drawChart()'
+   * @param {string} term Parametr określający miejsowość, dla której pobieramy dane.
+   * @return
+   */
   getForecastService(term: string) {
     this.service
       .getWeatherForecastData(term)
@@ -97,7 +145,9 @@ export class WeatherComponentComponent implements OnInit {
       )
   }
 
-  //rysowanie wykresu na podstawie danych pobranych z API
+ /**
+   * Funkcja rysująca wykres prognozy pogody. Odwołujemy się do niej w funkcji 'getForecastService()'.
+   */
   drawChart() {
     //console.log(this.resultsForecastToChartData);
     var city = <HTMLInputElement> document.getElementById('cityInput');

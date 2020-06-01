@@ -137,6 +137,8 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor klasy CalculatedProps</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -439,7 +441,15 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
       */
     public average: string;
 
-
+    /**
+     * Konstruktor klasy CalculatedProps
+     * @param min
+     * @param minaDate 
+     * @param max 
+     * @param maxDate 
+     * @param averageSum 
+     * @param dataCount 
+     */
     constructor(min: number, minaDate: Date, max: number, maxDate: Date, averageSum: number, dataCount: number
     ) {
         if (dataCount &gt; 0) {

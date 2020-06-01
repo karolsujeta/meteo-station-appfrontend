@@ -2,12 +2,15 @@ import { Station } from '../../models/station';
 
 /**
  * Klasa reprezentująca listę miejscowości możliwych do wyboru przy wyznaczaniu statysyk. 
+ * Lista przechowuje id miejscowości i jej nazwę.
  */
 export class StationList {
-    stationList: Array<Station>;
-
     /**
-     *
+     * Lista przechowująca id oraz nazwę stacji pogodowej.
+     */
+    stationList: Array<Station>;
+    /**
+     * Konstruktor kalsy StationList
      */
     constructor() {
         this.stationList = new Array<Station>();
