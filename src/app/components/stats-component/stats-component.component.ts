@@ -237,7 +237,8 @@ export class StatsComponentComponent implements OnInit {
             height: 300,
             width: 800,
             axisY: {
-              minimum: Utility.FindMinDataPoint(popupData) - 5
+              minimum: Utility.FindMinDataPoint(popupData) - 5,
+              title: type === 1 ? '°C' : 'hPa'
             },
             data: [
               {
@@ -297,6 +298,9 @@ export class StatsComponentComponent implements OnInit {
           title: {
             text: me.getChartTitle(me.selectedFromDate, me.selectedToDate, me.radioSelected, 'temperatura')
           },
+          axisY: {
+            title: '°C'
+          },
           height: 300,
           data: [
             {
@@ -321,7 +325,8 @@ export class StatsComponentComponent implements OnInit {
             text: me.getChartTitle(me.selectedFromDate, me.selectedToDate, me.radioSelected, 'ciśnienie')
           },
           axisY: {
-            minimum: Number(pressureStats.min) - 5
+            minimum: Number(pressureStats.min) - 5,
+            title: 'hPa'
           },
           height: 300,
           data: [
