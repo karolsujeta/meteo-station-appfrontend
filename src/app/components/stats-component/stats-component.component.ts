@@ -8,6 +8,7 @@ import { MeteoStatsData } from '../../models/meteo-stats-data';
 import { CalculatedProps } from '../../models/statistics';
 import * as CanvasJS from '../../../canvasjs/canvasjs.min';
 import { ChartService } from '../../services/meteo-stat/chart-service';
+import Utility from '../../helpers/utility';
 declare var $: any;
 
 /**
@@ -235,6 +236,9 @@ export class StatsComponentComponent implements OnInit {
             },
             height: 300,
             width: 800,
+            axisY: {
+              minimum: Utility.FindMinDataPoint(popupData) - 5
+            },
             data: [
               {
                 // type: 'bar',
