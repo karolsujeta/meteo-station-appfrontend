@@ -8,6 +8,7 @@ import { MeteoStatsData } from '../../models/meteo-stats-data';
 import { CalculatedProps } from '../../models/statistics';
 import * as CanvasJS from '../../../canvasjs/canvasjs.min';
 import { ChartService } from '../../services/meteo-stat/chart-service';
+import Utility from '../../helpers/utility';
 declare var $: any;
 
 /**
@@ -115,7 +116,7 @@ export class StatsComponentComponent implements OnInit {
    */
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('.nav').fadeTo('slow', 1);
     });
     this.stationList = new StationList().stationList;
@@ -227,13 +228,18 @@ export class StatsComponentComponent implements OnInit {
         const popupData = type === 1 ?
           this.chartService.CalculateTemperatureData(dateType, this.popupResult.data) :
           this.chartService.CalculatePressureData(dateType, this.popupResult.data);
+        const me = this;
         if (popupData.length > 0) {
           const popupChart = new CanvasJS.Chart('popupChart', {
             title: {
-              text: dateFrom
+              text: me.getChartTitle(dateFrom, null, dateType, type === 1 ? 'temperatura' : 'ciśnienie')
             },
             height: 300,
             width: 800,
+            axisY: {
+              minimum: Utility.FindMinDataPoint(popupData) - 5,
+              title: type === 1 ? '°C' : 'hPa'
+            },
             data: [
               {
                 // type: 'bar',
@@ -290,7 +296,10 @@ export class StatsComponentComponent implements OnInit {
         const me = this;
         const temperatureChart = new CanvasJS.Chart('temperatureChart', {
           title: {
-            text: 'Temperatura'
+            text: me.getChartTitle(me.selectedFromDate, me.selectedToDate, me.radioSelected, 'temperatura')
+          },
+          axisY: {
+            title: '°C'
           },
           height: 300,
           data: [
@@ -313,10 +322,11 @@ export class StatsComponentComponent implements OnInit {
         const pressCharList = this.chartService.CalculatePressureData(this.radioSelected, this.results.data);
         const pressureChart = new CanvasJS.Chart('pressureChart', {
           title: {
-            text: 'Ciśnienie'
+            text: me.getChartTitle(me.selectedFromDate, me.selectedToDate, me.radioSelected, 'ciśnienie')
           },
           axisY: {
-            minimum: Number(pressureStats.min) - 5
+            minimum: Number(pressureStats.min) - 5,
+            title: 'hPa'
           },
           height: 300,
           data: [
@@ -506,4 +516,36 @@ export class StatsComponentComponent implements OnInit {
     return result;
   }
 
+  getChartTypeTitle(radioSelected: string): string {
+    return radioSelected === '1' ? 'godzinow' :
+      radioSelected === '2' ? 'dzienn'
+        : 'miesięczn';
+  }
+
+  getChartDateTitle(date: any, radioSelected: string): string {
+    return radioSelected === '3' ? date.substring(0, 7) : date;
+  }
+
+  resolveLastLetter(type: string): string {
+    return type === 'temperatura' ? 'a' : 'e';
+  }
+
+  getChartTitle(dateFrom: any, dateTo: any, radioSelected: string, type: string): string {
+    const lastLetter = this.resolveLastLetter(type);
+    let resultEnd = '';
+    let resultMid = '';
+    let chartTypeTitle = '';
+
+    if (dateTo != null) {
+      resultEnd = ' do ' + this.getChartDateTitle(dateTo, radioSelected);
+      resultMid = ' w okresie od ';
+      chartTypeTitle = this.getChartTypeTitle(radioSelected) + lastLetter;
+    } else {
+      resultMid = radioSelected === '2' ? 'w miesiącu ' : 'dnia ';
+      radioSelected = (Number(radioSelected) + 1).toString();
+    }
+    const result = 'Średni' + lastLetter + ' ' + type + ' ' + chartTypeTitle +
+      resultMid + this.getChartDateTitle(dateFrom, radioSelected) + resultEnd;
+    return result;
+  }
 }
