@@ -38,7 +38,7 @@ var cloudContainer: any;
 /**
  * Quality component
  * Komponent zakładki Jakość Powietrza odpowiedzialny za pobieranie danych z API, wyświetlanie
- * danych o jakości powietrza, z wybranego przez użytkownika punktu na mapie, w postaci tabeli. 
+ * danych o jakości powietrza, z wybranego przez użytkownika punktu na mapie, w postaci tabeli.
  */
 @Component({
   selector: 'app-quality-component',
@@ -55,17 +55,17 @@ export class QualityComponentComponent implements OnInit {
    * Zmienna przechowująca mapę wyświetloną na stronie.
    */
   private map;
-/**
-   * Zmienna przechowująca odpowiedź z API Airly.
-   */
+  /**
+     * Zmienna przechowująca odpowiedź z API Airly.
+     */
 
   public results: any;
-    /**
+  /**
 
-   * Konstruktor klasy 'QualityComponentComponent'.
-   * @param http
-   * @param service
-   */
+ * Konstruktor klasy 'QualityComponentComponent'.
+ * @param http
+ * @param service
+ */
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
   /**
@@ -77,26 +77,26 @@ export class QualityComponentComponent implements OnInit {
     cloudContainer = document.getElementById('cloudPopup');
 
     var overlay = new ol.Overlay({
-    element: popupContainer,
-    autoPan: true,
-    autoPanAnimation: {
-      duration: 250
-    }
-  });
-  var cloudOverlay = new ol.Overlay({
-    element: cloudContainer,
-    autoPan: true,
-    autoPanAnimation: {
-      duration: 250
-    }
-  });
-  
-  popupCloser.onclick = function() {
-    overlay.setPosition(undefined);
-    cloudOverlay.setPosition(undefined);
-    popupCloser.blur();
-    return false;
-  };
+      element: popupContainer,
+      autoPan: true,
+      autoPanAnimation: {
+        duration: 250
+      }
+    });
+    var cloudOverlay = new ol.Overlay({
+      element: cloudContainer,
+      autoPan: true,
+      autoPanAnimation: {
+        duration: 250
+      }
+    });
+
+    popupCloser.onclick = function () {
+      overlay.setPosition(undefined);
+      cloudOverlay.setPosition(undefined);
+      popupCloser.blur();
+      return false;
+    };
 
     this.map = new ol.Map({
       target: 'map',
@@ -109,7 +109,7 @@ export class QualityComponentComponent implements OnInit {
         center: ol.proj.fromLonLat([23.1688403, 53.1324886]),
         zoom: 8,
       }),
-      overlays: [overlay,cloudOverlay]
+      overlays: [overlay, cloudOverlay]
     });
 
     var serviceTmp = this.service;
@@ -120,22 +120,22 @@ export class QualityComponentComponent implements OnInit {
       var lonlat = ol.proj.transform(args.coordinate, 'EPSG:3857', 'EPSG:4326');
       console.log(lonlat);
       longitude = lonlat[0];
-      latitude = lonlat[1];      
+      latitude = lonlat[1];
       (`lat: ${latitude} long: ${longitude}`);
       serviceTmp
         .getAirData(latitude, longitude)
         .subscribe(
           (records: any) => {
-          console.log(records);
-          qualityComponent.results = records;
-        },
-        error => {
-          if (error =! null){
-            qualityComponent.results = undefined;
-          };
-        });
-        overlay.setPosition(args.coordinate);
-        cloudOverlay.setPosition(args.coordinate);
+            console.log(records);
+            qualityComponent.results = records;
+          },
+          error => {
+            if (error = ! null) {
+              qualityComponent.results = undefined;
+            };
+          });
+      overlay.setPosition(args.coordinate);
+      cloudOverlay.setPosition(args.coordinate);
     });
   }
 }
