@@ -13,7 +13,6 @@ declare var $: any;
 
 /**
  * Stats component
- * 
  * Komponent odpowiedzialny za pobranie danych z API, obliczenie podstawowych statystyk temperatury, ciśnienia oraz siły wiatru
  * bazując na wybranych przez użytkownika parametrach, czyli: miejscowość, przedział czasowy,
  * typ statystyk oraz wyświetlenie statystyk na stronie.
@@ -99,6 +98,8 @@ export class StatsComponentComponent implements OnInit {
   popupResult: any;
 
   chartService: ChartService = new ChartService();
+
+  tableTitle = '';
   /**
    *
    * Konstruktor klasy głównej: StatsComponentComponent
@@ -116,7 +117,7 @@ export class StatsComponentComponent implements OnInit {
    */
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    $(document).ready(function () {
+    $(document).ready(function() {
       $('.nav').fadeTo('slow', 1);
     });
     this.stationList = new StationList().stationList;
@@ -244,6 +245,7 @@ export class StatsComponentComponent implements OnInit {
               {
                 // type: 'bar',
                 type: 'line',
+                connectNullData: true,
                 color: type === 1 ? 'blue' : 'red',
                 dataPoints: popupData
               }
@@ -345,6 +347,7 @@ export class StatsComponentComponent implements OnInit {
         });
         pressureChart.render();
       }
+      this.tableTitle = this.getTableTitle(this.radioSelected, this.selectedFromDate, this.selectedToDate);
     } else {
       // trzeba cos wyswietlic na UI ze nie dostaliśmy danych
       this.isDataLoaded = false;
@@ -352,6 +355,19 @@ export class StatsComponentComponent implements OnInit {
     }
   }
 
+  getTableTitle(radioSelected, dateFrom, dateTo): string {
+    if (this.radioSelected === '1') {
+      this.tableTitle = 'Statystyki wygenerowane za okres od ' + dateFrom + ' do ' + dateTo + ' z danych godzinowych';
+      return this.tableTitle;
+    } else if (this.radioSelected === '2') {
+      this.tableTitle = 'Statystyki wygenerowane za okres od ' + dateFrom + ' do ' + dateTo + ' z danych dziennych';
+      return this.tableTitle;
+    } else {
+      this.tableTitle = 'Statystyki wygenerowane za okres od ' + this.getChartDateTitle(dateFrom, radioSelected) +
+      ' do ' + this.getChartDateTitle(dateTo, radioSelected) + ' z danych miesięcznych';
+      return this.tableTitle;
+    }
+  }
   /**
    * Funkcja wyznaczająca maksymalną i minimalną temperaturę, daty w których te temperatury zostały zarejestrowane
    * oraz sumę temperatur i liczbę pomiarów w danych przedziale czasowym.
