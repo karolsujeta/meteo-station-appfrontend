@@ -55,9 +55,11 @@ export class QualityComponentComponent implements OnInit {
    * Zmienna przechowująca mapę wyświetloną na stronie.
    */
   private map;
-  /**
-     * Zmienna przechowująca odpowiedź z API Airly.
-     */
+
+  public resultsTable = [];
+/**
+   * Zmienna przechowująca odpowiedź z API Airly.
+   */
 
   public results: any;
   /**
@@ -72,6 +74,7 @@ export class QualityComponentComponent implements OnInit {
    * Inicjowanie wyświetlenia mapy na stronie.
    */
   ngOnInit() {
+
     popupContainer = document.getElementById('popup');
     popupCloser = document.getElementById('popup-closer');
     cloudContainer = document.getElementById('cloudPopup');
@@ -114,6 +117,8 @@ export class QualityComponentComponent implements OnInit {
 
     var serviceTmp = this.service;
     var qualityComponent = this;
+    var tempTable = this.resultsTable;
+
 
     this.map.on('click', function (args) {
       console.log(args.coordinate);
@@ -126,17 +131,21 @@ export class QualityComponentComponent implements OnInit {
         .getAirData(latitude, longitude)
         .subscribe(
           (records: any) => {
-            console.log(records);
-            qualityComponent.results = records;
-          },
-          error => {
-            if (error = ! null) {
-              qualityComponent.results = undefined;
-            };
-          });
-      overlay.setPosition(args.coordinate);
-      cloudOverlay.setPosition(args.coordinate);
+          console.log(records);
+          qualityComponent.results = records;
+          var data = records;
+          data[0].latitude = latitude;
+          data[0].longitude = longitude;
+          tempTable.push(data);
+          console.log(tempTable);
+        },
+        error => {
+          if (error =! null){
+            qualityComponent.results = undefined;
+          };
+        });
+        overlay.setPosition(args.coordinate);
+        cloudOverlay.setPosition(args.coordinate);
     });
   }
 }
-
