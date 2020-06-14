@@ -19,6 +19,7 @@ export class WeatherComponentComponent implements OnInit {
   public resultsForecastToChartData = [];
   public resultsForecastToChartTemp = [];
   public resultsForecastToTable: any;
+  public dataTrigger: boolean = false;
 
 
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
@@ -27,6 +28,7 @@ export class WeatherComponentComponent implements OnInit {
     //podstawowe animacje dla dwóch głownych okien na pierwszej stronie aplikacji
     $(document).ready(function () {
       $(".content").animate({ opacity: 1, }, 1500);
+      $(".chart-area").animate({opacity:1,}, 32000);
       $(".nav").fadeTo("slow", 1);
     })
   }
@@ -34,9 +36,9 @@ export class WeatherComponentComponent implements OnInit {
   //wyświetlanie się tabel z danymi oraz wykresu po wywołaniu funcji poprzez nacisnięcie przycisku "Pokaż dane!"
   showContent() {
     $(document).ready(function () {
+      $(".chart-area").show();
       $(".content__table").show();
       $(".content__chart").show();
-      $(".chart-area").show();
     })
   }
 
@@ -55,6 +57,7 @@ export class WeatherComponentComponent implements OnInit {
 
   //metoda do wyświetlania danych pogodowych dla przyszłych pięciu dni
   getForecastService(term: string) {
+    this.dataTrigger = true;
     this.service
       .getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -69,20 +72,20 @@ export class WeatherComponentComponent implements OnInit {
             icon = data[0].list[i].weather[0].icon;
           }
 
-          if(date.getDate() == new Date(data[0].list[i+1].dt_txt).getDate()) {
-            if(maxTemp < data[0].list[i+1].main.temp_max) {
-              maxTemp = data[0].list[i+1].main.temp_max;
+          if (date.getDate() == new Date(data[0].list[i + 1].dt_txt).getDate()) {
+            if (maxTemp < data[0].list[i + 1].main.temp_max) {
+              maxTemp = data[0].list[i + 1].main.temp_max;
             }
-            if (minTemp > data[0].list[i+1].main.temp_min){
-              minTemp = data[0].list[i+1].main.temp_min;
+            if (minTemp > data[0].list[i + 1].main.temp_min) {
+              minTemp = data[0].list[i + 1].main.temp_min;
             }
 
           }
           else {
-            this.resultsForecastToTable.push({date: date.getDate() + ".0" + (date.getMonth()+1), minTemp: minTemp, maxTemp: maxTemp, icon: icon});
+            this.resultsForecastToTable.push({ date: date.getDate() + ".0" + (date.getMonth() + 1), minTemp: minTemp, maxTemp: maxTemp, icon: icon });
             console.log(this.resultsForecastToTable);
-            maxTemp = data[0].list[i+1].main.temp_max;
-            minTemp = data[0].list[i+1].main.temp_min;
+            maxTemp = data[0].list[i + 1].main.temp_max;
+            minTemp = data[0].list[i + 1].main.temp_min;
           }
         }
 
@@ -104,13 +107,13 @@ export class WeatherComponentComponent implements OnInit {
   //rysowanie wykresu na podstawie danych pobranych z API
   drawChart() {
     //console.log(this.resultsForecastToChartData);
-    var city = <HTMLInputElement> document.getElementById('cityInput');
-    var myChart = <HTMLInputElement> document.getElementById('chart__forecast');
+    var city = <HTMLInputElement>document.getElementById('cityInput');
+    var myChart = <HTMLInputElement>document.getElementById('chart__forecast');
     if (myChart != null) {
       console.log(1000000);
       myChart.remove();
-      var chartArea =<HTMLInputElement> document.getElementById('chart-area');
-      chartArea.insertAdjacentHTML('afterbegin','<canvas id="chart__forecast"></canvas>');
+      var chartArea = <HTMLInputElement>document.getElementById('chart-area');
+      chartArea.insertAdjacentHTML('afterbegin', '<canvas id="chart__forecast"></canvas>');
     }
     new Chart('chart__forecast', {
       type: 'line',
@@ -121,7 +124,7 @@ export class WeatherComponentComponent implements OnInit {
           label: 'Wartość temperatury',
           data: this.resultsForecastToChartTemp, //main.temp_max main.temp_min
           borderColor: '#037ffc',
-          backgroundColor:'#E8B67C',
+          backgroundColor: '#E8B67C',
 
         }],
       },

@@ -3,13 +3,13 @@
     <div class="map">
       <img [src]=" 'assets/map_pictures/mapa.png '" alt="image">
 
-      <div class="map__bialystok" *ngFor="let result of bialystokWindResults">
+      <div class="map__bialystok" *ngFor="let result of bialystokWindResults | slice: bialystokWindResults.length - 1;">
         <h6 class="b">BIAŁYSTOK</h6>
         <div class="map__bialystok--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__bialystok--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__bialystok--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -39,13 +39,13 @@
       </div>
 
 
-      <div class="map__krakow" *ngFor="let result of krakowWindResults">
+      <div class="map__krakow" *ngFor="let result of krakowWindResults | slice: krakowWindResults.length - 1;">
         <h6 class="k">KRAKÓW</h6>
         <div class="map__krakow--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__krakow--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__krakow--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -74,13 +74,13 @@
         </div>
       </div>
 
-      <div class="map__warszawa" *ngFor="let result of warszawaWindResults">
+      <div class="map__warszawa" *ngFor="let result of warszawaWindResults | slice: warszawaWindResults.length - 1;">
         <h6 class="w">WARSZAWA</h6>
         <div class="map__warszawa--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__warszawa--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__warszawa--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -109,13 +109,13 @@
         </div>
       </div>
 
-      <div class="map__poznan" *ngFor="let result of poznanWindResults">
+      <div class="map__poznan" *ngFor="let result of poznanWindResults | slice: poznanWindResults.length - 1;">
         <h6 class="p">POZNAŃ</h6>
         <div class="map__poznan--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__poznan--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__poznan--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -144,13 +144,13 @@
         </div>
       </div>
 
-      <div class="map__gdansk" *ngFor="let result of gdanskWindResults">
+      <div class="map__gdansk" *ngFor="let result of gdanskWindResults | slice: gdanskWindResults.length - 1;">
         <h6 class="g">GDAŃSK</h6>
         <div class="map__gdansk--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__gdansk--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__gdansk--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -179,13 +179,13 @@
         </div>
       </div>
 
-      <div class="map__wroclaw" *ngFor="let result of wroclawWindResults">
+      <div class="map__wroclaw" *ngFor="let result of wroclawWindResults | slice: wroclawWindResults.length - 1;">
         <h6 class="wr">WROCŁAW</h6>
         <div class="map__wroclaw--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__wroclaw--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__wroclaw--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -214,13 +214,13 @@
         </div>
       </div>
 
-      <div class="map__lublin" *ngFor="let result of lublinWindResults">
+      <div class="map__lublin" *ngFor="let result of lublinWindResults | slice: lublinWindResults.length - 1;">
         <h6 class="l">LUBLIN</h6>
         <div class="map__lublin--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__lublin--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__lublin--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -249,13 +249,13 @@
         </div>
       </div>
 
-      <div class="map__lodz" *ngFor="let result of lodzWindResults">
+      <div class="map__lodz" *ngFor="let result of lodzWindResults | slice: lodzWindResults.length - 1;">
         <h6 class="lo">ŁÓDŹ</h6>
         <div class="map__lodz--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__lodz--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__lodz--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -284,13 +284,13 @@
         </div>
       </div>
 
-      <div class="map__olsztyn" *ngFor="let result of olsztynWindResults">
+      <div class="map__olsztyn" *ngFor="let result of olsztynWindResults | slice: olsztynWindResults.length - 1;">
         <h6 class="o">OLSZTYN</h6>
         <div class="map__olsztyn--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__olsztyn--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__olsztyn--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -319,13 +319,13 @@
         </div>
       </div>
 
-      <div class="map__szczecin" *ngFor="let result of szczecinWindResults">
+      <div class="map__szczecin" *ngFor="let result of szczecinWindResults | slice: szczecinWindResults.length - 1;">
         <h6 class="sz">SZCZECIN</h6>
         <div class="map__szczecin--north-wind" *ngIf="result >= 0 && result <= 45">
           <img class="arrow" [src]=" 'assets/map_pictures/gora.png '" alt="image">
         </div>
 
-        <div class="map__szczecin--north-wind" *ngIf="result >= 45 && result <= 89">
+        <div class="map__szczecin--north-wind" *ngIf="result >= 46 && result <= 89">
           <img class="arrow" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
         </div>
 
@@ -358,62 +358,62 @@
     <!-- -------------------------------------------------------------------MAPA DLA TEMPERATURY------------------------------------------------------------------- -->
     <div class="map">
       <img [src]=" 'assets/map_pictures/mapa.png '" alt="image">
-      <div class="map__bialystok" *ngFor="let result of bialystokTempResults">
+      <div class="map__bialystok" *ngFor="let result of bialystokTempResults | slice: bialystokTempResults.length - 1;">
         <h6 class="b">BIAŁYSTOK
           <p>{{result}}℃</p>
         </h6>
       </div>
 
 
-      <div class="map__krakow" *ngFor="let result of krakowTempResults">
+      <div class="map__krakow" *ngFor="let result of krakowTempResults | slice: krakowTempResults.length - 1;">
         <h6 class="k">KRAKÓW
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__warszawa" *ngFor="let result of warszawaTempResults">
+      <div class="map__warszawa" *ngFor="let result of warszawaTempResults | slice: warszawaTempResults.length - 1;">
         <h6 class="w">WARSZAWA
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__poznan" *ngFor="let result of poznanTempResults">
+      <div class="map__poznan" *ngFor="let result of poznanTempResults | slice: poznanTempResults.length - 1;">
         <h6 class="p">POZNAŃ
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__gdansk" *ngFor="let result of gdanskTempResults">
+      <div class="map__gdansk" *ngFor="let result of gdanskTempResults | slice: gdanskTempResults.length - 1;">
         <h6 class="g">GDAŃSK
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__wroclaw" *ngFor="let result of wroclawTempResults">
+      <div class="map__wroclaw" *ngFor="let result of wroclawTempResults | slice: wroclawTempResults.length - 1;">
         <h6 class="wr">WROCŁAW
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__lublin" *ngFor="let result of lublinTempResults">
+      <div class="map__lublin" *ngFor="let result of lublinTempResults | slice: lublinTempResults.length - 1;">
         <h6 class="l">LUBLIN
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__lodz" *ngFor="let result of lodzTempResults">
+      <div class="map__lodz" *ngFor="let result of lodzTempResults | slice: lodzTempResults.length - 1;">
         <h6 class="lo">ŁÓDŹ
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__olsztyn" *ngFor="let result of olsztynTempResults">
+      <div class="map__olsztyn" *ngFor="let result of olsztynTempResults | slice: olsztynTempResults.length - 1;">
         <h6 class="o">OLSZTYN
           <p>{{result}}℃</p>
         </h6>
       </div>
 
-      <div class="map__szczecin" *ngFor="let result of szczecinTempResults">
+      <div class="map__szczecin" *ngFor="let result of szczecinTempResults | slice: szczecinTempResults.length - 1;">
         <h6 class="sz">SZCZECIN
           <p>{{result}}℃</p>
         </h6>
@@ -442,43 +442,43 @@
         <div class="error" *ngIf="errorWind">
           <p>WPROWADZONO BŁĘDNĄ NAZWĘ!</p>
         </div>
-        <div class="city-wind-result--deg" *ngFor="let result of cityWindDegreesResults">
+        <div class="city-wind-result--deg" *ngIf="tempTrigger">
           <h6>Kierunek wiatru:</h6>
-          <div class="c" *ngIf="result >= 0 && result <= 45">
+          <div class="c" *ngIf="cityWindDegreesResults >= 0 && cityWindDegreesResults <= 45">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/gora.png '" alt="image">
           </div>
 
-          <div class="c" *ngIf="result >= 46 && result <= 89">
+          <div class="c" *ngIf="cityWindDegreesResults >= 46 && cityWindDegreesResults <= 89">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/gora_prawo.png '" alt="image">
           </div>
 
-          <div class="c" *ngIf="result >= 90 && result <= 135">
+          <div class="c" *ngIf="cityWindDegreesResults >= 90 && cityWindDegreesResults <= 135">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/prawo.png '" alt="image">
           </div>
 
-          <div class="c" *ngIf="result >= 136 && result <= 179">
+          <div class="c" *ngIf="cityWindDegreesResults >= 136 && cityWindDegreesResults <= 179">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/dol_prawo.png '" alt="image">
           </div>
 
-          <div class="c" *ngIf="result >= 180 && result <= 225">
+          <div class="c" *ngIf="cityWindDegreesResults >= 180 && cityWindDegreesResults <= 225">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/dol.png '" alt="image">
           </div>
 
-          <div class="c" *ngIf="result >= 226 && result <= 269">
+          <div class="c" *ngIf="cityWindDegreesResults >= 226 && cityWindDegreesResults <= 269">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/dol_lewo.png '" alt="image">
           </div>
 
-          <div class="c" *ngIf="result >= 270 && result <= 315">
+          <div class="c" *ngIf="cityWindDegreesResults >= 270 && cityWindDegreesResults <= 315">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/lewo.png '" alt="image">
           </div>
 
-          <div class="c" *ngIf="result >= 316 && result <= 359">
+          <div class="c" *ngIf="cityWindDegreesResults >= 316 && cityWindDegreesResults <= 359">
             <img class="city-wind-result--icon" [src]=" 'assets/map_pictures/gora_lewo.png '" alt="image">
           </div>
         </div>
-        <div class="city-wind-result--speed" *ngFor="let windspeed of cityWindSpeedResults">
+        <div class="city-wind-result--speed" *ngIf="tempTrigger">
           <h6>Siła wiatru:</h6>
-          <p>{{windspeed}} m/s</p>
+          <p>{{cityWindSpeedResults}} m/s</p>
         </div>
         <!-- miejsce na wyświetlenie pobranych wyników -->
       </mat-expansion-panel>
@@ -502,9 +502,9 @@
         <div class="error" *ngIf="errorTemp">
           <p>WPROWADZONO BŁĘDNĄ NAZWĘ!</p>
         </div>
-        <div class="city-wind-result--deg" *ngFor="let result of cityTemp">
+        <div class="city-wind-result--deg" *ngIf="windTrigger">
           <h6>Temperatura:</h6>
-          <p>{{result}}℃</p>
+          <p>{{cityTemp}}℃</p>
         </div>
         <!-- miejsce na wyświetlenie pobranych wyników -->
       </mat-expansion-panel>
