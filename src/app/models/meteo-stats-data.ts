@@ -3,10 +3,11 @@ import { Data } from '@angular/router';
 /**
  * Klasa reprezentująca obiekt składający się z danych pobranych z API. Klasa składa się z następujących obiektów:
  * data, temperatura, temperatura minimalna, temperatura maksymalna, opad atmosferyczny, opad śniegu, głębokość śniegu, kierunek wiatru,
- * prędkość wiatru, szczytowy podmuch, nasłonecznienie oraz ciśnienie.
+ * prędkość wiatru, szczytowy podmuch, nasłonecznienie oraz ciśnienie. 
  */
 export class MeteoStatsData {
-    /**
+     /**
+
      * Konstruktor obiektu klasy MeteoStatData
      * @param date zmienna określająca datę pomiaru
      * @param temperature zmienna przechowująca temperature pobraną z API

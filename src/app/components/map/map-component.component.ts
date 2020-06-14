@@ -6,7 +6,8 @@ declare var $: any;
 
 /**
  * Komponent zakładki Mapy.
- *
+ * 
+
  * Wyświetlanie kierunków wiatru na mapie oraz danych o wietrze dla wybranej
  * przez użytkownika miejscowości.
  */
@@ -17,73 +18,127 @@ declare var $: any;
 })
 
 export class MapComponentComponent implements OnInit {
-
-  /**
-   * Tablica przechowująca dane o kierunku wiatru w północnej części kraju.
-   */
-  private northresults = [];
-  /**
- * Tablica przechowująca dane o kierunku wiatru w południowej części kraju.
+ /**
+ * Tablica przechowująca dane o kierunku wiatru w Białymstoku.
  */
-  private southresults = [];
-  /**
- * Tablica przechowująca dane o kierunku wiatru w centralnej części kraju.
- */
-  private centralresults = [];
-  /**
- * Tablica przechowująca dane o kierunku wiatru w zachodniej części kraju.
- */
-  private westresults = [];
-  /**
-   * Tablica przechowująca dane pobrane z api o kierunkach wiatru w wybranych przez użytkownika miejscowościach.
-   */
-  private citywinddegresults = [];
-  /**
-  * Tablica przechowująca dane pobrane z api o prędkości wiatru w wybranych przez użytkownika miejscowościach.
-  */
-  private citywindspeedresults = [];
-  /**
-   * Konstruktor klaasy głównej: MapComponentComponent
-   * @param http
-   * @param service
-   */
-
 
   public bialystokWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Krakowie.
+ */
   public krakowWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Warszawie.
+ */
   public warszawaWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Poznaniu.
+ */
   public poznanWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Gdańsku.
+ */
   public gdanskWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru ww Wrocławiu.
+ */
   public wroclawWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Lublinie.
+ */
   public lublinWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Kołobrzegu.
+ */
   public kolobrzegWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Łodzi.
+ */
   public lodzWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Olsztynie.
+ */
   public olsztynWindResults = [];
+   /**
+ * Tablica przechowująca dane o kierunku wiatru w Szczecinie.
+ */
   public szczecinWindResults = [];
+   /**
+ * Tablica przechowująca dane o temperaturze powietrza w Białymstoku.
+ */
   public bialystokTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Krakowie.
+ */
   public krakowTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Warszawie.
+ */
   public warszawaTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Poznaniu.
+ */
   public poznanTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Gdańsku.
+ */
   public gdanskTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza we Wrocławiu.
+ */
   public wroclawTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Lublinie.
+ */
   public lublinTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Kołobrzegu.
+ */
   public kolobrzegTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Łodzi.
+ */
   public lodzTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Olsztynie.
+ */
   public olsztynTempResults = [];
+     /**
+ * Tablica przechowująca dane o temperaturze powietrza w Szczecinie.
+ */
   public szczecinTempResults = [];
+ /**
+ * Tablica przechowuje prędkość wiatru w wybranym przez użytkownika mieście.
+ */
   public cityWindSpeedResults = [];
+/** 
+ * Tablica przechowuje kierunek wiatru w wybranym przez użytkownika mieście.
+ */
   public cityWindDegreesResults = [];
+   /**
+ * Tablica przechowuje temperaturę powietrza w wybranym przez użytkownika mieście.
+ */
   public cityTemp = [];
+   /**
+ * zmienna przechowująca informacje czy wystąpił błąd przy wpisywaniu nazwy miejscowości w tabeli z wiatrem.
+ */
+
   windTrigger: boolean = false;
   tempTrigger: boolean = false;
   errorWind: boolean;
+     /**
+ * zmienna przechowująca informacje czy wystąpił błąd przy wpisywaniu nazwy miejscowości w tabeli z temperaturą.
+ */
   errorTemp: boolean;
-
-
+/**
+ * Konstruktor klasy głównej: MapComponentComponent
+ * @param http 
+ * @param service 
+ */
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
-
   /**
-   * Funkcja inicajlizująca wywłanie funkcji pobierających kierunek wiatru w Białymstoku, Krakowie, Warszawie, Poznaniu.
+   * Funkcja inicjalizująca wywłanie funkcji pobierających kierunek w kilku wybranych miastach Polski. 
+
    * Pobrane informacje zostaną przedstawione na mapie w postaci strzałek prezentujących kierunek wiatru.
    */
   ngOnInit() {
@@ -105,13 +160,14 @@ export class MapComponentComponent implements OnInit {
       $(".map").animate({ opacity: 1 }, 1500)
     })
   }
-
-  /**
-   * Funkcja pobierająca z API kierunek wiatru w Białymstoku i zapisujaca go w tablicy "northresults[]"". Odwołuje się do funkcji "getWeatherForecastData()",
-   * która pobiera dane z API openweathermap.org
-   * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
-   */
-  //dodanie do tablicy pobranego kierunku wiatru z Białegostoku
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Białymstoku i zapisujac je odpowiednio w 
+ * tablicy "bialystokWindResults[]" i "bialystokTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+  //dodanie do tablicy pobranego kierunku wiatru oraz temperatury głównych polskich miast
 
   getDataBialystok(term) {
     return this.service.getWeatherForecastData(term)
@@ -122,11 +178,14 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Białymstoku:", this.bialystokTempResults);
       })
   }
-  /**
-   * Funkcja pobierająca z API kierunek wiatru w Krakowie i zapisujaca go w tablicy "southresults[]. Odwołuje się do funkcji "getWeatherForecastData()",
-   * która pobiera dane z API openweathermap.org
-   * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
-   */
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Krakowie i zapisujac je odpowiednio w 
+ * tablicy "krakowWindResults[]" i "krakowTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+
   getDataKrakow(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -136,11 +195,14 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Krakowie:", this.krakowTempResults);
       })
   }
-  /**
-   * Funkcja pobierająca z API kierunek wiatru w Warszawie i zapisujaca go w tablicy "centralresults[]. Odwołuje się do funkcji "getWeatherForecastData()",
-   * która pobiera dane z API openweathermap.org
-   * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
-   */
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Warszawie i zapisujac je odpowiednio w 
+ * tablicy "warszawaWindResults[]" i "warszawaTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+
   getDataWarszawa(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -150,11 +212,14 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Warszawie:", this.warszawaTempResults);
       })
   }
-  /**
-   * Funkcja pobierająca z API kierunek wiatru w Poznaniu i zapisujaca go w tablicy "westresults[]. Odwołuje się do funkcji "getWeatherForecastData()",
-   * która pobiera dane z API openweathermap.org
-   * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
-   */
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Poznaniu i zapisujac je odpowiednio w 
+ * tablicy "poznanWindResults[]" i "poznanTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
+
   getDataPoznan(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -164,13 +229,13 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Poznaniu:", this.poznanTempResults);
       })
   }
-
-  /**
-   * Funkcja pobierająca dane z API o wietrze w wybranej przez użytkownika miejscowości. Odwoluje się do funkcji "getWeatherForecastData()",
-   * pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są ddawane do tabeli z danymi "winddata".
-   * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
-   */
-  //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Gdańsku i zapisujac je odpowiednio w 
+ * tablicy "gdanskWindResults[]" i "gdanskTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
 
   getDataGdansk(term) {
     return this.service.getWeatherForecastData(term)
@@ -181,7 +246,13 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Gdańsku:", this.gdanskTempResults);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza we Wrocławiu i zapisujac je odpowiednio w 
+ * tablicy "wroclawWindResults[]" i "wroclawTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataWroclaw(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -191,7 +262,13 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura we Wrocławiu:", this.wroclawTempResults);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Lublinie i zapisujac je odpowiednio w 
+ * tablicy "lublinWindResults[]" i "lublinTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataLublin(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -201,7 +278,13 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Lublinie:", this.lublinTempResults);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Kołobrzegu i zapisujac je odpowiednio w 
+ * tablicy "kolobrzegWindResults[]" i "kolobrzegTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataKolobrzeg(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -211,7 +294,13 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Kołobrzegu:", this.kolobrzegTempResults);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Łodzi i zapisujac je odpowiednio w 
+ * tablicy "lodzkWindResults[]" i "lodzTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataLodz(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -221,7 +310,13 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Łodzi:", this.lodzTempResults);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Olsztynie i zapisujac je odpowiednio w 
+ * tablicy "olsztynWindResults[]" i "olsztynTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataOlsztyn(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -231,7 +326,13 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Olsztynie:", this.olsztynTempResults);
       })
   }
-
+/**
+ * Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Szczecinie i zapisujac je odpowiednio w 
+ * tablicy "szczecinWindResults[]" i "szczecinTempResults[]". 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * która pobiera dane z API openweathermap.org
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataSzczecin(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -241,7 +342,11 @@ export class MapComponentComponent implements OnInit {
         console.log("Temperatura w Szczecinie:", this.szczecinTempResults);
       })
   }
-
+/**
+ * Funkcja pobierająca dane z API o wietrze w wybranej przez użytkownika miejscowości. Odwołuje się do funkcji "getWeatherForecastData()",
+ * pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są dodawane do tabeli z danymi "wind".
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
   getDataCityWind(term) {
     this.tempTrigger = true;
@@ -260,7 +365,12 @@ export class MapComponentComponent implements OnInit {
           console.error("Błąd! Wprowadzono złą nazwę!", err);
         })
   }
-
+/**
+ * Funkcja pobierająca dane z API o temperaturze powietrza w wybranej przez użytkownika miejscowości. 
+ * Odwołuje się do funkcji "getWeatherForecastData()",
+ * pobiera informacje o temperaturze. Otrzymane informacje są dodawane do tabeli z danymi "temp".
+ * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
+ */
   getDataCityTemp(term) {
     this.windTrigger = true;
     this.service.getWeatherForecastData(term)

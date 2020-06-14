@@ -15,6 +15,8 @@ export class MeteoStatsService {
   /**
    * zmienna przechowująca bazowy adres API, z którego pobierane będą dane historyczne 
    * wykorzystywane przy wyznaczaniu statystyk.
+   * API meteostat.net jest darmowe, występuje jedynie limit 200 zgłoszeń na godzine.
+
    */
   apiBaseUrl = 'https://api.meteostat.net/v1/history/';
   /**
@@ -26,7 +28,8 @@ export class MeteoStatsService {
    * Stworzony adres odwołuje się do danych o określonym typie statystyk, konkretnej stacji, w danym przedziale czasowym.
    */
   apiURL: string;
-  /**
+    /**
+
    * zmienna przechowująca typ statystyk: 1 - statystyki godzinowe, 2 - statystyki dzienne, 3 - statystyki miesięczne
    */
   statsType: string;

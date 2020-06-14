@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>CalculatedProps</li>
+  <li>DataPoints</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,15 +60,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/models/statistics.ts</code>
+            <code>src/app/models/data-points.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasa osatecznie wyznaczająca statystyki, czyli minimalną, maksymalną oraz średnią wartość temperatury, ciśnienia lub siły wiatru.
-W przypadku minimalnych i maksymalnych wartości, podane zostają również daty, kiedy zanotowano te skrajne wartości.</p>
+                <p>Klasa reprezentująca punkty prezentowane na wykrsach.</p>
 
             </p>
 
@@ -89,23 +88,15 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#average">average</a>
+                                <a href="#label">label</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#max">max</a>
+                                <a href="#x">x</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#maxDate">maxDate</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#min">min</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#minaDate">minaDate</a>
+                                <a href="#y">y</a>
                             </li>
                         </ul>
                     </td>
@@ -126,18 +117,18 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(min: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, minaDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, max: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, maxDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, averageSum: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, dataCount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>constructor(x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, label: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/models/statistics.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/models/data-points.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor klasy CalculatedProps</p>
+                            <div class="io-description"><p>Konstruktor klasy DataPoints</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -147,11 +138,12 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>min</td>
+                                                        <td>x</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
@@ -161,21 +153,13 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
                                                             No
                                                     </td>
                                                     
-                                                </tr>
-                                                <tr>
-                                                        <td>minaDate</td>
-                                                  
                                                         <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                                                <code><p>wartość punktu na osi poziomej</p>
+</code>
                                                         </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
                                                 </tr>
                                                 <tr>
-                                                        <td>max</td>
+                                                        <td>y</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
@@ -185,42 +169,26 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>wartość punktu na osi pionowej</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
-                                                        <td>maxDate</td>
+                                                        <td>label</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
                                                   
                                                     <td>
                                                             No
                                                     </td>
                                                     
-                                                </tr>
-                                                <tr>
-                                                        <td>averageSum</td>
-                                                  
                                                         <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                                <code><p>podpis punktu</p>
+</code>
                                                         </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>dataCount</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -240,12 +208,12 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="average"></a>
+                        <a name="label"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            average</b>
-                            <a href="#average"><span class="icon ion-ios-link"></span></a>
+                            label</b>
+                            <a href="#label"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -257,14 +225,13 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/models/statistics.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/models/data-points.ts:33</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Zmienna przechowująca średnią wartość temperatury/ciśniania/siły wiatru.</p>
-</div>
+                        <div class="io-description">podpis punktu</div>
                     </td>
                 </tr>
 
@@ -274,31 +241,30 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="max"></a>
+                        <a name="x"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            max</b>
-                            <a href="#max"><span class="icon ion-ios-link"></span></a>
+                            x</b>
+                            <a href="#x"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/models/statistics.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/models/data-points.ts:33</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Zmienna przechowująca maksymalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.</p>
-</div>
+                        <div class="io-description">wartość punktu na osi poziomej</div>
                     </td>
                 </tr>
 
@@ -308,99 +274,30 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="maxDate"></a>
+                        <a name="y"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            maxDate</b>
-                            <a href="#maxDate"><span class="icon ion-ios-link"></span></a>
+                            y</b>
+                            <a href="#y"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/models/statistics.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/models/data-points.ts:33</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Zmienna przechowująca datę zanotowania największej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="min"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            min</b>
-                            <a href="#min"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/models/statistics.ts:10</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Zmienna przechowująca minimalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="minaDate"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            minaDate</b>
-                            <a href="#minaDate"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/models/statistics.ts:14</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Zmienna przechowująca datę zanotowania najmniejszej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.</p>
-</div>
+                        <div class="io-description">wartość punktu na osi pionowej</div>
                     </td>
                 </tr>
 
@@ -418,53 +315,40 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class CalculatedProps {
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TempChart } from &#x27;./temp-chart&#x27;;
+/**
+ * Klasa przechowująca listę danych, które mają zostać wyświetlone na wykresach. 
+ * Dane są przechowywane w postaci listy z elementami klasy DataPoints.
+ */
+export class DataPointsList {
     /**
-     * Zmienna przechowująca minimalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.
+     * 
      */
-     public min: string;
-     /**
-      * Zmienna przechowująca datę zanotowania najmniejszej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.
-      */
-     public minaDate: string;
-     /**
-      * Zmienna przechowująca maksymalną temperaturę/ciśnianie/siłę wiatru zanotowaną w danym przedziale czasowym.
-      */
-     public max: string;
-     /**
-      * Zmienna przechowująca datę zanotowania największej temperatury/ciśniania/siły wiatru w danym przedziale czasowym.
-      */
-     public maxDate: string;
-     /**
-      * Zmienna przechowująca średnią wartość temperatury/ciśniania/siły wiatru.
-      */
-    public average: string;
-
+    dataPoints: Array&lt;DataPoints&gt; &#x3D; new Array&lt;DataPoints&gt;();
     /**
-     * Konstruktor klasy CalculatedProps
-     * @param min
-     * @param minaDate 
-     * @param max 
-     * @param maxDate 
-     * @param averageSum 
-     * @param dataCount 
+     * Konstruktor klasy DataPointsList
+     * @param tempCharts zmienna przechowująca dane, które mają zostać przedstawione na wykresie.
      */
-    constructor(min: number, minaDate: Date, max: number, maxDate: Date, averageSum: number, dataCount: number
-    ) {
-        if (dataCount &gt; 0) {
-            this.min &#x3D; min.toString();
-            this.minaDate &#x3D; minaDate.toString();
-            this.max &#x3D; max.toString();
-            this.maxDate &#x3D; maxDate.toString();
-            this.average &#x3D; (averageSum / dataCount).toFixed(2).toString();
-        } else {
-            this.min &#x3D; &#x27;-&#x27;;
-            this.minaDate &#x3D; &#x27;-&#x27;;
-            this.max &#x3D; &#x27;-&#x27;;
-            this.maxDate &#x3D; &#x27;-&#x27;;
-            this.average &#x3D; &#x27;-&#x27;;
+    constructor(tempCharts: Array&lt;TempChart&gt;) {
+        let i &#x3D; 1;
+        for (const tempData of tempCharts) {
+            this.dataPoints.push(new DataPoints(i, tempData.value, tempData.period));
+            i++;
         }
+    }
+}
+/**
+ * Klasa reprezentująca punkty prezentowane na wykrsach.
+ */
+export class DataPoints {
+    /**
+     * Konstruktor klasy DataPoints
+     * @param x wartość punktu na osi poziomej
+     * @param y wartość punktu na osi pionowej
+     * @param label podpis punktu
+     */
+    constructor(public x: number, public y: number, public label: string) {
+
     }
 }
 </code></pre>
@@ -495,7 +379,7 @@ W przypadku minimalnych i maksymalnych wartości, podane zostają również daty
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CalculatedProps.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'DataPoints.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

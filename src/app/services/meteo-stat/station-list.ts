@@ -9,7 +9,6 @@ export class StationList {
      * Lista przechowująca id oraz nazwę stacji pogodowej.
      */
     stationList: Array<Station>;
-
     /**
      * Konstruktor kalsy StationList
      */

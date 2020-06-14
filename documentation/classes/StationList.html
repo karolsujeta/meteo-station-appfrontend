@@ -189,13 +189,12 @@ export class StationList {
      * Lista przechowująca id oraz nazwę stacji pogodowej.
      */
     stationList: Array&lt;Station&gt;;
-
     /**
      * Konstruktor kalsy StationList
      */
     constructor() {
         this.stationList &#x3D; new Array&lt;Station&gt;();
-
+        // this.stationList.push(new Station(-1, &#x27;--- Wybierz stację ---&#x27;));
         this.stationList.push(new Station(12100, &#x27;Kolobrzeg                  &#x27;));
         this.stationList.push(new Station(12105, &#x27;Koszalin                   &#x27;));
         this.stationList.push(new Station(12106, &#x27;Koszalin Zegrze Pom.       &#x27;));
