@@ -35,4 +35,33 @@
       </div>
     </div>
   </div>
+  <div class="air-quality-table-container">
+    <table class="air-quality-table">
+        <thead>
+            <tr class="bg-primary text-white">
+                <th>Long</th>
+                <th>Lat</th>
+                <th>PM1</th>
+                <th>PM10</th>
+                <th>PM25</th>
+                <th>CAQI</th>
+                <th>Ocena</th>
+            </tr>
+        </thead>
+
+        <tbody class="bg-light text-dark"  *ngFor="let result of resultsTable">
+          <ng-template [ngIf]="result[0].current.values[0] != undefined && result[0].current.values[1] && result[0].current.values[2]">
+            <td >{{result[0].longitude | number : '1.2-2'}}</td>
+            <td>{{result[0].latitude | number : '1.2-2'}}</td>
+            <td>{{result[0].current.values[0].value}}</td>
+            <td>{{result[0].current.values[2].value}}</td>
+            <td>{{result[0].current.values[1].value}}</td>
+            <td>{{result[0].current.indexes[0].value}}</td>
+            <td>
+                <img class="cloudImage" *ngIf="result != undefined; else cloudErrorImage" src="assets/pollution_pictures/{{result[0].current.indexes[0].level}}.png"/>
+            </td>
+          </ng-template>
+        </tbody>
+    </table>
+  </div>
 </div>
