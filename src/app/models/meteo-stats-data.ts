@@ -7,6 +7,7 @@ import { Data } from '@angular/router';
  */
 export class MeteoStatsData {
      /**
+
      * Konstruktor obiektu klasy MeteoStatData
      * @param date zmienna określająca datę pomiaru
      * @param temperature zmienna przechowująca temperature pobraną z API

@@ -243,6 +243,15 @@ przez użytkownika miejscowości.</p>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#wroclawWindResults">wroclawWindResults</a>
+
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#southresults">southresults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#westresults">westresults</a>
                             </li>
                         </ul>
                     </td>
@@ -270,6 +279,7 @@ przez użytkownika miejscowości.</p>
                             </li>
                             <li>
                                 <a href="#getDataKolobrzeg">getDataKolobrzeg</a>
+
                             </li>
                             <li>
                                 <a href="#getDataKrakow">getDataKrakow</a>
@@ -296,6 +306,7 @@ przez użytkownika miejscowości.</p>
                                 <a href="#getDataWroclaw">getDataWroclaw</a>
                             </li>
                             <li>
+
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
@@ -322,12 +333,14 @@ przez użytkownika miejscowości.</p>
                         <tr>
                             <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/app/components/map/map-component.component.ts:127</a></div>
+
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Konstruktor klasy głównej: MapComponentComponent</p>
+
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -404,8 +417,305 @@ przez użytkownika miejscowości.</p>
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru w Białymstoku i zapisujaca go w tablicy &quot;northresults[]&quot;&quot;. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+która pobiera dane z API openweathermap.org</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataCityCheck"></a>
+                    <span class="name">
+                        <b>
+                            getDataCityCheck
+                        </b>
+                        <a href="#getDataCityCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataCityCheck(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:122</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca dane z API o wietrze w wybranej przez użytkownika miejscowości. Odwoluje się do funkcji &quot;getWeatherForecastData()&quot;,
+pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są ddawane do tabeli z danymi &quot;winddata&quot;.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataKrakow"></a>
+                    <span class="name">
+                        <b>
+                            getDataKrakow
+                        </b>
+                        <a href="#getDataKrakow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataKrakow(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru w Krakowie i zapisujaca go w tablicy &quot;southresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+która pobiera dane z API openweathermap.org</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataPoznan"></a>
+                    <span class="name">
+                        <b>
+                            getDataPoznan
+                        </b>
+                        <a href="#getDataPoznan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataPoznan(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/components/map/map-component.component.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru w Poznaniu i zapisujaca go w tablicy &quot;westresults[]. Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+która pobiera dane z API openweathermap.org</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>term</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataWarszawa"></a>
+                    <span class="name">
+                        <b>
+                            getDataWarszawa
+                        </b>
+                        <a href="#getDataWarszawa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataWarszawa(term)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="163"
                             class="link-to-prism">src/app/components/map/map-component.component.ts:163</a></div>
+
                 </td>
             </tr>
 
@@ -415,6 +725,7 @@ przez użytkownika miejscowości.</p>
                     <div class="io-description"><p>Funkcja pobierająca z API kierunek wiatru oraz temperaturę powietrza w Białymstoku i zapisujac je odpowiednio w 
 tablicy &quot;bialystokWindResults[]&quot; i &quot;bialystokTempResults[]&quot;. 
 Odwołuje się do funkcji &quot;getWeatherForecastData()&quot;,
+
 która pobiera dane z API openweathermap.org</p>
 </div>
 
@@ -482,6 +793,7 @@ która pobiera dane z API openweathermap.org</p>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="358"
                             class="link-to-prism">src/app/components/map/map-component.component.ts:358</a></div>
+
                 </td>
             </tr>
 
@@ -506,6 +818,7 @@ pobiera informacje o temperaturze. Otrzymane informacje są dodawane do tabeli z
                             <tbody>
                                 <tr>
                                     <td>term</td>
+
 
                                     <td>
                                         No
@@ -559,6 +872,7 @@ pobiera informacje o temperaturze. Otrzymane informacje są dodawane do tabeli z
                             class="link-to-prism">src/app/components/map/map-component.component.ts:338</a></div>
                 </td>
             </tr>
+
 
 
             <tr>
@@ -625,6 +939,7 @@ pobiera informacje o sile i kierunku wiatru. Otrzymane informacje są dodawane d
 <code>getDataGdansk(term)</code>
                 </td>
             </tr>
+
 
 
             <tr>
@@ -3176,7 +3491,76 @@ export class MapComponentComponent implements OnInit {
 &lt;/div&gt;
 
 
+      &lt;div class&#x3D;&quot;map__warszawa&quot; *ngFor&#x3D;&quot;let result of centralresults&quot;&gt;
+        &lt;div class&#x3D;&quot;map__warszawa--north-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 0 &amp;&amp; result &lt;&#x3D; 89&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/gora.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
 
+        &lt;div class&#x3D;&quot;map__warszawa--south-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 90 &amp;&amp; result &lt;&#x3D; 179&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/prawo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__warszawa--east-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 108 &amp;&amp; result &lt;&#x3D; 269&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/dol.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__warszawa--west-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 270 &amp;&amp; result &lt;&#x3D; 359&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/lewo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;map__poznan&quot; *ngFor&#x3D;&quot;let result of westresults&quot;&gt;
+        &lt;div class&#x3D;&quot;map__poznan--north-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 0 &amp;&amp; result &lt;&#x3D; 89&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/gora.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__poznan--south-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 90 &amp;&amp; result &lt;&#x3D; 179&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/prawo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__poznan--east-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 108 &amp;&amp; result &lt;&#x3D; 269&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/dol.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;map__poznan--west-wind&quot; *ngIf&#x3D;&quot;result &gt;&#x3D; 270 &amp;&amp; result &lt;&#x3D; 359&quot;&gt;
+          &lt;img [src]&#x3D;&quot; &#x27;assets/map_pictures/lewo.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;content__right-side&quot;&gt;
+    &lt;!-- stworzenie wysuwanego panelu dla sprawdzenia wiatru w wybranej miejscowości --&gt;
+    &lt;div class&#x3D;&quot;city-wind-check&quot;&gt;
+      &lt;mat-expansion-panel&gt;
+        &lt;mat-expansion-panel-header&gt;
+          &lt;mat-panel-title&gt;
+            Sprawdź wiatr w wybranym mieście!
+          &lt;/mat-panel-title&gt;
+          &lt;mat-panel-description&gt;
+            Wprowadź miasto!
+          &lt;/mat-panel-description&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;mat-form-field&gt;
+          &lt;input matInput placeholder&#x3D;&quot;Miasto&quot; #city&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-button id&#x3D;&quot;expansion-button&quot; (click)&#x3D;&quot;getDataCityCheck(city.value)&quot;&gt;Sprawdź dane!&lt;/button&gt;
+        &lt;!-- miejsce na wyświetlenie pobranych wyników --&gt;
+        &lt;div class&#x3D;&quot;city-wind-result&quot; *ngFor&#x3D;&quot;let winddeg of citywinddegresults&quot;&gt;
+          &lt;div class&#x3D;&quot;city-wind-result--deg&quot; *ngFor&#x3D;&quot;let winddeg of citywinddegresults&quot;&gt;
+            &lt;p&gt;Kierunek wiatru:&lt;/p&gt;
+            &lt;img class&#x3D;&quot;city-wind-result--icon&quot; [src]&#x3D;&quot; &#x27;assets/map_pictures/wiater.png &#x27;&quot; alt&#x3D;&quot;image&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;city-wind-result--speed&quot; *ngFor&#x3D;&quot;let windspeed of citywindspeedresults&quot;&gt;
+            &lt;p&gt;Siła wiatru:&lt;/p&gt;
+            &lt;p&gt;{{windspeed}}&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- miejsce na wyświetlenie pobranych wyników --&gt;
+      &lt;/mat-expansion-panel&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
 
 
@@ -3255,6 +3639,7 @@ export class MapComponentComponent implements OnInit {
     top: 20%;
     left: 50%;
     width: 7%;
+
     height: auto;
 }
 
@@ -3388,6 +3773,7 @@ h6.o{
 
 h6.o p{
     text-align: center;
+
 }
 
 h6.w{
@@ -3526,6 +3912,7 @@ h6.g p{
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="content">  <div class="content__left-side">    <div class="map">      <img [src]=" \'assets/map_pictures/mapa.png \'" alt="image">      <div class="map__bialystok" *ngFor="let result of bialystokWindResults">        <h6 class="b">BIAŁYSTOK</h6>        <div class="map__bialystok--north-wind" *ngIf="result >= 0 && result <= 89">          <img class="arrow" [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__bialystok--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="arrow map__bialystok--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__bialystok--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__krakow" *ngFor="let result of krakowWindResults">        <h6 class="k">KRAKÓW</h6>        <div class="map__krakow--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__krakow--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__krakow--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__krakow--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__warszawa" *ngFor="let result of warszawaWindResults">        <h6 class="w">WARSZAWA</h6>        <div class="map__warszawa--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__warszawa--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__warszawa--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__warszawa--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__poznan" *ngFor="let result of poznanWindResults">        <h6 class="p">POZNAŃ</h6>        <div class="map__poznan--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__poznan--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__poznan--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__poznan--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__gdansk" *ngFor="let result of gdanskWindResults">        <h6 class="g">GDAŃSK</h6>        <div class="map__gdansk--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__gdansk--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__gdansk--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__gdansk--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__wroclaw" *ngFor="let result of wroclawWindResults">        <h6 class="wr">WROCŁAW</h6>        <div class="map__wroclaw--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__wroclaw--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__wroclaw--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__wroclaw--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__lublin" *ngFor="let result of lublinWindResults">        <h6 class="l">LUBLIN</h6>        <div class="map__lublin--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__lublin--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__lublin--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__lublin--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__lodz" *ngFor="let result of lodzWindResults">        <h6 class="lo">ŁÓDŹ</h6>        <div class="map__lodz--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__lodz--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__lodz--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__lodz--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__olsztyn" *ngFor="let result of olsztynWindResults">        <h6 class="o">OLSZTYN</h6>        <div class="map__olsztyn--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__olsztyn--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__olsztyn--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__olsztyn--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>      <div class="map__szczecin" *ngFor="let result of szczecinWindResults">        <h6 class="sz">SZCZECIN</h6>        <div class="map__szczecini--north-wind" *ngIf="result >= 0 && result <= 89">          <img [src]=" \'assets/map_pictures/gora.png \'" alt="image">        </div>        <div class="map__szczecin--south-wind" *ngIf="result >= 90 && result <= 179">          <img [src]=" \'assets/map_pictures/prawo.png \'" alt="image">        </div>        <div class="map__szczecin--east-wind" *ngIf="result >= 108 && result <= 269">          <img [src]=" \'assets/map_pictures/dol.png \'" alt="image">        </div>        <div class="map__szczecin--west-wind" *ngIf="result >= 270 && result <= 359">          <img [src]=" \'assets/map_pictures/lewo.png \'" alt="image">        </div>      </div>    </div>    <!-- -------------------------------------------------------------------MAPA DLA TEMPERATURY------------------------------------------------------------------- -->    <div class="map">      <img [src]=" \'assets/map_pictures/mapa.png \'" alt="image">      <div class="map__bialystok" *ngFor="let result of bialystokTempResults">        <h6 class="b">BIAŁYSTOK          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__krakow" *ngFor="let result of krakowTempResults">        <h6 class="k">KRAKÓW          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__warszawa" *ngFor="let result of warszawaTempResults">        <h6 class="w">WARSZAWA          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__poznan" *ngFor="let result of poznanTempResults">        <h6 class="p">POZNAŃ          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__gdansk" *ngFor="let result of gdanskTempResults">        <h6 class="g">GDAŃSK          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__wroclaw" *ngFor="let result of wroclawTempResults">        <h6 class="wr">WROCŁAW          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__lublin" *ngFor="let result of lublinTempResults">        <h6 class="l">LUBLIN          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__lodz" *ngFor="let result of lodzTempResults">        <h6 class="lo">ŁÓDŹ          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__olsztyn" *ngFor="let result of olsztynTempResults">        <h6 class="o">OLSZTYN          <p>{{result}}℃</p>        </h6>      </div>      <div class="map__szczecin" *ngFor="let result of szczecinTempResults">        <h6 class="sz">SZCZECIN          <p>{{result}}℃</p>        </h6>      </div>    </div>  </div>  <div class="content__right-side">    <!-- stworzenie wysuwanego panelu dla sprawdzenia wiatru w wybranej miejscowości -->    <div class="city-wind-check">      <mat-expansion-panel>        <mat-expansion-panel-header>          <mat-panel-title>            Sprawdź wiatr w wybranym mieście!          </mat-panel-title>          <mat-panel-description>            Wprowadź miasto!          </mat-panel-description>        </mat-expansion-panel-header>        <mat-form-field>          <input matInput placeholder="Miasto" #city>        </mat-form-field>        <button mat-button id="expansion-button" (click)="getDataCityWind(city.value)">Sprawdź Wiatr!</button>        <!-- miejsce na wyświetlenie pobranych wyników -->        <div class="error" *ngIf="errorWind">          <p>WPROWADZONO BŁĘDNĄ NAZWĘ!</p>        </div>        <div class="city-wind-result--deg" *ngFor="let result of cityWindDegreesResults">          <h6>Kierunek wiatru:</h6>          <div class="c" *ngIf="result >= 0 && result <= 89">            <img class="city-wind-result--icon" [src]=" \'assets/map_pictures/gora.png \'" alt="image">          </div>          <div class="c" *ngIf="result >= 90 && result <= 179">            <img class="city-wind-result--icon" [src]=" \'assets/map_pictures/prawo.png \'" alt="image">          </div>          <div class="c" *ngIf="result >= 108 && result <= 269">            <img class="city-wind-result--icon" [src]=" \'assets/map_pictures/dol.png \'" alt="image">          </div>          <div class="c" *ngIf="result >= 270 && result <= 359">            <img class="city-wind-result--icon" [src]=" \'assets/map_pictures/lewo.png \'" alt="image">          </div>        </div>        <div class="city-wind-result--speed" *ngFor="let windspeed of cityWindSpeedResults">          <h6>Siła wiatru:</h6>          <p>{{windspeed}} m/s</p>        </div>        <!-- miejsce na wyświetlenie pobranych wyników -->      </mat-expansion-panel>    </div>    <div class="city-wind-check">      <mat-expansion-panel>        <mat-expansion-panel-header>          <mat-panel-title>            Sprawdź temperaturę w wybranym mieście!          </mat-panel-title>          <mat-panel-description>            Wprowadź miasto!          </mat-panel-description>        </mat-expansion-panel-header>        <mat-form-field>          <input matInput placeholder="Miasto" #cityy>        </mat-form-field>        <button mat-button id="expansion-button" (click)="getDataCityTemp(cityy.value)">Sprawdź Temperaturę!</button>        <!-- miejsce na wyświetlenie pobranych wyników -->        <div class="error" *ngIf="errorTemp">          <p>WPROWADZONO BŁĘDNĄ NAZWĘ!</p>        </div>        <div class="city-wind-result--deg" *ngFor="let result of cityTemp">          <h6>Temperatura:</h6>          <p>{{result}}℃</p>        </div>        <!-- miejsce na wyświetlenie pobranych wyników -->      </mat-expansion-panel>    </div>  </div></div><!-- -----PIERWSZA WERSJA MAPY----- --><!-- <div class="map-container">    <div class="map-frame">      <div id="map"></div>    </div>  </div> --><!-- -----DRUGA WERSJA MAPY----- --><!-- <div class="results">  <input class="nav__buttons__input" id="inputLat" value="53.1324886" #lat>  <input class="nav__buttons__input" id="inputLon" value="23.1688403" #lon></div><div class="map-container">  <div class="map-frame">    <div id="map" class="map"></div>    <div id="mouse-position"></div>  </div>  </div> --></div>'
+
     var COMPONENTS = [{'name': 'AirQualityComponentComponent', 'selector': 'app-air-quality-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MapComponentComponent', 'selector': 'app-map-component'},{'name': 'QualityComponentComponent', 'selector': 'app-quality-component'},{'name': 'StatsComponentComponent', 'selector': 'app-stats-component'},{'name': 'WeatherComponentComponent', 'selector': 'app-weather-component'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MapComponentComponent'};

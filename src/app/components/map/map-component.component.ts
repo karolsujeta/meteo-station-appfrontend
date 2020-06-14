@@ -7,6 +7,7 @@ declare var $: any;
 /**
  * Komponent zakładki Mapy.
  * 
+
  * Wyświetlanie kierunków wiatru na mapie oraz danych o wietrze dla wybranej
  * przez użytkownika miejscowości.
  */
@@ -20,6 +21,7 @@ export class MapComponentComponent implements OnInit {
  /**
  * Tablica przechowująca dane o kierunku wiatru w Białymstoku.
  */
+
   public bialystokWindResults = [];
    /**
  * Tablica przechowująca dane o kierunku wiatru w Krakowie.
@@ -120,6 +122,9 @@ export class MapComponentComponent implements OnInit {
    /**
  * zmienna przechowująca informacje czy wystąpił błąd przy wpisywaniu nazwy miejscowości w tabeli z wiatrem.
  */
+
+  windTrigger: boolean = false;
+  tempTrigger: boolean = false;
   errorWind: boolean;
      /**
  * zmienna przechowująca informacje czy wystąpił błąd przy wpisywaniu nazwy miejscowości w tabeli z temperaturą.
@@ -133,20 +138,23 @@ export class MapComponentComponent implements OnInit {
   constructor(private http: HttpClient, private service: WeatherServiceService) { }
   /**
    * Funkcja inicjalizująca wywłanie funkcji pobierających kierunek w kilku wybranych miastach Polski. 
+
    * Pobrane informacje zostaną przedstawione na mapie w postaci strzałek prezentujących kierunek wiatru.
    */
   ngOnInit() {
     //wywołanie funkcji, które pobiorą kierunek wiatru; na podstawie tych danych na mapie pojawią się odpowiednie strzałki reprezentujace kierunek wiatru
-    this.getDataBialystok("Białystok");
-    this.getDataKrakow("Kraków");
-    this.getDataWarszawa("Warszawa");
-    this.getDataPoznan("Poznan");
-    this.getDataGdansk("Gdańsk");
-    this.getDataWroclaw("Wrocław");
-    this.getDataLublin("Lublin");
-    this.getDataLodz("Łódź");
-    this.getDataOlsztyn("Olsztyn");
-    this.getDataSzczecin("Szczecin");
+    setInterval(() => {
+      this.getDataBialystok("Białystok");
+      this.getDataKrakow("Kraków");
+      this.getDataWarszawa("Warszawa");
+      this.getDataPoznan("Poznan");
+      this.getDataGdansk("Gdańsk");
+      this.getDataWroclaw("Wrocław");
+      this.getDataLublin("Lublin");
+      this.getDataLodz("Łódź");
+      this.getDataOlsztyn("Olsztyn");
+      this.getDataSzczecin("Szczecin");
+    }, 1000)
 
     $(document).ready(function () {
       $(".map").animate({ opacity: 1 }, 1500)
@@ -160,6 +168,7 @@ export class MapComponentComponent implements OnInit {
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
   //dodanie do tablicy pobranego kierunku wiatru oraz temperatury głównych polskich miast
+
   getDataBialystok(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -176,6 +185,7 @@ export class MapComponentComponent implements OnInit {
  * która pobiera dane z API openweathermap.org
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
+
   getDataKrakow(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -192,6 +202,7 @@ export class MapComponentComponent implements OnInit {
  * która pobiera dane z API openweathermap.org
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
+
   getDataWarszawa(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -208,6 +219,7 @@ export class MapComponentComponent implements OnInit {
  * która pobiera dane z API openweathermap.org
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
+
   getDataPoznan(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -224,6 +236,7 @@ export class MapComponentComponent implements OnInit {
  * która pobiera dane z API openweathermap.org
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
+
   getDataGdansk(term) {
     return this.service.getWeatherForecastData(term)
       .subscribe((data: any) => {
@@ -336,11 +349,14 @@ export class MapComponentComponent implements OnInit {
  */
   //dodanie do tablicy danych o sile i kierunku wiatru we wskazanym przez użytkownika mieście
   getDataCityWind(term) {
+    this.tempTrigger = true;
     this.service.getWeatherForecastData(term)
       .subscribe((wind: any) => {
         this.errorWind = false;
-        this.cityWindSpeedResults.push(wind[0].list[0].wind.speed);
-        this.cityWindDegreesResults.push(wind[0].list[0].wind.deg);
+        // this.cityWindSpeedResults.push(wind[0].list[0].wind.speed);
+        this.cityWindSpeedResults = (wind[0].list[0].wind.speed);
+        // this.cityWindDegreesResults.push(wind[0].list[0].wind.deg);
+        this.cityWindDegreesResults = (wind[0].list[0].wind.deg);
         console.log("Prędkość wiatru: ", this.cityWindSpeedResults);
         console.log("Kierunek wiatru: ", this.cityWindDegreesResults);
       },
@@ -356,10 +372,13 @@ export class MapComponentComponent implements OnInit {
  * @param term parametr określający miejscowość, z której mają zostać pobrane dane o wietrze.
  */
   getDataCityTemp(term) {
+    this.windTrigger = true;
     this.service.getWeatherForecastData(term)
       .subscribe((temp: any) => {
         this.errorTemp = false;
-        this.cityTemp.push(temp[0].list[0].main.temp);
+        // this.cityTemp.push(temp[0].list[0].main.temp);
+        this.cityTemp = (temp[0].list[0].main.temp);
+
         console.log("Temperatura: ", this.cityTemp);
       },
         (err) => {

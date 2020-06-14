@@ -56,6 +56,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-AppModule-63e8db06dc282ef21b0f18875d2276ac"' : 'data-target="#xs-components-links-module-AppModule-63e8db06dc282ef21b0f18875d2276ac"' }>
+
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -66,6 +67,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                 <a href="components/AirQualityComponentComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AirQualityComponentComponent</a>
                                             </li>
+
                                             <li class="link">
                                                 <a href="components/AppComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>

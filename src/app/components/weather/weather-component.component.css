@@ -62,9 +62,9 @@ h2{
 
 .content{
     opacity: 0;
-    margin-top: 15px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .content__table{
@@ -72,18 +72,19 @@ h2{
     text-align: center;
     width: 50%;
     height:0px;
+
     box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
 
     animation-name: moveToBottom;
     animation-duration: 1.5s;
-    animation-delay: 0.2;
+    animation-delay: 0.4;
+    animation-fill-mode: backwards;
 }
 
 .content__chart{
     display: block;
     text-align: center;
     width: 40%;
-    background-color: #ffffff;
     box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
 
     animation-name: moveToBottom;
@@ -109,18 +110,35 @@ h2{
 }
 
 .chart-area{
-    width: 50%;
+    width: 50.01%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
     display: none;
     background-color: #ffffff;
 
     animation-name: moveToBottom;
     animation-duration: 1.5s;
-    animation-delay: 1s;
+    animation-delay: 0.2s;
     animation-fill-mode: backwards;
 
     box-shadow: 3px 3px 11px -1px rgba(74,100,107,0.8);
+}
+
+.no-data{
+    height: 60vh;
+    text-align: center;
+    margin-top: 250px;
+}
+
+.no-data-info{
+    font-size: 22px;
+    color: #9e9e9e;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
 }

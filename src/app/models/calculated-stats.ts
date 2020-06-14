@@ -6,6 +6,7 @@ import { CalculatedProps } from './statistics';
 export class Statistics {
 
  /**
+
    * Konstruktor obiektu klasy Statistics
    * @param temperature zmienna przechowująca informacje o temperaturze.
    * @param pressure zmienna przechowująca informacje o ciśnienu.

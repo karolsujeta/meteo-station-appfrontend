@@ -5,9 +5,10 @@
     </div>
 
     <div class="nav__buttons">
-        <input id="cityInput" class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city>
+        <input id="cityInput" class="nav__buttons__input" placeholder="PODAJ MIASTO!" #city
+            (keyup.enter)="showContent(); getWeatherService(city.value); getForecastService(city.value)">
         <button class="nav__buttons__btn" (click)="getWeatherService(city.value)"
-            (click)="getForecastService(city.value)" (click)="showContent()">Pokaż
+            (click)="getForecastService(city.value)" (click)="showContent()" type="submit">Pokaż
             dane!</button>
     </div>
 
@@ -16,10 +17,22 @@
     </div>
 </div>
 
+<div *ngIf="!dataTrigger" class="no-data">
+    <p class="no-data-info">PODAJ MIASTO ABY WYŚWIETLIĆ DANE POGODOWE!</p>
+</div>
+
+
 <div class="content">
+
+    <div id="chart-area" class="chart-area">
+        <canvas id="chart__forecast"></canvas>
+    </div>
+
     <div class="content__table">
         <table class="table table-responsive left_side_table">
-
+            <caption style="caption-side: top; text-align: center; font-weight: 1000; font-size: 18px;">Parametry
+                pogodowe w
+                wybranym mieście</caption>
             <thead>
                 <tr class="bg-primary text-white">
                     <th>Miasto</th>
@@ -50,9 +63,10 @@
         </table>
     </div>
 
-    <div class="content__chart content__my-custom-scrollbar" *ngFor="let result of resultsForecast">
+    <div class="content__chart" *ngIf="resultsForecastToTable != undefined ">
         <table class="table right_side_table">
-
+            <caption style="caption-side: top; text-align: center; font-weight: 1000; font-size: 18px;">Prognoza
+            </caption>
             <thead>
                 <tr class="bg-primary text-white">
                     <th>Data</th>
@@ -75,8 +89,4 @@
 
         </table>
     </div>
-</div>
-
-<div class="chart-area">
-    <canvas id="chart__forecast"></canvas>
 </div>

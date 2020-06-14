@@ -8,6 +8,7 @@ import { MeteoStatsData } from '../../models/meteo-stats-data';
 import { CalculatedProps } from '../../models/statistics';
 import * as CanvasJS from '../../../canvasjs/canvasjs.min';
 import { ChartService } from '../../services/meteo-stat/chart-service';
+import Utility from '../../helpers/utility';
 declare var $: any;
 
 /**
@@ -97,6 +98,8 @@ export class StatsComponentComponent implements OnInit {
   popupResult: any;
  
   chartService: ChartService = new ChartService();
+
+  tableTitle = '';
   /**
    *
    * Konstruktor klasy głównej: StatsComponentComponent
@@ -109,7 +112,7 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miaast możliwych do wyboru,
+   * Funkcja inicjalizująca komponent. Dodaje rozwijalną listę miast możliwych do wyboru,
    * ustawia domyślnie typ statystyk na godzinowy (zostaje zaznaczony radio button) oraz inicjalizuje daty przedziału czasowego.
    */
   ngOnInit() {
@@ -153,8 +156,8 @@ export class StatsComponentComponent implements OnInit {
   }
 
   /**
-   * Funkcja pobierająca zaznaczony typo statystyk za każdym razem, gdy zostanie on zmieniony.
-   * Czy za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.
+   * Funkcja pobierająca zaznaczony typ statystyk za każdym razem, gdy zostanie on zmieniony.
+   * Czyli za każdym razem gdy użytkownik zaznaczy któryś radio button, pobierana będzie wartość wyboru.
    */
   onItemChange(item) {
     this.getSelecteditem();
@@ -162,8 +165,8 @@ export class StatsComponentComponent implements OnInit {
 
   /**
    * Funkcja sprawdzająca czy wszystkie dane podane przez użytkownika są poprawne oraz czy zostały podane wszystkie wymagane dane.
-   * Funkcja sprawsza czy została wybrana miejscowość oraz czy początkowa data
-   * podanego przedziału czasowego jest wczesńiejsza niż data końcowa.
+   * Funkcja sprawdza czy została wybrana miejscowość oraz czy początkowa data
+   * podanego przedziału czasowego jest wcześniejsza niż data końcowa.
    */
   validateForm() {
     if (this.selectedStation === undefined || this.selectedStation === '0: -1') {
@@ -226,17 +229,23 @@ export class StatsComponentComponent implements OnInit {
         const popupData = type === 1 ?
           this.chartService.CalculateTemperatureData(dateType, this.popupResult.data) :
           this.chartService.CalculatePressureData(dateType, this.popupResult.data);
+        const me = this;
         if (popupData.length > 0) {
           const popupChart = new CanvasJS.Chart('popupChart', {
             title: {
-              text: dateFrom
+              text: me.getChartTitle(dateFrom, null, dateType, type === 1 ? 'temperatura' : 'ciśnienie')
             },
             height: 300,
             width: 800,
+            axisY: {
+              minimum: Utility.FindMinDataPoint(popupData) - 5,
+              title: type === 1 ? '°C' : 'hPa'
+            },
             data: [
               {
                 // type: 'bar',
                 type: 'line',
+                connectNullData: true,
                 color: type === 1 ? 'blue' : 'red',
                 dataPoints: popupData
               }
@@ -289,7 +298,10 @@ export class StatsComponentComponent implements OnInit {
         const me = this;
         const temperatureChart = new CanvasJS.Chart('temperatureChart', {
           title: {
-            text: 'Temperatura'
+            text: me.getChartTitle(me.selectedFromDate, me.selectedToDate, me.radioSelected, 'temperatura')
+          },
+          axisY: {
+            title: '°C'
           },
           height: 300,
           data: [
@@ -312,10 +324,11 @@ export class StatsComponentComponent implements OnInit {
         const pressCharList = this.chartService.CalculatePressureData(this.radioSelected, this.results.data);
         const pressureChart = new CanvasJS.Chart('pressureChart', {
           title: {
-            text: 'Ciśnienie'
+            text: me.getChartTitle(me.selectedFromDate, me.selectedToDate, me.radioSelected, 'ciśnienie')
           },
           axisY: {
-            minimum: Number(pressureStats.min) - 5
+            minimum: Number(pressureStats.min) - 5,
+            title: 'hPa'
           },
           height: 300,
           data: [
@@ -334,6 +347,7 @@ export class StatsComponentComponent implements OnInit {
         });
         pressureChart.render();
       }
+      this.tableTitle = this.getTableTitle(this.radioSelected, this.selectedFromDate, this.selectedToDate);
     } else {
       // trzeba cos wyswietlic na UI ze nie dostaliśmy danych
       this.isDataLoaded = false;
@@ -341,6 +355,19 @@ export class StatsComponentComponent implements OnInit {
     }
   }
 
+  getTableTitle(radioSelected, dateFrom, dateTo): string {
+    if (this.radioSelected === '1') {
+      this.tableTitle = 'Statystyki wygenerowane za okres od ' + dateFrom + ' do ' + dateTo + ' z danych godzinowych';
+      return this.tableTitle;
+    } else if (this.radioSelected === '2') {
+      this.tableTitle = 'Statystyki wygenerowane za okres od ' + dateFrom + ' do ' + dateTo + ' z danych dziennych';
+      return this.tableTitle;
+    } else {
+      this.tableTitle = 'Statystyki wygenerowane za okres od ' + this.getChartDateTitle(dateFrom, radioSelected) +
+      ' do ' + this.getChartDateTitle(dateTo, radioSelected) + ' z danych miesięcznych';
+      return this.tableTitle;
+    }
+  }
   /**
    * Funkcja wyznaczająca maksymalną i minimalną temperaturę, daty w których te temperatury zostały zarejestrowane
    * oraz sumę temperatur i liczbę pomiarów w danych przedziale czasowym.
@@ -505,4 +532,36 @@ export class StatsComponentComponent implements OnInit {
     return result;
   }
 
+  getChartTypeTitle(radioSelected: string): string {
+    return radioSelected === '1' ? 'godzinow' :
+      radioSelected === '2' ? 'dzienn'
+        : 'miesięczn';
+  }
+
+  getChartDateTitle(date: any, radioSelected: string): string {
+    return radioSelected === '3' ? date.substring(0, 7) : date;
+  }
+
+  resolveLastLetter(type: string): string {
+    return type === 'temperatura' ? 'a' : 'e';
+  }
+
+  getChartTitle(dateFrom: any, dateTo: any, radioSelected: string, type: string): string {
+    const lastLetter = this.resolveLastLetter(type);
+    let resultEnd = '';
+    let resultMid = '';
+    let chartTypeTitle = '';
+
+    if (dateTo != null) {
+      resultEnd = ' do ' + this.getChartDateTitle(dateTo, radioSelected);
+      resultMid = ' w okresie od ';
+      chartTypeTitle = this.getChartTypeTitle(radioSelected) + lastLetter;
+    } else {
+      resultMid = radioSelected === '2' ? 'w miesiącu ' : 'dnia ';
+      radioSelected = (Number(radioSelected) + 1).toString();
+    }
+    const result = 'Średni' + lastLetter + ' ' + type + ' ' + chartTypeTitle +
+      resultMid + this.getChartDateTitle(dateFrom, radioSelected) + resultEnd;
+    return result;
+  }
 }

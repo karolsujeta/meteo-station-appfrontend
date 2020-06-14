@@ -63,7 +63,10 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Pobieranie danych z api airly.eu.</p>
+                <p>Pobieranie danych z api airly.eu. </p>
+<p>API airly.eu pozwala na zadanie 100 zapytań dziennie,
+o północy jest liczone kolejne 100 zapytań. Po przekroczeniu limitu pojawia się komunikat &quot;limit exceeded&quot;,
+nie sa pobierane żadne opłaty.</p>
 
             </p>
 
@@ -126,7 +129,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/quality/quality-service.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/quality/quality-service.service.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -195,15 +198,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">src/app/services/quality/quality-service.service.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/services/quality/quality-service.service.ts:43</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Funkcja pobiera dane z api o jakości powietrza w wybranym miejscu opisanym poprzez szerokość i długość geograficzną.</p>
+                    <div class="io-description"><p>Funkcja pobiera dane z api o jakości powietrza w wybranym miejscu opisanym poprzez szerokość i długość geograficzną.
+Odwołuje się do obiektu klasy AirData.</p>
 </div>
 
                     <div class="io-description">
@@ -297,13 +301,13 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/quality/quality-service.service.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/quality/quality-service.service.ts:29</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Adres api, z którego pobieramy dane o jakości powietrza. </p>
+                        <div class="io-description"><p>Adres api, z którego pobieramy dane o jakości powietrza.</p>
 </div>
                     </td>
                 </tr>
@@ -330,7 +334,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/quality/quality-service.service.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/quality/quality-service.service.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -353,7 +357,11 @@ import &#x27;rxjs/add/operator/catch&#x27;;
 import &#x27;rxjs/add/observable/throw&#x27;;
 
 /**
- * Pobieranie danych z api airly.eu.
+ * Pobieranie danych z api airly.eu. 
+ * 
+ * API airly.eu pozwala na zadanie 100 zapytań dziennie,
+ * o północy jest liczone kolejne 100 zapytań. Po przekroczeniu limitu pojawia się komunikat &quot;limit exceeded&quot;,
+ * nie sa pobierane żadne opłaty.
  */
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -365,7 +373,7 @@ export class QualityServiceService {
    */
   list: any;
   /**
-   * Adres api, z którego pobieramy dane o jakości powietrza. 
+   * Adres api, z którego pobieramy dane o jakości powietrza.
    */
   apiUrl &#x3D; &#x27;https://airapi.airly.eu/v2/measurements/nearest?indexType&#x3D;AIRLY_CAQI&amp;maxDistanceKM&#x3D;100&#x27;;  unsubscribe: any;
 
@@ -377,6 +385,7 @@ export class QualityServiceService {
 
   /**
    * Funkcja pobiera dane z api o jakości powietrza w wybranym miejscu opisanym poprzez szerokość i długość geograficzną.
+   * Odwołuje się do obiektu klasy AirData.
    * @param lat szerokość geograficzna
    * @param lng długość geograficzna
    */

@@ -64,6 +64,15 @@
     <code>src/app/components/quality/quality-component.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Quality component
+Komponent zakładki Jakość Powietrza odpowiedzialny za pobieranie danych z API, wyświetlanie
+danych o jakości powietrza, z wybranego przez użytkownika punktu na mapie, w postaci tabeli. </p>
+
+    </p>
 
 
     <p class="comment">
@@ -135,6 +144,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+
                                 <a href="#results">results</a>
                             </li>
                         </ul>
@@ -176,6 +186,7 @@
                         <tr>
                             <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/quality/quality-component.component.ts:55</a></div>
+
                             </td>
                         </tr>
 
@@ -260,6 +271,7 @@
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="66"
                             class="link-to-prism">src/app/components/quality/quality-component.component.ts:66</a></div>
+
                 </td>
             </tr>
 
@@ -299,6 +311,7 @@
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/quality/quality-component.component.ts:51</a></div>
+
                             </td>
                         </tr>
 
@@ -319,6 +332,7 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
+
                             results</b>
                             <a href="#results"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -333,6 +347,7 @@
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/quality/quality-component.component.ts:55</a></div>
+
                             </td>
                         </tr>
 
@@ -389,13 +404,21 @@ var popupCloser: any;
 var cloudContainer: any;
 
 
+
+/**
+ * Quality component
+ * Komponent zakładki Jakość Powietrza odpowiedzialny za pobieranie danych z API, wyświetlanie
+ * danych o jakości powietrza, z wybranego przez użytkownika punktu na mapie, w postaci tabeli. 
+ */
 @Component({
   selector: &#x27;app-quality-component&#x27;,
   templateUrl: &#x27;./quality-component.component.html&#x27;,
   styleUrls: [&#x27;./quality-component.component.css&#x27;]
 })
 
-
+/**
+ * Klasa odpowiadająca za wyświetlenie mapy w zakładce
+ */
 export class QualityComponentComponent implements OnInit {
 
   /**
@@ -407,6 +430,7 @@ export class QualityComponentComponent implements OnInit {
    */
   public results: any;
     /**
+
    * Konstruktor klasy &#x27;QualityComponentComponent&#x27;.
    * @param http
    * @param service
@@ -414,6 +438,7 @@ export class QualityComponentComponent implements OnInit {
   constructor(private http: HttpClient, private service: QualityServiceService) { }
 
     /**
+
    * Inicjowanie wyświetlenia mapy na stronie.
    */
   ngOnInit() {
@@ -436,6 +461,7 @@ export class QualityComponentComponent implements OnInit {
     }
   });
   
+
   popupCloser.onclick &#x3D; function() {
     overlay.setPosition(undefined);
     cloudOverlay.setPosition(undefined);
@@ -479,6 +505,7 @@ export class QualityComponentComponent implements OnInit {
   }
 }
 
+
 </code></pre>
     </div>
 
@@ -504,6 +531,7 @@ export class QualityComponentComponent implements OnInit {
             &lt;td&gt;{{result.current.values[2].value}} µg/m3&lt;/td&gt;
             &lt;td&gt;{{result.current.values[1].value}} µg/m3&lt;/td&gt;
             &lt;td&gt;{{result.current.indexes[0].value}} µg/m3&lt;/td&gt;
+
           &lt;/tbody&gt;
         &lt;/table&gt;
         &lt;ng-template #noDataErrorMessage&gt;
@@ -563,12 +591,14 @@ export class QualityComponentComponent implements OnInit {
   .ol-popup {
     position: absolute;
     background-color: white;
+
     border-radius: 10px;
     border: 1px solid #cccccc;
     bottom: 12px;
     left: -50px;
     width: 320px;
     height: 110px;
+
   }
   .ol-popup:after, .ol-popup:before {
     top: 100%;
@@ -608,6 +638,7 @@ export class QualityComponentComponent implements OnInit {
     max-height: 35px;
     margin-left: -30px;
     margin-top: 0px;
+
   }
 
   .cloudImage {
@@ -642,6 +673,7 @@ export class QualityComponentComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="map-container">  <div class="map-frame">    <div id="map" class="map"></div>    <div id="popup" class="ol-popup">      <a href="#" id="popup-closer" class="ol-popup-closer"></a>      <div id="popup-content">        <table *ngIf="results != undefined && results[0].current.indexes[0].level != \'UNKNOWN\'; else noDataErrorMessage"          class="table">          <thead>            <tr>              <th>PM1</th>              <th>PM10</th>              <th>PM25</th>              <th>CAQI</th>            </tr>          </thead>          <tbody *ngFor="let result of results">            <td>{{result.current.values[0].value}} µg/m3 </td>            <td>{{result.current.values[2].value}} µg/m3</td>            <td>{{result.current.values[1].value}} µg/m3</td>            <td>{{result.current.indexes[0].value}} µg/m3</td>          </tbody>        </table>        <ng-template #noDataErrorMessage>          <p>Brak danych w tym miejscu :(</p>        </ng-template>      </div>    </div>    <div id="cloudPopup">      <div id="cloudPopup-content">        <img class="cloudImage" *ngIf="results != undefined; else cloudErrorImage" src="assets/pollution_pictures/{{results[0].current.indexes[0].level}}.png"/>        <ng-template #cloudErrorImage>          <img class="cloudImage" src="assets/pollution_pictures/UNKNOWN.png"/>        </ng-template>      </div>    </div>  </div></div></div>'
+
     var COMPONENTS = [{'name': 'AirQualityComponentComponent', 'selector': 'app-air-quality-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MapComponentComponent', 'selector': 'app-map-component'},{'name': 'QualityComponentComponent', 'selector': 'app-quality-component'},{'name': 'StatsComponentComponent', 'selector': 'app-stats-component'},{'name': 'WeatherComponentComponent', 'selector': 'app-weather-component'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'QualityComponentComponent'};
