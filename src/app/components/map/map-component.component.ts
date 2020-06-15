@@ -110,11 +110,11 @@ export class MapComponentComponent implements OnInit {
  /**
  * Tablica przechowuje prędkość wiatru w wybranym przez użytkownika mieście.
  */
-  public cityWindSpeedResults = [];
+  public cityWindSpeedResults;
 /** 
  * Tablica przechowuje kierunek wiatru w wybranym przez użytkownika mieście.
  */
-  public cityWindDegreesResults = [];
+  public cityWindDegreesResults;
    /**
  * Tablica przechowuje temperaturę powietrza w wybranym przez użytkownika mieście.
  */

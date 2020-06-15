@@ -45,7 +45,7 @@ export class WeatherComponentComponent implements OnInit {
  * Przechowuje dane do wyświetlenia w tabeli z prognozą pogody.
  */
   public resultsForecastToTable = [];
-  public resultsForecastToTable: any;
+  // public resultsForecastToTable: any;
   public dataTrigger: boolean = false;
 
 /**
